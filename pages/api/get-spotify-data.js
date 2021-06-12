@@ -2,10 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import { getSpotifyData } from '../../utils/spotify';
 
-async function handler(
-  // req: NextApiRequest, res: NextApiResponse
-  req, res
-  ) {
+async function handler(req, res) {
   if (req.method === `GET`) {
     try {
       const { responseTracks, responseArtists, responseRecently } =
