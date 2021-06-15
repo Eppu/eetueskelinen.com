@@ -41,7 +41,7 @@ export default function Header() {
             </script> */}
 
         </Head>
-        <div className="navbar_container animate__animated animate__bounce">
+        <div className="navbar_container animate__animated animate__fadeIn">
             <div id="progress_bar"></div>
             <div className="row navbar" style={{maxWidth: "1000px", margin: "auto"}} >
                 {/* <div class="col-xs-1"></div>  */}
