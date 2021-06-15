@@ -16,14 +16,15 @@ export default function Header() {
             <meta property="og:image" content="https://eetueskelinen.com/images/og_image.jpg" />
             <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
             <link rel="icon" href="favicon.ico" type="image/x-icon" />
-            <link rel="stylesheet" type="text/css" href="css/flexboxgrid.min.css" />
-            <link href="css/hamburgers.css" rel="stylesheet" />
-            <link rel="stylesheet" type="text/css" href="css/base.css" />
             <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,%20900i" rel="stylesheet" />
-            <link rel="stylesheet" type="text/css" href="css/style.css" />
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+            {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> */}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-            <script src="css/parallax.min.js"></script>
+            <script src="/scripts/parallax.min.js"></script>
+            <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,700' rel='stylesheet' type='text/css' />
+            <script src="https://kit.fontawesome.com/e5746cfe5f.js" crossOrigin="anonymous"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+            <script src="/scripts/script.js" type="text/javascript"></script>
 
             {/* <script>
                 fetch('https://spotify-recent.herokuapp.com/recent')
@@ -40,19 +41,20 @@ export default function Header() {
             </script> */}
 
         </Head>
-        
-        <div id="progress_bar"></div>
-        <div className="row navbar" style={{maxWidth: "1000px", margin: "auto"}} >
-            {/* <div class="col-xs-1"></div>  */}
-            <div id="logo_cont" className="col-xs-5">
-                <Link href="/">Eetu Eskelinen</Link>
+        <div className="navbar_container animate__animated animate__bounce">
+            <div id="progress_bar"></div>
+            <div className="row navbar" style={{maxWidth: "1000px", margin: "auto"}} >
+                {/* <div class="col-xs-1"></div>  */}
+                <div id="logo_cont" className="col-xs-5">
+                    <Link href="/">Eetu Eskelinen</Link>
+                </div>
+                {/* <div class="col-xs-1"></div>  */}
+                <div id="nav_links" className="col-xs-7" style={{zIndex: 9999}}>
+                    <Link href="/about">About</Link>
+                    <Link href="/experiments">Experiments</Link>
+                </div>
+                {/* <div class="col-xs-1"></div>  */}
             </div>
-            {/* <div class="col-xs-1"></div>  */}
-            <div id="nav_links" className="col-xs-7" style={{zIndex: 9999}}>
-                <Link href="/about">About</Link>
-                <Link href="/experiments">Experiments</Link>
-            </div>
-            {/* <div class="col-xs-1"></div>  */}
         </div>
 
         </>
