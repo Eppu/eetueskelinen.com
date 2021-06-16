@@ -1,13 +1,20 @@
-import Header from "./Header"
-import Footer from "./Footer"
+// import { useState } from "react";
+// import WOW from "wowjs";
+// Mess with wowjs later https://nextjs.org/docs/advanced-features/dynamic-import
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Layout({ children }) {
-    return(
-        <div>
-            <Header></Header>
-            {children}
-            <Footer></Footer>
-        </div>
-    )
-  }
-  
+  // Init wow.js
+  // React.useEffect(() => {
+  //   new WOW().init()
+  // });
+
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
+}

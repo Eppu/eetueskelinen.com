@@ -1,10 +1,11 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { getNowPlaying } from '../../utils/spotify';
+import { NextApiRequest, NextApiResponse } from "next";
+import { getNowPlaying } from "../../utils/spotify";
 
 export default async function handler(
   // req: NextApiRequest,
   // res: NextApiResponse,
-  req, res
+  req,
+  res
 ) {
   const response = await getNowPlaying();
 
@@ -15,9 +16,7 @@ export default async function handler(
   const song = await response.json();
   const isPlaying = song.is_playing;
   const { name } = song.item;
-  const artist = song.item.artists
-    .map((_artist) => _artist.name)
-    .join(`, `);
+  const artist = song.item.artists.map((_artist) => _artist.name).join(`, `);
   const album = song.item.album.name;
   const albumImageUrl = song.item.album.images
     .filter((image) => image.height > 109)
@@ -26,7 +25,7 @@ export default async function handler(
 
   res.setHeader(
     `Cache-Control`,
-    `public, s-maxage=60, stale-while-revalidate=30`,
+    `public, s-maxage=60, stale-while-revalidate=30`
   );
 
   return res.status(200).json({
