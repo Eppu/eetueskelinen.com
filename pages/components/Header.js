@@ -21,7 +21,6 @@ export default function Header() {
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,%20900i" rel="stylesheet" />
-        {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> */}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="/scripts/parallax.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,700" rel="stylesheet" type="text/css" />

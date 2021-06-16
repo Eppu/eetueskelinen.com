@@ -16,10 +16,14 @@
 }
 
 body {
+  /* Setting position to absolute fixes sideways scrolling issue */
+  /* position: absolute; */
+}
+
+.page-overflow-container {
+  position: absolute;
   overflow-x: hidden;
   max-width: 100%;
-  /* Setting position to absolute fixes sideways scrolling issue */
-  position: absolute;
 }
 
 #content_container h1 {
