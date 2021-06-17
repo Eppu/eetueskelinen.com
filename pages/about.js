@@ -21,10 +21,6 @@ export default function About() {
             className="row image_div animate__animated fadeInUpSmall"
             style={{ display: "flex", justifyContent: "center" }}
           >
-            {" "}
-            {/* Handle next/image */}
-            {/* <img id="header_img" src="/images/000004.jpg" className="profile_img animate__animated fadeInUpSmall"
-					alt="Eetu Eskelinen being photographed on a large format camera" /> */}
             <Image
               width="1031.35"
               height="836.533"
