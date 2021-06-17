@@ -70,7 +70,7 @@ export default function About() {
                       <p className="wow animate__animated fadeInUpSmall delay-500ms">
                         I love combining my design and technological backgrounds in the role of a <b>UX engineer</b>.
                       </p>
-                      <br />
+                      {/* <br /> */}
                       <h2 className="wow animate__animated fadeInUpSmall">Interests</h2>
                       <div className="wow animate__animated fadeInUpSmall">
                         <p>
@@ -81,14 +81,14 @@ export default function About() {
                           I'm also a heavy advocate of <b>ethical UX design</b>.
                         </p>
                         <p>I'm always up for a chat! 🤟</p>
-                        <br />
+                        {/* <br /> */}
                       </div>
                       <div className="wow animate__animated fadeInUpSmall">
                         <h2>Actual skills</h2>
                         <p>
                           <i>"Wait, so what does he actually do?"</i>
                         </p>{" "}
-                        <br />
+                        {/* <br /> */}
                         <p>
                           Let me try to explain briefly, without paragraphs upon paragraphs of self-gratuitous
                           mumbo-jumbo.
