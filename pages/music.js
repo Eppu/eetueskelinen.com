@@ -24,7 +24,11 @@ function Music({ data, error }) {
     <Layout>
       <>
         <div id="sandbox_header">
-          <h3 className="animate__animated fadeInUpSmall">Music</h3>
+          <div className="row">
+            <div class="col-xs-12">
+              <h1 className="about_title animate__animated fadeInUpSmall">Music</h1>
+            </div>
+          </div>
           <p className="animate__animated fadeInUpSmall delay-100ms">
             Being a big music nerd equates to listening to a lot of different stuff.
           </p>
@@ -54,10 +58,10 @@ function Music({ data, error }) {
             </div>
           </div>
           <div className="project_item_container">
-            <h4 className="animate__animated animate__fadeInUp delay-100ms">Currently playing</h4>
+            <h4 className="animate__animated animate__fadeInUp delay-250ms">Currently playing</h4>
             <div className="currently_playing_container">
               {/* This can also be a playing_item */}
-              <div className="music_item currently_playing delay-250ms animate__animated fadeInUpSmall">
+              <div className="music_item currently_playing delay-500ms animate__animated fadeInUpSmall">
                 {/* If a song is currently playing... */}
                 {currentlyPlaying && currentlyPlaying.isPlaying ? (
                   <>
