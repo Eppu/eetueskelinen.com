@@ -29,6 +29,7 @@ export default function About() {
               src="/images/000004.jpg"
               className="profile_img "
               alt="Eetu Eskelinen being photographed on a large format camera"
+              quality="100"
             />
           </div>
           <div className="row">
