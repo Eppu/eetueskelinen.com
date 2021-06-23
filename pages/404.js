@@ -1,20 +1,10 @@
 import React from "react";
 import Lottie from "react-lottie";
 import * as animationData from "../public/files/astronaout.json";
-import Layout from "./components/layout";
+import Layout from "../src/components/layout";
 import Link from "next/link";
 
 export default function Custom404() {
-  //   React.useEffect(() => {
-  //     let anim = lottie.loadAnimation({
-  //       container: document.getElementById("lottie"), // the dom element that will contain the animation
-  //       renderer: "svg",
-  //       loop: true,
-  //       autoplay: true,
-  //       path: "/files/astronaout.json", // the path to the animation json
-  //     });
-  //     anim.play();
-  //   });
   const defaultOptions = {
     loop: true,
     autoplay: true,

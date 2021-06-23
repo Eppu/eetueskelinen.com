@@ -1,9 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import Layout from "./components/layout";
-
-import profilePic from '../public/images/image.jpg';
+import Layout from "../src/components/layout";
 
 export default function Home() {
   return (
@@ -17,7 +15,6 @@ export default function Home() {
               className="animate__animated fadeInUpSmall"
               alt="Eetu Eskelinen looking to the up right"
             />
-            {/* <Image id="prof_pic_hero" src={profilePic} width="300" height="532.167" quality="100" alt="Eetu Eskelinen looking far into the distance"/> */}
             <div id="hero_page_container" style={{ position: "relative", color: "black" }}>
               <h1 id="title" className="animate__animated fadeInUpSmall">
                 🖖 Hey, I'm&nbsp;Eetu!
