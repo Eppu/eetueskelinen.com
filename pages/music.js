@@ -37,9 +37,9 @@ function Music({ data, error }) {
           </p>
         </div>
 
-        <div id="music_container">
+        <div className="music_container">
           {/* Display artists */}
-          <div className="project_item_container">
+          <div className="project_item_container music_item_container">
             <h4 className="animate__animated animate__fadeInUp delay-100ms">Top artists</h4>
             <div className="artists_container delay-250ms animate__animated fadeInUpSmall">
               {artists.map((artist) => (
@@ -57,7 +57,7 @@ function Music({ data, error }) {
               ))}
             </div>
           </div>
-          <div className="project_item_container">
+          <div className="project_item_container music_item_container">
             <h4 className="animate__animated animate__fadeInUp delay-250ms">Currently playing</h4>
             <div className="currently_playing_container">
               {/* This can also be a playing_item */}
@@ -68,7 +68,7 @@ function Music({ data, error }) {
                     <a href={currentlyPlaying.songUrl} target="_blank" rel="noreferrer">
                       <Image src={currentlyPlaying.albumImageUrl} height="150px" width="150px" fixed></Image>
                       <div className="song_info">
-                        <strong>{currentlyPlaying.name}</strong>
+                        <strong class="currently_playing_title">{currentlyPlaying.name}</strong>
                         <div className="song_details">
                           <p className="artist_name">{currentlyPlaying.artist}</p>
                           <p className="album_name">{currentlyPlaying.album}</p>
@@ -85,6 +85,41 @@ function Music({ data, error }) {
             </div>
           </div>
         </div>
+
+        {/* Top songs */}
+        <div className="music_container">
+          <div className="project_item_container music_item_container">
+            <h4 className="animate__animated animate__fadeInUp delay-100ms">Top songs</h4>
+            <div className="song_list_container">
+              <div className="music_item top_item">
+                <p>i am musik iittem</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="project_item_container music_item_container">
+            <h4 className="animate__animated animate__fadeInUp delay-100ms">Recently listened</h4>
+            <div className="song_list_container">
+              <div className="music_item top_item">
+                <p>i am musik iittem</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="row">
+          <div class="col-xs-6">ONE</div>
+          <div class="col-xs-6">TWO</div>
+        </div> */}
+
+        {/* <div className="music_container">
+          <div className="col-xs-12 col-sm-6 wow animate__ fadeInUpSmall">
+            <p>:D :D :D </p>
+          </div>
+          <div className="col-xs-12 col-sm-6 wow animate__ fadeInUpSmall">
+            <p>:D :D :D </p>
+          </div>
+        </div> */}
       </>
     </Layout>
   );
