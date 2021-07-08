@@ -272,6 +272,7 @@ a {
 .spotify_header_link {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 60%, #76e89f 40%);
   transition: background 0.2s ease;
+  cursor: pointer;
 }
 
 .spotify_header_link:hover {

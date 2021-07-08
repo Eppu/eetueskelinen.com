@@ -5,8 +5,8 @@ import Layout from "../src/components/layout";
 
 function Home({ data, error }) {
   let recentSong = data.recentlyPlayed.items[0].track.name;
-  let recentSongArtist = "";
-  console.log(recentSong[0]);
+  let recentSongArtist = data.recentlyPlayed.items[0].track.artists.map((_artist) => _artist.name).join(`, `);
+
   return (
     <Layout>
       <>
@@ -49,18 +49,12 @@ function Home({ data, error }) {
                 . 📫
               </p>
 
-              <p id="spotify_track_info" className="hidden animate__animated fadeInUpSmall delay-750ms">
+              <p id="spotify_track_info" className="hidden animate__animated fadeInUpSmall delay-500ms">
                 The last song I listened to was{" "}
-                <span className="spotify_header_link">
-                  <a
-                    id="spotify_song"
-                    href="https://open.spotify.com/user/eetumro?si=bFLY5JsLSWmZHT-Gr7xFYw"
-                    target="_blank"
-                  >
-                    ...
-                  </a>
-                </span>{" "}
-                <span id="spotify_artist"></span>
+                <Link id="spotify_song" href="/music" target="_blank" className="spotify_header_link">
+                  <span className="spotify_header_link"> {recentSong}</span>
+                </Link>{" "}
+                by {recentSongArtist}!
               </p>
               <br />
             </div>
