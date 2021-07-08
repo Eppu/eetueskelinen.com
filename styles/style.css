@@ -770,7 +770,8 @@ a {
   width: 100%;
 }
 
-.top_item a {
+.top_item a,
+.currently_playing a {
   width: 100%;
   justify-content: flex-start;
   height: 100%;
@@ -819,6 +820,8 @@ a {
   text-align: left;
   margin-left: 15px;
   font-size: 1.4em;
+  height: 100%;
+  justify-content: space-evenly;
 }
 
 .top_item .song_info {
@@ -831,12 +834,12 @@ a {
   height: 100%;
 }
 
-.top_item .song_info .song_details .artist_name,
-.top_item .song_info .song_details .album_name {
+.song_info .song_details .artist_name,
+.song_info .song_details .album_name {
   margin: 0;
 }
 
-.top_item .song_info .song_details .album_name {
+.song_info .song_details .album_name {
   margin-top: 0.5em;
 }
 
