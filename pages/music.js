@@ -87,8 +87,8 @@ function Music({ data, error }) {
         {/* Top songs */}
         <div className="music_container" style={{ paddingTop: "0" }}>
           <div className="project_item_container music_item_container">
-            <h4 className="animate__animated animate__fadeInUp delay-100ms">Top songs</h4>
-            <div className="song_list_container">
+            <h4 className="animate__animated animate__fadeInUp delay-500ms">Top songs</h4>
+            <div className="song_list_container delay-750ms animate__animated fadeInUpSmall">
               {topSongs.map((song, i) => {
                 return (
                   <div className="music_item top_item">
@@ -108,9 +108,10 @@ function Music({ data, error }) {
             </div>
           </div>
 
+          {/* Recently listened */}
           <div className="project_item_container music_item_container">
-            <h4 className="animate__animated animate__fadeInUp delay-100ms">Recently listened</h4>
-            <div className="song_list_container">
+            <h4 className="animate__animated animate__fadeInUp delay-500ms">Recently listened</h4>
+            <div className="song_list_container delay-750ms animate__animated fadeInUpSmall">
               {recentlyPlayed.map((song, i) => {
                 return (
                   <div className="music_item top_item">
