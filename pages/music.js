@@ -156,7 +156,7 @@ function Music({ data, error }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`);
   let error = null;
   if (response.status !== 200) {
