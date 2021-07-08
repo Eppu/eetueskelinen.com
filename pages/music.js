@@ -10,8 +10,6 @@ function Music({ data, error }) {
     { refetchOnMount: true }
   );
 
-  console.log(currentlyPlaying);
-
   if (error || currentError) {
     return <div>There was an error fetching data from spotify</div>;
   }
@@ -30,10 +28,10 @@ function Music({ data, error }) {
             </div>
           </div>
           <p className="animate__animated fadeInUpSmall delay-100ms">
-            Being a big music nerd equates to listening to a lot of different stuff.
+            I get geeky about music, which means I also listen to a lot of stuff.
           </p>
           <p className="animate__animated fadeInUpSmall delay-100ms">
-            <strong>Here are some of my recent favorites.</strong>
+            <strong>Here are some of my favorites from the past 6 months.</strong>
           </p>
         </div>
 
@@ -87,22 +85,48 @@ function Music({ data, error }) {
         </div>
 
         {/* Top songs */}
-        <div className="music_container">
+        <div className="music_container" style={{ paddingTop: "0" }}>
           <div className="project_item_container music_item_container">
             <h4 className="animate__animated animate__fadeInUp delay-100ms">Top songs</h4>
             <div className="song_list_container">
-              <div className="music_item top_item">
-                <p>i am musik iittem</p>
-              </div>
+              {topSongs.map((song, i) => {
+                return (
+                  <div className="music_item top_item">
+                    <a href={song.external_urls.spotify} target="_blank" rel="noreferrer">
+                      <Image src={song.album.images[0].url} height="100px" width="100px" fixed></Image>
+                      <div className="song_info">
+                        <strong class="top_song_title">{song.name}</strong>
+                        <div className="song_details">
+                          <p className="artist_name">{song.artists[0].name}</p>
+                          <p className="album_name">{song.album.name}</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           <div className="project_item_container music_item_container">
             <h4 className="animate__animated animate__fadeInUp delay-100ms">Recently listened</h4>
             <div className="song_list_container">
-              <div className="music_item top_item">
-                <p>i am musik iittem</p>
-              </div>
+              {recentlyPlayed.map((song, i) => {
+                return (
+                  <div className="music_item top_item">
+                    <a href={song.track.external_urls.spotify} target="_blank" rel="noreferrer">
+                      <Image src={song.track.album.images[0].url} height="100px" width="100px" fixed></Image>
+                      <div className="song_info">
+                        <strong class="top_song_title">{song.track.name}</strong>
+                        <div className="song_details">
+                          <p className="artist_name">{song.track.artists[0].name}</p>
+                          <p className="album_name">{song.track.album.name}</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
