@@ -18,15 +18,10 @@ export default async function handler(
   const { name } = song.item;
   const artist = song.item.artists.map((_artist) => _artist.name).join(`, `);
   const album = song.item.album.name;
-  const albumImageUrl = song.item.album.images
-    .filter((image) => image.height > 109)
-    .slice(-1)[0].url;
+  const albumImageUrl = song.item.album.images.filter((image) => image.height > 109).slice(-1)[0].url;
   const songUrl = song.item.external_urls.spotify;
 
-  res.setHeader(
-    `Cache-Control`,
-    `public, s-maxage=60, stale-while-revalidate=30`
-  );
+  res.setHeader(`Cache-Control`, `public, s-maxage=30, stale-while-revalidate=15`);
 
   return res.status(200).json({
     album,

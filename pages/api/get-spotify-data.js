@@ -26,7 +26,7 @@ async function handler(
       const songs = await responseTracks.json();
       const recentlyPlayed = await responseRecently.json();
 
-      res.setHeader(`Cache-Control`, `public, s-maxage=60, stale-while-revalidate=60`);
+      res.setHeader(`Cache-Control`, `public, s-maxage=30, stale-while-revalidate=15`);
 
       return res.status(200).json({ artists, songs, recentlyPlayed });
     } catch (e) {
