@@ -10,12 +10,15 @@ function Music({ data, error }) {
     { refetchOnMount: true }
   );
 
+  // console.log(currentlyPlaying);
+
   if (error || currentError) {
     return <div>There was an error fetching data from spotify</div>;
   }
 
   let artists = data.artists.items;
   let recentlyPlayed = data.recentlyPlayed.items;
+  console.log(recentlyPlayed[0]);
   let topSongs = data.songs.items;
 
   return (
@@ -97,7 +100,7 @@ function Music({ data, error }) {
                       <div className="song_info">
                         <strong class="top_song_title">{song.name}</strong>
                         <div className="song_details">
-                          <p className="artist_name">{song.artists[0].name}</p>
+                          <p className="artist_name">{song.artists.map((_artist) => _artist.name).join(`, `)}</p>
                           <p className="album_name">{song.album.name}</p>
                         </div>
                       </div>
@@ -120,7 +123,7 @@ function Music({ data, error }) {
                       <div className="song_info">
                         <strong class="top_song_title">{song.track.name}</strong>
                         <div className="song_details">
-                          <p className="artist_name">{song.track.artists[0].name}</p>
+                          <p className="artist_name">{song.track.artists.map((_artist) => _artist.name).join(`, `)}</p>
                           <p className="album_name">{song.track.album.name}</p>
                         </div>
                       </div>

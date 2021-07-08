@@ -3,7 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "../src/components/layout";
 
-export default function Home() {
+function Home({ data, error }) {
+  let recentSong = data.recentlyPlayed.items[0].track.name;
+  let recentSongArtist = "";
+  console.log(recentSong[0]);
   return (
     <Layout>
       <>
@@ -97,3 +100,15 @@ export default function Home() {
     </Layout>
   );
 }
+
+export async function getStaticProps() {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`);
+  let error = null;
+  if (response.status !== 200) {
+    error = `There was an error: ${response.status}`;
+  }
+  const data = await response.json();
+  return { props: { data, error, revalidate: 60 } };
+}
+
+export default Home;
