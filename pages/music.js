@@ -23,7 +23,7 @@ function Music({ data, error }) {
       <>
         <div id="sandbox_header">
           <div className="row">
-            <div class="col-xs-12">
+            <div className="col-xs-12">
               <h1 className="about_title animate__animated fadeInUpSmall">Music</h1>
             </div>
           </div>
@@ -36,7 +36,7 @@ function Music({ data, error }) {
               <a href="https://open.spotify.com/user/eetumro?si=6a2eba04f8b34567" target="_blank" rel="noreferrer">
                 <span className="spotify_header_link">my favorites</span>
               </a>{" "}
-              from the past 6 months.
+              from the past month.
             </strong>
           </p>
         </div>
@@ -72,7 +72,7 @@ function Music({ data, error }) {
                     <a href={currentlyPlaying.songUrl} target="_blank" rel="noreferrer">
                       <Image src={currentlyPlaying.albumImageUrl} height="150px" width="150px" fixed></Image>
                       <div className="song_info">
-                        <strong class="currently_playing_title">{currentlyPlaying.name}</strong>
+                        <strong className="currently_playing_title">{currentlyPlaying.name}</strong>
                         <div className="song_details">
                           <p className="artist_name">{currentlyPlaying.artist}</p>
                           <p className="album_name">{currentlyPlaying.album}</p>
@@ -101,7 +101,7 @@ function Music({ data, error }) {
                     <a href={song.external_urls.spotify} target="_blank" rel="noreferrer">
                       <Image src={song.album.images[0].url} height="100px" width="100px" fixed></Image>
                       <div className="song_info">
-                        <strong class="top_song_title">{song.name}</strong>
+                        <strong className="top_song_title">{song.name}</strong>
                         <div className="song_details">
                           <p className="artist_name">{song.artists.map((_artist) => _artist.name).join(`, `)}</p>
                           <p className="album_name">{song.album.name}</p>
@@ -124,7 +124,7 @@ function Music({ data, error }) {
                     <a href={song.track.external_urls.spotify} target="_blank" rel="noreferrer">
                       <Image src={song.track.album.images[0].url} height="100px" width="100px" fixed></Image>
                       <div className="song_info">
-                        <strong class="top_song_title">{song.track.name}</strong>
+                        <strong className="top_song_title">{song.track.name}</strong>
                         <div className="song_details">
                           <p className="artist_name">{song.track.artists.map((_artist) => _artist.name).join(`, `)}</p>
                           <p className="album_name">{song.track.album.name}</p>
@@ -137,33 +137,19 @@ function Music({ data, error }) {
             </div>
           </div>
         </div>
-
-        {/* <div className="row">
-          <div class="col-xs-6">ONE</div>
-          <div class="col-xs-6">TWO</div>
-        </div> */}
-
-        {/* <div className="music_container">
-          <div className="col-xs-12 col-sm-6 wow animate__ fadeInUpSmall">
-            <p>:D :D :D </p>
-          </div>
-          <div className="col-xs-12 col-sm-6 wow animate__ fadeInUpSmall">
-            <p>:D :D :D </p>
-          </div>
-        </div> */}
       </>
     </Layout>
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`);
   let error = null;
   if (response.status !== 200) {
     error = `There was an error: ${response.status}`;
   }
   const data = await response.json();
-  return { props: { data, error, revalidate: 60 } };
+  return { props: { data, error }, revalidate: 10 };
 }
 
 export default Music;

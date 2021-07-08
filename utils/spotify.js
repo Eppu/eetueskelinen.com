@@ -1,4 +1,4 @@
-import querystring from 'querystring';
+import querystring from "querystring";
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -6,8 +6,8 @@ const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString(`base64`);
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
-const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=10`; // Could be fun to experiment with long_term as well
-const TOP_ARTISTS_ENDPOINT = `https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=3`; // Could be fun to experiment with long_term as well
+const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10`; // short_term = 4 weeks / medium_term = 6 months / long_term = many years
+const TOP_ARTISTS_ENDPOINT = `https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=3`;
 const RECENTLY_PLAYED_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played?limit=10`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
@@ -16,7 +16,7 @@ const getAccessToken = async () => {
     method: `POST`,
     headers: {
       Authorization: `Basic ${basic}`,
-      'Content-Type': `application/x-www-form-urlencoded`,
+      "Content-Type": `application/x-www-form-urlencoded`,
     },
     body: querystring.stringify({
       grant_type: `refresh_token`,

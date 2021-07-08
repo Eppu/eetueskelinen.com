@@ -102,7 +102,7 @@ export async function getStaticProps() {
     error = `There was an error: ${response.status}`;
   }
   const data = await response.json();
-  return { props: { data, error, revalidate: 60 } };
+  return { props: { data, error }, revalidate: 30 };
 }
 
 export default Home;
