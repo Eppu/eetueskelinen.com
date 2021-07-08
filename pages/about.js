@@ -26,10 +26,10 @@ export default function About() {
               height="836.533"
               priority="true"
               id="header_img"
-              src="/images/000004.jpg"
-              className="profile_img "
+              src="/images/eetueskelinen-full.jpg"
+              className="profile_img"
               alt="Eetu Eskelinen being photographed on a large format camera"
-              quality="100"
+              quality="80"
             />
           </div>
           <div className="row">
