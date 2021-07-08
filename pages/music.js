@@ -10,15 +10,12 @@ function Music({ data, error }) {
     { refetchOnMount: true }
   );
 
-  // console.log(currentlyPlaying);
-
   if (error || currentError) {
     return <div>There was an error fetching data from spotify</div>;
   }
 
   let artists = data.artists.items;
   let recentlyPlayed = data.recentlyPlayed.items;
-  console.log(recentlyPlayed[0]);
   let topSongs = data.songs.items;
 
   return (
@@ -34,7 +31,13 @@ function Music({ data, error }) {
             I get geeky about music, which means I also listen to a lot of stuff.
           </p>
           <p className="animate__animated fadeInUpSmall delay-100ms">
-            <strong>Here are some of my favorites from the past 6 months.</strong>
+            <strong>
+              Here are some of{" "}
+              <a href="https://open.spotify.com/user/eetumro?si=6a2eba04f8b34567" target="_blank" rel="noreferrer">
+                <span className="spotify_header_link">my favorites</span>
+              </a>{" "}
+              from the past 6 months.
+            </strong>
           </p>
         </div>
 
