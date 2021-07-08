@@ -24,11 +24,14 @@ export default function About() {
             <Image
               width="1031.35"
               height="836.533"
-              priority="true"
+              priority={true}
+              loading="eager"
               id="header_img"
-              src="/images/000004.jpg"
-              className="profile_img "
+              src="/images/eetueskelinen-full.jpg"
+              className="profile_img"
               alt="Eetu Eskelinen being photographed on a large format camera"
+              quality="80"
+              unoptimized="true"
             />
           </div>
           <div className="row">
