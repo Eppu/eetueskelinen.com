@@ -766,6 +766,7 @@ a {
   justify-content: center;
   align-items: center;
   color: black;
+  width: 100%;
 }
 
 .top_item a {
