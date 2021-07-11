@@ -1,11 +1,39 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect } from "react";
 import Link from "next/link";
 import Layout from "../src/components/layout";
 
 function Home({ data, error }) {
   let recentSong = data.recentlyPlayed.items[0].track.name;
   let recentSongArtist = data.recentlyPlayed.items[0].track.artists.map((_artist) => _artist.name).join(`, `);
+
+  // const handleScroll = () => {
+  //   console.log("hello");
+  // };
+
+  // useEffect(() => {
+  //   let projectContainers = document.getElementsByClassName("project_item_container");
+  //   // projectLabels.addEventListener("mouseover", (e) => {
+  //   //   console.log("ouch");
+  //   // });
+  //   for (let container of projectContainers) {
+  //     container.addEventListener("mouseover", handleScroll);
+  //   }
+  //   return () => window.removeEventListener("mouseover", handleScroll);
+  // });
+
+  // Use this temporarily. A vanilla solution in progress above ^
+  useEffect(() => {
+    $(".project_item_container").hover(
+      function () {
+        $(this).find(".label").css({ left: "-8%", opacity: 1 });
+      },
+      function () {
+        $(this).find(".label").css({ left: "-13%", opacity: 0 });
+      }
+    );
+  });
 
   return (
     <Layout>
@@ -93,6 +121,8 @@ function Home({ data, error }) {
       </>
     </Layout>
   );
+
+  function desktopListeners() {}
 }
 
 export async function getStaticProps() {
