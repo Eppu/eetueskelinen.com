@@ -54,8 +54,8 @@ export default function Header() {
           {/* <div class="col-xs-1"></div>  */}
           <div id="nav_links" className="col-xs-7" style={{ zIndex: 9999 }}>
             <Link href="/about">About</Link>
-            <Link href="/experiments">Experiments</Link>
             <Link href="/music">Music</Link>
+            <Link href="/etc">Etc</Link>
           </div>
           {/* <div class="col-xs-1"></div>  */}
         </div>
