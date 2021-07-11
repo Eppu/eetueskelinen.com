@@ -24,6 +24,7 @@ function Home({ data, error }) {
   // });
 
   // Use this temporarily. A vanilla solution in progress above ^
+  // Set up listeners for labels
   useEffect(() => {
     $(".project_item_container").hover(
       function () {
