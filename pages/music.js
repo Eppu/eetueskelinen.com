@@ -1,7 +1,7 @@
 import { QueryClientProvider, useQuery } from "react-query";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Skeleton from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import Layout from "../src/components/layout";
 
 function Music() {
@@ -83,26 +83,31 @@ function Music() {
                     <div className="music_item artist">
                       <a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank" rel="noreferrer">
                         <Image
+                          className="animate__animated animate__fadeIn"
+                          animate__animated
+                          animate__fadeIn
                           alt={"A promo picture of " + artist.name}
                           src={artist.images.filter((image) => image.height >= 150).slice(-1)[0].url}
                           width="150px"
                           height="150px"
                         />
-                        <p>{artist.name}</p>
+                        <p className="animate__animated fadeInUpSmall delay-100ms">{artist.name}</p>
                       </a>
                     </div>
                   ))
                 : // Show skeleton during loading
 
                   [...Array(artistCount)].map((el, index) => (
-                    <div className="music_item artist" key={index}>
-                      <a target="_blank" rel="noreferrer">
-                        <Skeleton height={150} width={150} />
-                        <p>
-                          <Skeleton />
-                        </p>
-                      </a>
-                    </div>
+                    <SkeletonTheme color="#fff" highlightColor="#fafafa">
+                      <div className="music_item artist" key={index}>
+                        <a target="_blank" rel="noreferrer">
+                          <Skeleton height={150} width={150} />
+                          <p>
+                            <Skeleton />
+                          </p>
+                        </a>
+                      </div>
+                    </SkeletonTheme>
                   ))}
             </div>
           </div>
@@ -115,8 +120,14 @@ function Music() {
                 {currentlyPlaying && currentlyPlaying.isPlaying ? (
                   <>
                     <a href={currentlyPlaying.songUrl} target="_blank" rel="noreferrer">
-                      <Image src={currentlyPlaying.albumImageUrl} height="150px" width="150px" fixed></Image>
-                      <div className="song_info">
+                      <Image
+                        className="animate__animated animate__fadeIn"
+                        src={currentlyPlaying.albumImageUrl}
+                        height="150px"
+                        width="150px"
+                        fixed
+                      ></Image>
+                      <div className="song_info animate__animated fadeInUpSmall">
                         <strong className="currently_playing_title">{currentlyPlaying.name}</strong>
                         <div className="song_details">
                           <p className="artist_name">{currentlyPlaying.artist}</p>
@@ -126,7 +137,7 @@ function Music() {
                     </a>
                   </>
                 ) : (
-                  <div className="not_playing">
+                  <div className="not_playing animate__animated fadeInUpSmall">
                     <p>Nothing playing 😴</p>
                   </div>
                 )}
@@ -145,7 +156,13 @@ function Music() {
                     return (
                       <div className="music_item top_item" key={i}>
                         <a href={song.external_urls.spotify} target="_blank" rel="noreferrer">
-                          <Image src={song.album.images[0].url} height="100px" width="100px" fixed></Image>
+                          <Image
+                            className="animate__animated animate__fadeIn"
+                            src={song.album.images[0].url}
+                            height="100px"
+                            width="100px"
+                            fixed
+                          ></Image>
                           <div className="song_info">
                             <strong className="top_song_title">{song.name}</strong>
                             <div className="song_details">
