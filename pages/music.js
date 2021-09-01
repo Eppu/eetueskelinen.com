@@ -25,21 +25,6 @@ function Music() {
       });
   }, []);
 
-  async function getData() {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`);
-    let error = null;
-    if (response.status !== 200) {
-      error = `There was an error: ${response.status}`;
-    }
-    const data = await response.json();
-    artists = data.artists.items;
-    recentlyPlayed = data.recentlyPlayed.items;
-    topSongs = data.songs.items;
-
-    console.log(artists);
-    // return { props: { data, error } };
-  }
-
   const { error: currentError, data: currentlyPlaying } = useQuery(
     `currentlyPlaying`,
     () => fetch(`/api/get-now-playing`).then((res) => res.json()),
