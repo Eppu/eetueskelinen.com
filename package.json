@@ -13,6 +13,7 @@
     "next": "^11.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-loading-skeleton": "^2.2.0",
     "react-lottie": "^1.2.3",
     "react-query": "^3.17.2",
     "wowjs": "^1.1.3"

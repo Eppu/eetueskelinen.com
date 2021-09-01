@@ -1,22 +1,52 @@
 import { QueryClientProvider, useQuery } from "react-query";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 import Layout from "../src/components/layout";
 
-function Music({ data, error }) {
+function Music() {
+  let [artists, setArtists] = useState({});
+  let [recentlyPlayed, setRecentlyPlayed] = useState([]);
+  let [topSongs, setTopSongs] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`)
+      .then((response) => response.json())
+      .then((data) => {
+        setArtists(data.artists.items);
+        setRecentlyPlayed(data.recentlyPlayed.items);
+        setTopSongs(data.songs.items);
+        setIsLoading(false);
+      });
+  }, []);
+
+  async function getData() {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`);
+    let error = null;
+    if (response.status !== 200) {
+      error = `There was an error: ${response.status}`;
+    }
+    const data = await response.json();
+    artists = data.artists.items;
+    recentlyPlayed = data.recentlyPlayed.items;
+    topSongs = data.songs.items;
+
+    console.log(artists);
+    // return { props: { data, error } };
+  }
+
   const { error: currentError, data: currentlyPlaying } = useQuery(
     `currentlyPlaying`,
     () => fetch(`/api/get-now-playing`).then((res) => res.json()),
     { refetchOnMount: true }
   );
 
-  if (error || currentError) {
+  if (currentError) {
     return <div>There was an error fetching data from spotify</div>;
   }
-
-  let artists = data.artists.items;
-  let recentlyPlayed = data.recentlyPlayed.items;
-  let topSongs = data.songs.items;
 
   return (
     <Layout>
@@ -46,19 +76,23 @@ function Music({ data, error }) {
           <div className="project_item_container music_item_container">
             <h4 className="animate__animated animate__fadeInUp delay-100ms">Top artists</h4>
             <div className="artists_container delay-250ms animate__animated fadeInUpSmall">
-              {artists.map((artist) => (
-                <div className="music_item artist">
-                  <a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank" rel="noreferrer">
-                    <Image
-                      alt={"A promo picture of " + artist.name}
-                      src={artist.images.filter((image) => image.height >= 150).slice(-1)[0].url}
-                      width="150px"
-                      height="150px"
-                    />
-                    <p>{artist.name}</p>
-                  </a>
-                </div>
-              ))}
+              {artists.length > 0 ? (
+                artists.map((artist) => (
+                  <div className="music_item artist">
+                    <a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank" rel="noreferrer">
+                      <Image
+                        alt={"A promo picture of " + artist.name}
+                        src={artist.images.filter((image) => image.height >= 150).slice(-1)[0].url}
+                        width="150px"
+                        height="150px"
+                      />
+                      <p>{artist.name}</p>
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <h1>no data</h1>
+              )}
             </div>
           </div>
           <div className="project_item_container music_item_container">
@@ -95,22 +129,26 @@ function Music({ data, error }) {
           <div className="project_item_container music_item_container">
             <h4 className="animate__animated animate__fadeInUp delay-500ms">Top songs</h4>
             <div className="song_list_container delay-750ms animate__animated fadeInUpSmall">
-              {topSongs.map((song, i) => {
-                return (
-                  <div className="music_item top_item">
-                    <a href={song.external_urls.spotify} target="_blank" rel="noreferrer">
-                      <Image src={song.album.images[0].url} height="100px" width="100px" fixed></Image>
-                      <div className="song_info">
-                        <strong className="top_song_title">{song.name}</strong>
-                        <div className="song_details">
-                          <p className="artist_name">{song.artists.map((_artist) => _artist.name).join(`, `)}</p>
-                          <p className="album_name">{song.album.name}</p>
+              {topSongs.length > 0 ? (
+                topSongs.map((song, i) => {
+                  return (
+                    <div className="music_item top_item">
+                      <a href={song.external_urls.spotify} target="_blank" rel="noreferrer">
+                        <Image src={song.album.images[0].url} height="100px" width="100px" fixed></Image>
+                        <div className="song_info">
+                          <strong className="top_song_title">{song.name}</strong>
+                          <div className="song_details">
+                            <p className="artist_name">{song.artists.map((_artist) => _artist.name).join(`, `)}</p>
+                            <p className="album_name">{song.album.name}</p>
+                          </div>
                         </div>
-                      </div>
-                    </a>
-                  </div>
-                );
-              })}
+                      </a>
+                    </div>
+                  );
+                })
+              ) : (
+                <h2>nou data</h2>
+              )}
             </div>
           </div>
 
@@ -118,22 +156,28 @@ function Music({ data, error }) {
           <div className="project_item_container music_item_container">
             <h4 className="animate__animated animate__fadeInUp delay-500ms">Recently listened</h4>
             <div className="song_list_container delay-750ms animate__animated fadeInUpSmall">
-              {recentlyPlayed.map((song, i) => {
-                return (
-                  <div className="music_item top_item">
-                    <a href={song.track.external_urls.spotify} target="_blank" rel="noreferrer">
-                      <Image src={song.track.album.images[0].url} height="100px" width="100px" fixed></Image>
-                      <div className="song_info">
-                        <strong className="top_song_title">{song.track.name}</strong>
-                        <div className="song_details">
-                          <p className="artist_name">{song.track.artists.map((_artist) => _artist.name).join(`, `)}</p>
-                          <p className="album_name">{song.track.album.name}</p>
+              {recentlyPlayed ? (
+                recentlyPlayed.map((song, i) => {
+                  return (
+                    <div className="music_item top_item">
+                      <a href={song.track.external_urls.spotify} target="_blank" rel="noreferrer">
+                        <Image src={song.track.album.images[0].url} height="100px" width="100px" fixed></Image>
+                        <div className="song_info">
+                          <strong className="top_song_title">{song.track.name}</strong>
+                          <div className="song_details">
+                            <p className="artist_name">
+                              {song.track.artists.map((_artist) => _artist.name).join(`, `)}
+                            </p>
+                            <p className="album_name">{song.track.album.name}</p>
+                          </div>
                         </div>
-                      </div>
-                    </a>
-                  </div>
-                );
-              })}
+                      </a>
+                    </div>
+                  );
+                })
+              ) : (
+                <h2>nope data</h2>
+              )}
             </div>
           </div>
         </div>
@@ -142,15 +186,15 @@ function Music({ data, error }) {
   );
 }
 
-export async function getServerSideProps() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`);
-  let error = null;
-  if (response.status !== 200) {
-    error = `There was an error: ${response.status}`;
-  }
-  const data = await response.json();
-  return { props: { data, error } };
-}
+// export async function getServerSideProps() {
+//   const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`);
+//   let error = null;
+//   if (response.status !== 200) {
+//     error = `There was an error: ${response.status}`;
+//   }
+//   const data = await response.json();
+//   return { props: { data, error } };
+// }
 
 // export async function getStaticProps() {
 //   const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`);
