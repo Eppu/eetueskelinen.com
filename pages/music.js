@@ -1,7 +1,7 @@
 import { QueryClientProvider, useQuery } from "react-query";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
+import Skeleton from "react-loading-skeleton";
 import Layout from "../src/components/layout";
 
 function Music() {
@@ -9,6 +9,8 @@ function Music() {
   let [recentlyPlayed, setRecentlyPlayed] = useState([]);
   let [topSongs, setTopSongs] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const artistCount = 3;
+  const songCount = 10;
 
   useEffect(() => {
     setIsLoading(true);
@@ -76,23 +78,32 @@ function Music() {
           <div className="project_item_container music_item_container">
             <h4 className="animate__animated animate__fadeInUp delay-100ms">Top artists</h4>
             <div className="artists_container delay-250ms animate__animated fadeInUpSmall">
-              {artists.length > 0 ? (
-                artists.map((artist) => (
-                  <div className="music_item artist">
-                    <a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank" rel="noreferrer">
-                      <Image
-                        alt={"A promo picture of " + artist.name}
-                        src={artist.images.filter((image) => image.height >= 150).slice(-1)[0].url}
-                        width="150px"
-                        height="150px"
-                      />
-                      <p>{artist.name}</p>
-                    </a>
-                  </div>
-                ))
-              ) : (
-                <h1>no data</h1>
-              )}
+              {artists.length > 0
+                ? artists.map((artist) => (
+                    <div className="music_item artist">
+                      <a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank" rel="noreferrer">
+                        <Image
+                          alt={"A promo picture of " + artist.name}
+                          src={artist.images.filter((image) => image.height >= 150).slice(-1)[0].url}
+                          width="150px"
+                          height="150px"
+                        />
+                        <p>{artist.name}</p>
+                      </a>
+                    </div>
+                  ))
+                : // Show skeleton during loading
+
+                  [...Array(artistCount)].map((el, index) => (
+                    <div className="music_item artist" key={index}>
+                      <a target="_blank" rel="noreferrer">
+                        <Skeleton height={150} width={150} />
+                        <p>
+                          <Skeleton />
+                        </p>
+                      </a>
+                    </div>
+                  ))}
             </div>
           </div>
           <div className="project_item_container music_item_container">
@@ -129,26 +140,46 @@ function Music() {
           <div className="project_item_container music_item_container">
             <h4 className="animate__animated animate__fadeInUp delay-500ms">Top songs</h4>
             <div className="song_list_container delay-750ms animate__animated fadeInUpSmall">
-              {topSongs.length > 0 ? (
-                topSongs.map((song, i) => {
-                  return (
-                    <div className="music_item top_item">
-                      <a href={song.external_urls.spotify} target="_blank" rel="noreferrer">
-                        <Image src={song.album.images[0].url} height="100px" width="100px" fixed></Image>
+              {topSongs.length > 0
+                ? topSongs.map((song, i) => {
+                    return (
+                      <div className="music_item top_item" key={i}>
+                        <a href={song.external_urls.spotify} target="_blank" rel="noreferrer">
+                          <Image src={song.album.images[0].url} height="100px" width="100px" fixed></Image>
+                          <div className="song_info">
+                            <strong className="top_song_title">{song.name}</strong>
+                            <div className="song_details">
+                              <p className="artist_name">{song.artists.map((_artist) => _artist.name).join(`, `)}</p>
+                              <p className="album_name">{song.album.name}</p>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    );
+                  })
+                : // Show skeleton during loading
+                  [...Array(songCount)].map((el, index) => (
+                    <div className="music_item top_item" key={index}>
+                      <a target="_blank" rel="noreferrer">
+                        <div width={100} fixed>
+                          <Skeleton width={100} height={100} />
+                        </div>
                         <div className="song_info">
-                          <strong className="top_song_title">{song.name}</strong>
+                          <strong className="top_song_title">
+                            <Skeleton width={225} />
+                          </strong>
                           <div className="song_details">
-                            <p className="artist_name">{song.artists.map((_artist) => _artist.name).join(`, `)}</p>
-                            <p className="album_name">{song.album.name}</p>
+                            <p className="artist_name">
+                              <Skeleton />
+                            </p>
+                            <p className="album_name">
+                              <Skeleton />
+                            </p>
                           </div>
                         </div>
                       </a>
                     </div>
-                  );
-                })
-              ) : (
-                <h2>nou data</h2>
-              )}
+                  ))}
             </div>
           </div>
 
@@ -156,28 +187,48 @@ function Music() {
           <div className="project_item_container music_item_container">
             <h4 className="animate__animated animate__fadeInUp delay-500ms">Recently listened</h4>
             <div className="song_list_container delay-750ms animate__animated fadeInUpSmall">
-              {recentlyPlayed ? (
-                recentlyPlayed.map((song, i) => {
-                  return (
-                    <div className="music_item top_item">
-                      <a href={song.track.external_urls.spotify} target="_blank" rel="noreferrer">
-                        <Image src={song.track.album.images[0].url} height="100px" width="100px" fixed></Image>
+              {recentlyPlayed
+                ? recentlyPlayed.map((song, i) => {
+                    return (
+                      <div className="music_item top_item" key={i}>
+                        <a href={song.track.external_urls.spotify} target="_blank" rel="noreferrer">
+                          <Image src={song.track.album.images[0].url} height="100px" width="100px" fixed></Image>
+                          <div className="song_info">
+                            <strong className="top_song_title">{song.track.name}</strong>
+                            <div className="song_details">
+                              <p className="artist_name">
+                                {song.track.artists.map((_artist) => _artist.name).join(`, `)}
+                              </p>
+                              <p className="album_name">{song.track.album.name}</p>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    );
+                  })
+                : // Show skeleton during loading
+                  [...Array(songCount)].map((el, index) => (
+                    <div className="music_item top_item" key={index}>
+                      <a target="_blank" rel="noreferrer">
+                        <div width={100} fixed>
+                          <Skeleton width={100} height={100} />
+                        </div>
                         <div className="song_info">
-                          <strong className="top_song_title">{song.track.name}</strong>
+                          <strong className="top_song_title">
+                            <Skeleton width={250} />
+                          </strong>
                           <div className="song_details">
                             <p className="artist_name">
-                              {song.track.artists.map((_artist) => _artist.name).join(`, `)}
+                              <Skeleton duration={2} width={225} />
                             </p>
-                            <p className="album_name">{song.track.album.name}</p>
+                            <p className="album_name">
+                              <Skeleton duration={3} width={175} />
+                            </p>
                           </div>
                         </div>
                       </a>
                     </div>
-                  );
-                })
-              ) : (
-                <h2>nope data</h2>
-              )}
+                  ))}
             </div>
           </div>
         </div>
