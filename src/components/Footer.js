@@ -7,12 +7,17 @@ export default function Footer() {
         <div className="col-xs-12 col-sm-2"></div>
         <div className="col-xs-12 col-sm-4 footer_links">
           <p style={{ marginBottom: "30px" }}>&copy; {new Date().getFullYear()}. With ❤️ by Eetu Eskelinen.</p>
+
           <div>
             <a href="mailto:hello@eetueskelinen.com" target="_top">
-              <i aria-hidden className="fa fa-envelope fa-lg" id="email" title="Email"></i>
+              {/* <i aria-hidden className="fa fa-envelope fa-lg" id="email" title="Email"></i> */}
+              <i aria-hidden className="fa fa-envelope fa-lg" id="email" title="Email">
+                {/* <FontAwesomeIcon icon={faEnvelope} title="Email" id="email" /> */}
+              </i>
             </a>
             <a href="../files/resume.pdf" target="_blank">
               <i aria-hidden className="fa fa-file-text fa-lg" id="resume" title="Resume"></i>
+              {/* <FontAwesomeIcon icon={faFilePdf} title="Email" id="email" /> */}
             </a>
             <a href="https://www.linkedin.com/in/eetueskelinen" target="_blank" rel="noreferrer">
               <i aria-hidden className="fa fa-linkedin-square fa-lg" id="linkedin" title="LinkedIn"></i>
@@ -27,6 +32,8 @@ export default function Footer() {
         </div>
         <div className="col-sm-1 col-xs-0"></div>
       </div>
+      {/* TODO: Replace with npm package */}
+      <script src="https://kit.fontawesome.com/e5746cfe5f.js" crossOrigin="anonymous"></script>
     </>
   );
 }
