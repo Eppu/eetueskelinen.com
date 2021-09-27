@@ -69,8 +69,6 @@ function Music() {
                       <a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank" rel="noreferrer">
                         <Image
                           className="animate__animated animate__fadeIn"
-                          animate__animated
-                          animate__fadeIn
                           alt={"A promo picture of " + artist.name}
                           src={artist.images.filter((image) => image.height >= 150).slice(-1)[0].url}
                           width="150px"
