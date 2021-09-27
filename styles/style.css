@@ -743,12 +743,16 @@ a {
 
 .artist p {
   position: absolute;
+  margin: 0;
 }
 
 .artist a {
+  /* display: -webkit-flex; */
   display: flex;
   justify-content: center;
+  /* -webkit-justify-content: center; */
   align-items: center;
+  /* -webkit-align-items: center; */
 }
 
 .artist img {
