@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../src/components/layout";
+import defaultImage from "../public/images/eetueskelinen-full.png";
 
 export default function About() {
   return (
@@ -27,7 +28,8 @@ export default function About() {
               priority={true}
               loading="eager"
               id="header_img"
-              src="/images/eetueskelinen-full.jpg"
+              src={defaultImage}
+              placeholder="blur"
               className="profile_img"
               alt="Eetu Eskelinen being photographed on a large format camera"
               quality="80"
