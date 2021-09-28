@@ -37,7 +37,7 @@ function Home({ data, error }) {
   });
 
   return (
-    <Layout>
+    <Layout title="UX Engineer and Developer">
       <>
         <div style={{ height: "100vh", display: "flex" }}>
           <div className="hero">

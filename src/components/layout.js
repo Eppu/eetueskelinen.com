@@ -4,7 +4,7 @@
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default function Layout({ children }) {
+export default function Layout({ children, title }) {
   // Init wow.js
   // React.useEffect(() => {
   //   new WOW().init()
@@ -12,7 +12,7 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <Header />
+      <Header title={title} />
       {children}
       <Footer />
     </>

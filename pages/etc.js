@@ -15,7 +15,7 @@ export default function Etc() {
   });
 
   return (
-    <Layout>
+    <Layout title="Etc">
       <div id="sandbox_header">
         <h1 className="about_title animate__animated fadeInUpSmall">Etc</h1>
         <h4 className="animate__animated fadeInUpSmall delay-100ms">

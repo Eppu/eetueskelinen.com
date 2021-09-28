@@ -7,7 +7,7 @@ import defaultImage from "../public/images/eetueskelinen-full.png";
 export default function About() {
   return (
     <div className="page-overflow-container">
-      <Layout className="project-layout">
+      <Layout className="project-layout" title="About">
         <div className="grey-bg animate__animated animate__fadeIn"></div>
         <div className="navbar_container"></div>
         <div className="white_bg"></div>

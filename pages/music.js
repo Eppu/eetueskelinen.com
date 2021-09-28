@@ -36,7 +36,7 @@ function Music() {
   }
 
   return (
-    <Layout>
+    <Layout title="Music">
       <>
         <div id="sandbox_header">
           <div className="row">

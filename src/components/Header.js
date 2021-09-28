@@ -1,29 +1,27 @@
 import Head from "next/head";
 import Link from "next/link";
 
-export default function Header() {
+export default function Header({ title }) {
   return (
     <>
       <Head>
-        <title>Eetu Eskelinen - UX Engineer and Developer</title>
+        <title>Eetu Eskelinen {title ? "- " + title : ""}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
         <meta
           name="description"
-          content="Eetu Eskelinen is a UX Engineer and developer currently based in Tampere, Finland."
+          content="Eetu Eskelinen is a UX Engineer and software developer currently based in Tampere, Finland."
         />
-        <meta property="og:title" content="Eetu Eskelinen - UX Engineer" />
+        <meta property="og:title" content={`Eetu Eskelinen - ${title}`} />
         <meta
           property="og:description"
-          content="Eetu Eskelinen is a UX Engineer and developer currently based in Tampere, Finland."
+          content="Eetu Eskelinen is a UX Engineer and software developer currently based in Tampere, Finland."
         />
-        <meta property="og:image" content="https://eetueskelinen.com/images/og_image.jpg" />
+        <meta property="og:image" content="/images/og_image.jpg" />
         <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
-        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,%20900i" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="/scripts/parallax.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,700" rel="stylesheet" type="text/css" />
 
         {/* Mess with wowjs later */}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
