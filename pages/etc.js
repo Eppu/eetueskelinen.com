@@ -1,4 +1,5 @@
 import Layout from "../src/components/layout";
+import EtcCard from "../src/components/EtcCard";
 import { useEffect } from "react";
 
 export default function Etc() {
@@ -27,18 +28,16 @@ export default function Etc() {
 
       <div id="projects_container" style={{ padding: "0" }}></div>
       <div id="sandbox_container">
-        <div className="wow project_item_container animate__animated fadeInUpSmall delay-250ms">
-          <a href="https://github.com/eppu/stoppi" target="_blank">
-            <div className="label">Stoppi</div>
-            <div className="old_project_item" id="stoppi"></div>
-          </a>
-        </div>
-        <div className="wow project_item_container animate__animated fadeInUpSmall delay-250ms">
-          <a href="https://github.com/eppu/shrtnr" target="_blank">
-            <div className="label">eetu.me</div>
-            <div className="old_project_item" id="eetume"></div>
-          </a>
-        </div>
+        <EtcCard 
+          url="https://github.com.com/eppu/stoppi"
+          label="Stoppi"
+          image="/images/experiments/stoppi.jpg"
+        />
+        <EtcCard 
+          url="https://github.com/eppu/shrtnr"
+          label="Shrtnr"
+          image="/images/experiments/eetume.jpg"
+        />
       </div>
     </Layout>
   );
