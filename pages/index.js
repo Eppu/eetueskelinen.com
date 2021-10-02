@@ -107,7 +107,8 @@ function Home({ data, error }) {
             </a>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
-            <a href="projects/slush.html">
+            {/* TODO: Change these to use the Link component */}
+            <a href="projects/slush">
               <div className="label">Slush</div>
               <div className="old_project_item" id="slush_panel"></div>
             </a>
