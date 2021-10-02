@@ -103,7 +103,8 @@ PROJECT BODY
 .iframe-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%;
+  /* padding-bottom: 56.25%; */
+  padding-bottom: 50%;
   height: 0;
 }
 
@@ -136,7 +137,7 @@ PROJECT BODY
 }
 
 .proj_body_container img {
-  /* box-shadow: 0 6px 11px rgba(0, 0, 0, 0.17); */ /* Might be unneeded for project pages? */
+  box-shadow: 0 6px 11px rgba(0, 0, 0, 0.17); /* Might be unneeded for project pages? */
 }
 
 .proj_body_container .no_shadow_img {
@@ -160,6 +161,12 @@ PROJECT BODY
   color: #414141;
   margin-bottom: 70px;
   font-weight: 100;
+}
+
+#content_container h3 {
+  font-size: 1.2rem;
+  letter-spacing: normal;
+  margin-left: 0;
 }
 
 .about_title {
@@ -239,11 +246,15 @@ PROJECT BODY
 }
 
 .summary_body span:nth-child(1) {
-  font-family: "Lato", sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-weight: bold;
   margin-right: 20px;
   font-size: 1em;
   color: #414141;
+}
+
+.summary_info {
+  justify-content: space-between;
 }
 
 #final_link {
