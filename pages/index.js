@@ -83,7 +83,7 @@ function Home({ data, error }) {
                 <Link id="spotify_song" href="/music" target="_blank" className="spotify_header_link">
                   <span className="spotify_header_link"> {recentSong}</span>
                 </Link>{" "}
-                by {recentSongArtist}!
+                by {recentSongArtist}! 🎵
               </p>
               <br />
             </div>
