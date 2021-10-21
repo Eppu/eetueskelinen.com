@@ -89,32 +89,31 @@ function Home({ data, error }) {
             </div>
           </div>
         </div>
-
+      
         <h2 style={{ fontFamily: "Epilogue, sans-serif" }} className="wow animate__animated fadeInUpSmall">
           Work
         </h2>
         <div id="sandbox_container">
           <div className="project_item_container wow animate__animated fadeInUpSmall">
-            <a href="projects/mohavi.html">
+            <a href="projects/mohavi">
               <div className="label">Mohavi</div>
               <div className="old_project_item" id="mohavi_panel"></div>
             </a>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
-            <a href="projects/kamerastore.html">
+            <a href="projects/kamerastore">
               <div className="label">Kamerastore</div>
               <div className="old_project_item" id="kamerastore_panel"></div>
             </a>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
-            {/* TODO: Change these to use the Link component */}
             <a href="projects/slush">
               <div className="label">Slush</div>
               <div className="old_project_item" id="slush_panel"></div>
             </a>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
-            <a href="projects/newsforyou.html">
+            <a href="projects/newsforyou">
               <div className="label">News For You</div>
               <div className="old_project_item" id="nfy_panel"></div>
             </a>

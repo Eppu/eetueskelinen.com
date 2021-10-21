@@ -45,7 +45,7 @@ function Music() {
             </div>
           </div>
           <p className="animate__animated fadeInUpSmall delay-100ms">
-            I get geeky about music, which means I also listen to a lot of stuff.
+            I get geeky about music, which means I also listen to a lot of different stuff.
           </p>
           <p className="animate__animated fadeInUpSmall delay-100ms">
             <strong>
