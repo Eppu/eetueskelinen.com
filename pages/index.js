@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import Link from "next/link";
 import Layout from "../src/components/layout";
+import FrontPageImage from "../public/images/image.jpg";
 
 function Home({ data, error }) {
   let recentSong = data.recentlyPlayed.items[0].track.name;
@@ -43,7 +44,7 @@ function Home({ data, error }) {
           <div className="hero">
             <img
               id="prof_pic_hero"
-              src="/images/image.jpg"
+              src="/images/eetu.jpg"
               className="animate__animated fadeInUpSmall"
               alt="Eetu Eskelinen looking to the up right"
             />
@@ -89,7 +90,7 @@ function Home({ data, error }) {
             </div>
           </div>
         </div>
-      
+
         <h2 style={{ fontFamily: "Epilogue, sans-serif" }} className="wow animate__animated fadeInUpSmall">
           Work
         </h2>

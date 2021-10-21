@@ -243,6 +243,11 @@ a {
   box-shadow: 0 3rem 5.5rem -1rem rgba(0, 0, 0, 0.5) !important;
 }
 
+/* Stupid workaround for next/image */
+.prof_pic_hero {
+  border-radius: 20px;
+}
+
 #title {
   font-family: "Roboto", sans-serif;
   font-size: 3.5rem;
@@ -526,19 +531,19 @@ a {
 
 /* NEW PROJECT PANELS */
 #mohavi_panel {
-  background-image: url("/images/project_panels/mohavi.png");
+  background-image: url("/images/project_panels/mohavi.jpg");
 }
 
 #kamerastore_panel {
-  background-image: url("/images/project_panels/kamerastore2.jpg");
+  background-image: url("/images/project_panels/kamerastore.jpg");
 }
 
 #slush_panel {
-  background-image: url("/images/project_panels/slush18_petri_anttila.png");
+  background-image: url("/images/project_panels/slush.jpg");
 }
 
 #nfy_panel {
-  background-image: url("/images/project_panels/nfy.png");
+  background-image: url("/images/project_panels/nfy.jpg");
 }
 
 #holiday_messenger {
@@ -1098,6 +1103,9 @@ a {
   }
 
   #prof_pic_hero {
+    display: none;
+  }
+  .prof_pic_hero {
     display: none;
   }
 

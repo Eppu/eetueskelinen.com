@@ -33,7 +33,7 @@ export default function About() {
               className="profile_img"
               alt="Eetu Eskelinen being photographed on a large format camera"
               quality="80"
-              unoptimized="true"
+              unoptimized={false}
             />
           </div>
           <div className="row">
