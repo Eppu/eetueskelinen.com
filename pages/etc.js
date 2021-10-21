@@ -28,7 +28,7 @@ export default function Etc() {
 
       <div id="projects_container" style={{ padding: "0" }}>
         <div id="sandbox_container">
-          <EtcCard url="https://github.com.com/eppu/stoppi" label="Stoppi" image="/images/experiments/stoppi.jpg" />
+          <EtcCard url="https://github.com/eppu/stoppi" label="Stoppi" image="/images/experiments/stoppi.jpg" />
           <EtcCard url="https://github.com/eppu/shrtnr" label="Shrtnr" image="/images/experiments/eetume.jpg" />
         </div>
       </div>
