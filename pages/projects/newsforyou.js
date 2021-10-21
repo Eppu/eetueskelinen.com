@@ -37,54 +37,54 @@ export default function Mohavi() {
     <Layout title="News For You">
 		
 	<div className="grey_bg"></div>
-	<div class="white_bg"></div>
-		<div class="proj_body_container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="title_highlight"></div>
-					<h1 class="proj_title">News For You</h1>
+	<div className="white_bg"></div>
+		<div className="proj_body_container">
+			<div className="row">
+				<div className="col-xs-12">
+					<div className="title_highlight"></div>
+					<h1 className="proj_title">News For You</h1>
 				</div>
 			</div>
-			<div class="row image_div">
+			<div className="row image_div">
 				<img id="header_img" src="../images/nfy/proto1.png"
 					alt="An image of a paper prototype of the News For You app" />
 			</div>
-			<div class="row">
-				<div class="col-xs-0 col-md-4"></div>
-				<div class="summary_body col-xs-12 col-md-4">
-					<div class="row">
+			<div className="row">
+				<div className="col-xs-0 col-md-4"></div>
+				<div className="summary_body col-xs-12 col-md-4">
+					<div className="row">
 						<p><span>Timeline:</span> <span>Oct - Nov 2018</span></p>
 					</div>
-					<div class="row">
+					<div className="row">
 						<p><span>Project Type:</span> <span>Class Project</span></p>
 					</div>
-					<div class="row">
+					<div className="row">
 						<p><span>My Role:</span> <span>UX Designer</span></p>
 					</div>
-					<div class="row">
+					<div className="row">
 						<p><span>Tools:</span> <span>Sketch, InVision</span></p>
 					</div>
-					<div class="row">
+					<div className="row">
 						<p><span>Skills:</span> <span>User Reserach, Personas, Ideation/Sketching, Storyboarding,
 								Information Architecture/Site Mapping, Paper Prototyping, Wireframing, Hi-Fi
 								Mockups</span></p>
 					</div>
-					<div class="row">
+					<div className="row">
 						<p>
 							<span id="final_link"><a href="https://projects.invisionapp.com/share/KGOQIA46EQ8#/screens"
-									target="_blank"><u>Prototype</u><i class="fa fa-link" aria-hidden="true"
+									target="_blank"><u>Prototype</u><i className="fa fa-link" aria-hidden="true"
 										style={{color: "black"}}></i></a></span>
 						</p>
 					</div>
-					<div class="col-xs-0 col-md-4"></div>
+					<div className="col-xs-0 col-md-4"></div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-1 col-xs-0"></div>
-				<div class="col-md-10 col-xs-12">
-					<div class="row">
-						<div class="col-lg-3 col-md-3 col-sm-2 col-xs-0">
-							<ul class="sidenav">
+			<div className="row">
+				<div className="col-md-1 col-xs-0"></div>
+				<div className="col-md-10 col-xs-12">
+					<div className="row">
+						<div className="col-lg-3 col-md-3 col-sm-2 col-xs-0">
+							<ul className="sidenav">
 								<a data-scroll href="#context">
 									<li>Context</li>
 								</a>
@@ -108,10 +108,10 @@ export default function Mohavi() {
 								</a>
 							</ul>
 						</div>
-						<div id="content_container" class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
-							<div class="row">
-								<div class="col-xs-0 col-md-1"></div>
-								<div class="col-xs-12 col-md-10">
+						<div id="content_container" className="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+							<div className="row">
+								<div className="col-xs-0 col-md-1"></div>
+								<div className="col-xs-12 col-md-10">
 									<h2 id="context">Context</h2>
 									<p>
 										News For You is a prototype for an app, that enables you to find out what's
@@ -154,12 +154,12 @@ export default function Mohavi() {
 										A platform that gathers news from different sources into one place, where users
 										can discuss articles, share them with their friends and vote on the source's
 										reliability.
-										<br /><br />
-										<h3>The user should get reliable information. Every time.</h3>
 									</p>
-									<div class="protrude_container">
+									<h3>The user should get reliable information. Every time.</h3>
+									<br /><br />
+									<div className="protrude_container">
 										<img src="../images/nfy/proto.png" />
-										<p class="img_caption">
+										<p className="img_caption">
 
 										</p>
 									</div>
@@ -210,9 +210,9 @@ export default function Mohavi() {
 										<p><b>As our personas were based on real data, it helped us greatly in
 												determining what our goal would be. </b></p>
 
-										<div class="protrude_container">
+										<div className="protrude_container">
 											<img src="../images/nfy/persona.png" />
-											<p class="img_caption">
+											<p className="img_caption">
 												One of our personas, Owen Stevens
 											</p>
 										</div>
@@ -248,9 +248,9 @@ export default function Mohavi() {
 											take a few shortcuts, but eventually we came up with a solution that would
 											hold up in testing.
 										</p>
-										<div class="protrude_container">
+										<div className="protrude_container">
 											<img src="../images/nfy/ideas.png" />
-											<p class="img_caption">
+											<p className="img_caption">
 												Some of the teams initial ideation on a lean canvas we decided to use
 											</p>
 										</div>
@@ -283,28 +283,28 @@ export default function Mohavi() {
 												prototype, and didn't have problems using it</b>.
 										</p>
 
-										<div class="protrude_container">
+										<div className="protrude_container">
 											<img src="../images/nfy/digiproto.png" />
 										</div>
 
 										<h2 id="outcome">Outcome</h2>
-										<div class="container" style={{width: "100%"}}>
+										<div className="container" style={{width: "100%"}}>
 											<br />
-											<div class="row">
-												<div class="col-xs-12 col-sm-6">
-													<div class="stat_number">1</div>
-													<div class="stat_desc">Paper Prototype</div>
+											<div className="row">
+												<div className="col-xs-12 col-sm-6">
+													<div className="stat_number">1</div>
+													<div className="stat_desc">Paper Prototype</div>
 												</div>
-												<div class="col-xs-12 col-sm-6">
-													<div class="stat_number">1</div>
-													<div class="stat_desc">Digital prototype</div>
+												<div className="col-xs-12 col-sm-6">
+													<div className="stat_number">1</div>
+													<div className="stat_desc">Digital prototype</div>
 												</div>
 											</div>
-											<div class="row">
+											<div className="row">
 											</div>
-											<div class="col-xs-12 col-sm-12">
-												<div class="stat_number">A bunch</div>
-												<div class="stat_desc">of new things learned</div>
+											<div className="col-xs-12 col-sm-12">
+												<div className="stat_number">A bunch</div>
+												<div className="stat_desc">of new things learned</div>
 											</div>
 										</div>
 										<br />
@@ -329,28 +329,28 @@ export default function Mohavi() {
 											Handbook.</p>
 										<p>It was built for my user-centered design course, but contains useful
 											information about the UX process. Check it out if you want to!</p>
-										<a class="proj_button" href="https://eetueskelinen.com/uxhandbook/"
+										<a className="proj_button" href="https://eetueskelinen.com/uxhandbook/"
 											target="_blank">
 											<div>UX Handbook</div>
 										</a> */}
 
-										<div class="row thanks">
-											<div class="col-xs-12">
-												<div class="line"></div>
+										<div className="row thanks">
+											<div className="col-xs-12">
+												<div className="line"></div>
 											</div>
-											<div class="col-xs-12">
+											<div className="col-xs-12">
 												<h2>Thanks for scrolling!</h2>
 											</div>
 										</div>
 								</div>
-								<div class="col-xs-0 col-md-1"></div>
+								<div className="col-xs-0 col-md-1"></div>
 							</div>
 
 						</div>
-						<div class="col-lg-3 col-md-3 col-sm-2 col-xs-0"></div>
+						<div className="col-lg-3 col-md-3 col-sm-2 col-xs-0"></div>
 					</div>
 				</div>
-				<div class="col-md-1 col-xs-0"></div>
+				<div className="col-md-1 col-xs-0"></div>
 			</div>
 
 		</div>
