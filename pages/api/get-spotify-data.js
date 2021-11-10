@@ -30,8 +30,6 @@ async function handler(
 
       return res.status(200).json({ artists, songs, recentlyPlayed });
     } catch (e) {
-      // eslint-disable-next-line no-console
-      console.log(e);
       if (e.response.status === 429) {
         return res.status(429).json({ message: `you need to wait ${e.headers[`Retry-After`]}` });
       }
