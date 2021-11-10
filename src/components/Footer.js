@@ -10,14 +10,10 @@ export default function Footer() {
 
           <div>
             <a href="mailto:hello@eetueskelinen.com" target="_top">
-              {/* <i aria-hidden className="fa fa-envelope fa-lg" id="email" title="Email"></i> */}
-              <i aria-hidden className="fa fa-envelope fa-lg" id="email" title="Email">
-                {/* <FontAwesomeIcon icon={faEnvelope} title="Email" id="email" /> */}
-              </i>
+              <i aria-hidden className="fa fa-envelope fa-lg" id="email" title="Email"></i>
             </a>
             <a href="../files/resume.pdf" target="_blank">
               <i aria-hidden className="fa fa-file-text fa-lg" id="resume" title="Resume"></i>
-              {/* <FontAwesomeIcon icon={faFilePdf} title="Email" id="email" /> */}
             </a>
             <a href="https://www.linkedin.com/in/eetueskelinen" target="_blank" rel="noreferrer">
               <i aria-hidden className="fa fa-linkedin-square fa-lg" id="linkedin" title="LinkedIn"></i>
