@@ -145,6 +145,8 @@
     );
   }
 
+  console.log('%c Hello, stranger', 'font-size: 50px; text-transform: uppercase; color: white; text-shadow: 2px 2px red, 4px 4px orange, 6px 6px yellow, 8px 8px green, 10px 10px blue, 12px 12px purple;');
+
   console.log(
     `%c
  ___________________________________
