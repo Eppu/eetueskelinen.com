@@ -28,6 +28,9 @@ export default function Header({ title }) {
         <script src="/scripts/script.js" type="text/javascript"></script>
       </Head>
       <div className="navbar_container animate__animated animate__fadeIn">
+        <a className="skip-nav-link" href="#main_content">
+          Jump to content
+        </a>
         <div id="progress_bar"></div>
         <div className="row navbar" style={{ maxWidth: "1000px", margin: "auto" }}>
           <div id="logo_cont" className="col-xs-5">
