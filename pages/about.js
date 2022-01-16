@@ -11,7 +11,7 @@ export default function About() {
         <div className="grey-bg animate__animated animate__fadeIn"></div>
         <div className="navbar_container"></div>
         <div className="white_bg"></div>
-        <div className="proj_body_container">
+        <div id="main_content" className="proj_body_container">
           <div className="row">
             <div className="col-xs-12">
               <div className="title_highlight"></div>
@@ -19,6 +19,7 @@ export default function About() {
             </div>
           </div>
           <div
+            id="main_content"
             className="row image_div animate__animated fadeInUpSmall"
             style={{ display: "flex", justifyContent: "center" }}
           >

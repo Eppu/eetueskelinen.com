@@ -41,7 +41,9 @@ export default function Slush() {
         <div className="row">
           <div className="col-xs-12">
             <div className="title_highlight"></div>
-            <h1 className="proj_title">Slush</h1>
+            <h1 id="main_content" className="proj_title">
+              Slush
+            </h1>
           </div>
         </div>
         <div className="row image_div">

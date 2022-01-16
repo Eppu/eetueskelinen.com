@@ -1322,3 +1322,21 @@ a {
     height: 100% !important;
   }
 }
+
+.skip-nav-link {
+  position: absolute;
+  opacity: 0.8;
+  font-weight: 500;
+  left: 1em;
+  top: 1em;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+  background: #fff;
+  box-shadow: 0 5px 5px #d3d3d38c;
+  padding: 0.5em;
+  border-radius: 10px;
+}
+
+.skip-nav-link:focus {
+  transform: translateY(0);
+}

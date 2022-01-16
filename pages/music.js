@@ -39,7 +39,7 @@ function Music() {
     <Layout title="Music">
       <>
         <div id="sandbox_header">
-          <div className="row">
+          <div id="main_content" className="row">
             <div className="col-xs-12">
               <h1 className="about_title animate__animated fadeInUpSmall">Music</h1>
             </div>

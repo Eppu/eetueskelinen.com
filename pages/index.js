@@ -41,7 +41,7 @@ function Home({ data, error }) {
     <Layout title="UX Engineer and Developer">
       <>
         <div style={{ height: "100vh", display: "flex" }}>
-          <div className="hero">
+          <div id="main_content" className="hero">
             <img
               id="prof_pic_hero"
               src="/images/eetu.jpg"
@@ -97,34 +97,34 @@ function Home({ data, error }) {
         <div id="sandbox_container">
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="projects/mohavi">
-            <a>
-              <div className="label">Mohavi</div>
-              <div className="old_project_item" id="mohavi_panel"></div>
-            </a>
+              <a>
+                <div className="label">Mohavi</div>
+                <div className="old_project_item" id="mohavi_panel"></div>
+              </a>
             </Link>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="projects/kamerastore">
-            <a>
-              <div className="label">Kamerastore</div>
-              <div className="old_project_item" id="kamerastore_panel"></div>
-            </a>
+              <a>
+                <div className="label">Kamerastore</div>
+                <div className="old_project_item" id="kamerastore_panel"></div>
+              </a>
             </Link>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="projects/slush">
-            <a>
-              <div className="label">Slush</div>
-              <div className="old_project_item" id="slush_panel"></div>
-            </a>
+              <a>
+                <div className="label">Slush</div>
+                <div className="old_project_item" id="slush_panel"></div>
+              </a>
             </Link>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="projects/newsforyou">
-            <a>
-              <div className="label">News For You</div>
-              <div className="old_project_item" id="nfy_panel"></div>
-            </a>
+              <a>
+                <div className="label">News For You</div>
+                <div className="old_project_item" id="nfy_panel"></div>
+              </a>
             </Link>
           </div>
         </div>
