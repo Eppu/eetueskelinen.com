@@ -1,4 +1,4 @@
-import { QueryClientProvider, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
