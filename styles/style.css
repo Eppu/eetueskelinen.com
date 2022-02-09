@@ -546,49 +546,8 @@ a {
   background-image: url("/images/project_panels/nfy.jpg");
 }
 
-#holiday_messenger {
-  background-image: url("/images/project_panels/holiday_messenger.png");
-}
-
 #stoppi {
   background-image: url("/images/experiments/stoppi.jpg");
-}
-
-#eetume {
-  background-image: url("/images/experiments/eetume.jpg");
-}
-
-#dailyui {
-  background-image: url("/images/project_panels/dailyui.png");
-}
-
-/* #leapmotion {
-				background-image: url('../../res.cloudinary.com/devpost/image/fetch/s--Ep5b8zIQ--/c_limit%2cf_auto%2cfl_lossy%2cq_auto%2cw_900/https_/media.giphy.com/media/3ohc1ef7gHPfHTVPnq/giphy.gif');
-				background-position: center;
-			} */
-
-#ping_pong_package {
-  background-image: url("/images/project_panels/ping_pong_package.png");
-}
-
-#spectrum {
-  background-image: url("/images/project_panels/spectrum.png");
-}
-
-#giraffegeek {
-  background-image: url("/images/project_panels/giraffegeek.png");
-}
-
-#arduino_experiment {
-  background-image: url("/images/project_panels/arduino_experiment.png");
-}
-
-#typographic_pattern {
-  background-image: url("/images/project_panels/typography_pattern.png");
-}
-
-#blender {
-  background-image: url("/images/project_panels/blender.png");
 }
 
 /****************
