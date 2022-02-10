@@ -729,6 +729,7 @@ a {
   border-radius: 10px;
   filter: blur(2px) brightness(80%);
   transition: all 0.2s ease-out;
+  object-fit: cover;
 }
 
 .artist img:hover {
