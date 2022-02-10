@@ -333,8 +333,7 @@ export default function About() {
                         <br />
                         <h2 className="wow animate__animated fadeInUpSmall">Contact</h2>
                         <p className="wow animate__animated fadeInUpSmall">
-                          You can always reach me via my email,{" "}
-                          <a href="mailto:hello@eetueskelinen.com">hello@eetueskelinen.com</a>.
+                          You can always reach me via my <a href="mailto:hello@eetueskelinen.com">email</a>.
                           <br />
                           If you're a headhunter, shoot me an email instead of calling, please.
                         </p>
