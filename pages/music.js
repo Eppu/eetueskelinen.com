@@ -15,7 +15,7 @@ function Music() {
   useEffect(() => {
     setIsLoading(true);
 
-    fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`)
+    fetch(`${process.env.SITE_URL}/api/get-spotify-data`)
       .then((response) => response.json())
       .then((data) => {
         setArtists(data.artists.items);
