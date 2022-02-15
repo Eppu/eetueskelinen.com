@@ -237,24 +237,4 @@ function Music() {
   );
 }
 
-// export async function getServerSideProps() {
-//   const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`);
-//   let error = null;
-//   if (response.status !== 200) {
-//     error = `There was an error: ${response.status}`;
-//   }
-//   const data = await response.json();
-//   return { props: { data, error } };
-// }
-
-// export async function getStaticProps() {
-//   const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/get-spotify-data`);
-//   let error = null;
-//   if (response.status !== 200) {
-//     error = `There was an error: ${response.status}`;
-//   }
-//   const data = await response.json();
-//   return { props: { data, error }, revalidate: 1 };
-// }
-
 export default Music;
