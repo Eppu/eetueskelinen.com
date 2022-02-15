@@ -16,6 +16,15 @@ module.exports = {
       };
     }
 
+    if (path === "/about") {
+      return {
+        loc: path,
+        changefreq: config.changefreq,
+        priority: 0.8,
+        lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
+      };
+    }
+
     // Use defaults for all other cases
     return {
       loc: path,
