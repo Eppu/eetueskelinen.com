@@ -14,8 +14,9 @@ function Music() {
 
   useEffect(() => {
     setIsLoading(true);
+    console.log(`${process.env.SITE_URL}/api/get-spotify-data`);
 
-    fetch(`${process.env.SITE_URL}/api/get-spotify-data`)
+    fetch(`/api/get-spotify-data`)
       .then((response) => response.json())
       .then((data) => {
         setArtists(data.artists.items);
@@ -108,7 +109,7 @@ function Music() {
                         src={currentlyPlaying.albumImageUrl}
                         height="150px"
                         width="150px"
-                        fixed
+                        fixed="true"
                       ></Image>
                       <div className="song_info animate__animated fadeInUpSmall">
                         <strong className="currently_playing_title">{currentlyPlaying.name}</strong>
@@ -144,7 +145,7 @@ function Music() {
                             src={song.album.images[0].url}
                             height="100px"
                             width="100px"
-                            fixed
+                            fixed="true"
                           ></Image>
                           <div className="song_info">
                             <strong className="top_song_title">{song.name}</strong>
@@ -161,7 +162,7 @@ function Music() {
                   [...Array(songCount)].map((el, index) => (
                     <div className="music_item top_item" key={index}>
                       <a target="_blank" rel="noreferrer">
-                        <div width={100} fixed>
+                        <div width={100} fixed="true">
                           <Skeleton width={100} height={100} />
                         </div>
                         <div className="song_info">
@@ -192,7 +193,7 @@ function Music() {
                     return (
                       <div className="music_item top_item" key={i}>
                         <a href={song.track.external_urls.spotify} target="_blank" rel="noreferrer">
-                          <Image src={song.track.album.images[0].url} height="100px" width="100px" fixed></Image>
+                          <Image src={song.track.album.images[0].url} height="100px" width="100px" fixed="true"></Image>
                           <div className="song_info">
                             <strong className="top_song_title">{song.track.name}</strong>
                             <div className="song_details">
@@ -210,7 +211,7 @@ function Music() {
                   [...Array(songCount)].map((el, index) => (
                     <div className="music_item top_item" key={index}>
                       <a target="_blank" rel="noreferrer">
-                        <div width={100} fixed>
+                        <div width={100} fixed="true">
                           <Skeleton width={100} height={100} />
                         </div>
                         <div className="song_info">
