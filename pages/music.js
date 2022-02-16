@@ -14,7 +14,6 @@ function Music() {
 
   useEffect(() => {
     setIsLoading(true);
-    console.log(`${process.env.SITE_URL}/api/get-spotify-data`);
 
     fetch(`/api/get-spotify-data`)
       .then((response) => response.json())
