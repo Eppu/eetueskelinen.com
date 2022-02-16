@@ -64,8 +64,8 @@ function Music() {
             <h4 className="animate__animated animate__fadeInUp delay-100ms">Top artists</h4>
             <div className="artists_container delay-250ms animate__animated fadeInUpSmall">
               {artists.length > 0
-                ? artists.map((artist) => (
-                    <div className="music_item artist">
+                ? artists.map((artist, i) => (
+                    <div className="music_item artist" key={i}>
                       <a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank" rel="noreferrer">
                         <Image
                           className="animate__animated animate__fadeIn"
@@ -79,9 +79,8 @@ function Music() {
                     </div>
                   ))
                 : // Show skeleton during loading
-
                   [...Array(artistCount)].map((el, index) => (
-                    <SkeletonTheme color="#fff" highlightColor="#fafafa">
+                    <SkeletonTheme color="#fff" highlightColor="#fafafa" key={index}>
                       <div className="music_item artist" key={index}>
                         <a target="_blank" rel="noreferrer">
                           <Skeleton height={150} width={150} />
@@ -103,13 +102,15 @@ function Music() {
                 {currentlyPlaying && currentlyPlaying.isPlaying ? (
                   <>
                     <a href={currentlyPlaying.songUrl} target="_blank" rel="noreferrer">
-                      <Image
-                        className="animate__animated animate__fadeIn"
-                        src={currentlyPlaying.albumImageUrl}
-                        height="150px"
-                        width="150px"
-                        fixed="true"
-                      ></Image>
+                      <div className="album-cover">
+                        <Image
+                          className="animate__animated animate__fadeIn"
+                          src={currentlyPlaying.albumImageUrl}
+                          height="150px"
+                          width="150px"
+                          fixed="true"
+                        ></Image>
+                      </div>
                       <div className="song_info animate__animated fadeInUpSmall">
                         <strong className="currently_playing_title">{currentlyPlaying.name}</strong>
                         <div className="song_details">
@@ -139,13 +140,15 @@ function Music() {
                     return (
                       <div className="music_item top_item" key={i}>
                         <a href={song.external_urls.spotify} target="_blank" rel="noreferrer">
-                          <Image
-                            className="animate__animated animate__fadeIn"
-                            src={song.album.images[0].url}
-                            height="100px"
-                            width="100px"
-                            fixed="true"
-                          ></Image>
+                          <div className="album-cover">
+                            <Image
+                              className="animate__animated animate__fadeIn"
+                              src={song.album.images[0].url}
+                              height="100px"
+                              width="100px"
+                              fixed="true"
+                            />
+                          </div>
                           <div className="song_info">
                             <strong className="top_song_title">{song.name}</strong>
                             <div className="song_details">
@@ -192,7 +195,15 @@ function Music() {
                     return (
                       <div className="music_item top_item" key={i}>
                         <a href={song.track.external_urls.spotify} target="_blank" rel="noreferrer">
-                          <Image src={song.track.album.images[0].url} height="100px" width="100px" fixed="true"></Image>
+                          <div className="album-cover">
+                            <Image
+                              className="animate__animated animate__fadeIn"
+                              src={song.track.album.images[0].url}
+                              height="100px"
+                              width="100px"
+                              fixed="true"
+                            />
+                          </div>
                           <div className="song_info">
                             <strong className="top_song_title">{song.track.name}</strong>
                             <div className="song_details">
