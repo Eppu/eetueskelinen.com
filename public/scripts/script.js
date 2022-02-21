@@ -1,38 +1,15 @@
 (function () {
-  // window.onload = function() {
-  //     // Loads Navbar + Footer HTML
-  //     $( ".navbar_container" ).fadeOut(0).fadeIn().load( "../navbar.html" );
-  //     $( ".footer" ).load( "../footer.html" );
-  //     window.setTimeout(function () {
-  //        $("#loading_screen").fadeTo("slow", 0, function(){
-  //           $(this).css("display", "none");
-  //        });
-  //        $(".sk-cube-grid").css("opacity", 0);
-  //     //    $('body').css("overflow-y", "scroll");
-  //    }, 1200);
-
-  //     setTimeout(function(){
-  //         initEventListeners();
-  //     }, 100);
-
-  //     if ($(window).width() > 500) {
-  //         desktopListeners();
-  //     } else {
-  //         mobileListeners();
-  //     }
-  // }
-
-  window.onresize = function () {
-    if ($(window).width() > 500) {
-      desktopListeners();
-    } else {
-      // mobileListeners();
-    }
-  };
+  // window.onresize = function () {
+  //   if ($(window).width() > 500) {
+  //     desktopListeners();
+  //   } else {
+  //     // mobileListeners();
+  //   }
+  // };
 
   window.onscroll = function () {
     // Shrink/Expand navbar height
-    if ($(document).scrollTop() > /*$("#projects_container").offset()["top"] -*/ 80) {
+    if ($(document).scrollTop() > 80) {
       // $(".navbar_container").css("top", "0");
       $(".navbar").css({ "padding-top": "20px", "padding-bottom": "20px" });
       $(".navbar_container").css({
@@ -48,56 +25,6 @@
       });
     }
   };
-
-  function initialAnimations() {
-    $("#name").delay(200).animate(
-      {
-        "margin-top": "0px",
-        opacity: "1",
-      },
-      {
-        duration: 1000,
-      }
-    );
-
-    // facts animations
-    factInitAnimation("#fact1", 800, false);
-    factInitAnimation("#fact2", 1200, true);
-    factInitAnimation("#fact3", 1600, true);
-
-    // Rest of page animations
-    $("#greeting").stop(true, true).delay(2300).animate(
-      {
-        opacity: "1",
-      },
-      1000
-    );
-
-    $("#contact_info").stop(true, true).delay(2300).animate(
-      {
-        opacity: "1",
-      },
-      1000
-    );
-
-    $("#arrow").stop(true, true).delay(2300).animate(
-      {
-        opacity: "0.6",
-      },
-      1000
-    );
-  }
-
-  // Initial animation for .facts. >Float in from the left<
-  function factInitAnimation(selector, delay, isLink) {
-    $(selector).delay(delay).animate(
-      {
-        "margin-left": "0px",
-        opacity: "1",
-      },
-      1000
-    );
-  }
 
   function initEventListeners() {
     $(".fa-angle-down").click(function () {
@@ -134,18 +61,10 @@
     });
   }
 
-  function desktopListeners() {
-    $(".project_item_container").hover(
-      function () {
-        $(this).find(".label").css({ left: "-8%", opacity: 1 });
-      },
-      function () {
-        $(this).find(".label").css({ left: "-13%", opacity: 0 });
-      }
-    );
-  }
-
-  console.log('%c Hello, stranger', 'font-size: 50px; text-transform: uppercase; color: white; text-shadow: 2px 2px red, 4px 4px orange, 6px 6px yellow, 8px 8px green, 10px 10px blue, 12px 12px purple;');
+  console.log(
+    "%c Hello, stranger",
+    "font-size: 50px; text-transform: uppercase; color: white; text-shadow: 2px 2px red, 4px 4px orange, 6px 6px yellow, 8px 8px green, 10px 10px blue, 12px 12px purple;"
+  );
 
   console.log(
     `%c
