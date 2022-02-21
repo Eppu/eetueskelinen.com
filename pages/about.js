@@ -334,17 +334,20 @@ export default function About() {
                         <h2 className="wow animate__animated fadeInUpSmall">Contact</h2>
                         <p className="wow animate__animated fadeInUpSmall">
                           You can always reach me via my <a href="mailto:hello@eetueskelinen.com">email</a>.
-                          <br />
-                          If you're a headhunter, shoot me an email instead of calling, please.
                         </p>
+                        <p>Give me a shout any time, I'd love to hear from you!</p>
                         <p className="wow animate__animated fadeInUpSmall">
                           If you'd prefer, you can also find my musings on{" "}
                           <a target="_blank" rel="noreferrer" href="https://twitter.com/edwardtehgreat">
                             Twitter
                           </a>
-                          , as well as{" "}
+                          ,{" "}
                           <a target="_blank" rel="noreferrer" href="https://instagram.com/eppu">
                             Instagram
+                          </a>{" "}
+                          or{" "}
+                          <a target="_blank" rel="noreferrer" href="https://linkedin.com/in/eetueskelinen">
+                            LinkedIn
                           </a>
                           .
                         </p>
