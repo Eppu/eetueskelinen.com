@@ -7,24 +7,22 @@
   //   }
   // };
 
-  window.onscroll = function () {
-    // Shrink/Expand navbar height
-    if ($(document).scrollTop() > 80) {
-      // $(".navbar_container").css("top", "0");
-      $(".navbar").css({ "padding-top": "20px", "padding-bottom": "20px" });
-      $(".navbar_container").css({
-        "box-shadow": "0 0 10px rgba(0, 0, 0, 0.2)",
-        "background-color": "white",
-      });
-    } else {
-      // $(".navbar_container").css("top", "-200px");
-      $(".navbar").css({ "padding-top": "30px", "padding-bottom": "30px" });
-      $(".navbar_container").css({
-        "box-shadow": "0 0 10px rgba(0, 0, 0, 0)",
-        "background-color": "rgba(250, 250, 250, 0)",
-      });
-    }
-  };
+  // window.onscroll = function () {
+  //   // Shrink/Expand navbar height
+  //   if ($(document).scrollTop() > 80) {
+  //     $(".navbar").css({ "padding-top": "20px", "padding-bottom": "20px" });
+  //     $(".navbar_container").css({
+  //       "box-shadow": "0 0 10px rgba(0, 0, 0, 0.2)",
+  //       "background-color": "white",
+  //     });
+  //   } else {
+  //     $(".navbar").css({ "padding-top": "30px", "padding-bottom": "30px" });
+  //     $(".navbar_container").css({
+  //       "box-shadow": "0 0 10px rgba(0, 0, 0, 0)",
+  //       "background-color": "rgba(250, 250, 250, 0)",
+  //     });
+  //   }
+  // };
 
   function initEventListeners() {
     $(".fa-angle-down").click(function () {
@@ -82,10 +80,10 @@
   );
 })();
 
-var scrolled = false;
-$(window).on("scroll", function () {
-  if (!scrolled) {
-    scrolled = true;
-    new WOW().init();
-  }
-});
+// var scrolled = false;
+// $(window).on("scroll", function () {
+//   if (!scrolled) {
+//     scrolled = true;
+//     new WOW().init();
+//   }
+// });
