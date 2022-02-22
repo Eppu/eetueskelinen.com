@@ -1,14 +1,17 @@
-// import { useState } from "react";
-// import WOW from "wowjs";
-// Mess with wowjs later https://nextjs.org/docs/advanced-features/dynamic-import
+import { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
 export default function Layout({ children, title }) {
   // Init wow.js
-  // React.useEffect(() => {
-  //   new WOW().init()
-  // });
+  useEffect(() => {
+    // Hacky trick to get Wow.js to work with Next.js
+    if (typeof window !== "undefined") {
+      window.WOW = require("wowjs");
+    }
+
+    new WOW.WOW().init();
+  }, []);
 
   return (
     <>

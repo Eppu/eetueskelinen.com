@@ -7,4 +7,5 @@ module.exports = {
   images: {
     domains: ["i.scdn.co"],
   },
+  outputFileTracing: false,
 };

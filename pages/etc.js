@@ -4,16 +4,25 @@ import { useEffect } from "react";
 
 export default function Etc() {
   // Set up listeners for labels
+  // TODO: Move this into the EtcCard component
   useEffect(() => {
-    $(".project_item_container").hover(
-      function () {
-        $(this).find(".label").css({ left: "-8%", opacity: 1 });
-      },
-      function () {
-        $(this).find(".label").css({ left: "-13%", opacity: 0 });
-      }
-    );
-  });
+    const projectContainers = document.getElementsByClassName("project_item_container");
+    for (const container of projectContainers) {
+      // When the mouse enters the element, set the opacity of its label
+      container.addEventListener("mouseenter", (e) => {
+        const label = e.target.querySelector(".label");
+        label.style.opacity = 1;
+        label.style.left = "-8%";
+      });
+
+      // When the mouse leaves the element, set the opacity of its label
+      container.addEventListener("mouseleave", (e) => {
+        const label = e.target.querySelector(".label");
+        label.style.opacity = 0;
+        label.style.left = "-13%";
+      });
+    }
+  }, []);
 
   return (
     <Layout title="Etc">

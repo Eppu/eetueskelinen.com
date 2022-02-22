@@ -6,36 +6,28 @@ import Layout from "../src/components/layout";
 import FrontPageImage from "../public/images/image.jpg";
 
 function Home({ data, error }) {
-  let recentSong = data.recentlyPlayed.items[0].track.name;
-  let recentSongArtist = data.recentlyPlayed.items[0].track.artists.map((_artist) => _artist.name).join(`, `);
+  const recentSong = data.recentlyPlayed.items[0].track.name;
+  const recentSongArtist = data.recentlyPlayed.items[0].track.artists.map((_artist) => _artist.name).join(`, `);
 
-  // const handleScroll = () => {
-  //   console.log("hello");
-  // };
-
-  // useEffect(() => {
-  //   let projectContainers = document.getElementsByClassName("project_item_container");
-  //   // projectLabels.addEventListener("mouseover", (e) => {
-  //   //   console.log("ouch");
-  //   // });
-  //   for (let container of projectContainers) {
-  //     container.addEventListener("mouseover", handleScroll);
-  //   }
-  //   return () => window.removeEventListener("mouseover", handleScroll);
-  // });
-
-  // Use this temporarily. A vanilla solution in progress above ^
   // Set up listeners for labels
   useEffect(() => {
-    $(".project_item_container").hover(
-      function () {
-        $(this).find(".label").css({ left: "-8%", opacity: 1 });
-      },
-      function () {
-        $(this).find(".label").css({ left: "-13%", opacity: 0 });
-      }
-    );
-  });
+    const projectContainers = document.getElementsByClassName("project_item_container");
+    for (const container of projectContainers) {
+      // When the mouse enters the element, set the opacity of its label
+      container.addEventListener("mouseenter", (e) => {
+        const label = e.target.querySelector(".label");
+        label.style.opacity = 1;
+        label.style.left = "-8%";
+      });
+
+      // When the mouse leaves the element, set the opacity of its label
+      container.addEventListener("mouseleave", (e) => {
+        const label = e.target.querySelector(".label");
+        label.style.opacity = 0;
+        label.style.left = "-13%";
+      });
+    }
+  }, []);
 
   return (
     <Layout title="UX Engineer and Developer">
@@ -95,7 +87,12 @@ function Home({ data, error }) {
           Work
         </h2>
         <div id="sandbox_container">
-          <div className="project_item_container wow animate__animated fadeInUpSmall">
+          <div
+            // onMouseEnter={() => {
+            //   console.log("mouse enter")
+            // }}
+            className="project_item_container wow animate__animated fadeInUpSmall"
+          >
             <Link href="/projects/mohavi">
               <a>
                 <div className="label">Mohavi</div>
@@ -136,7 +133,7 @@ function Home({ data, error }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.SITE_URL}/api/get-spotify-data`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/get-spotify-data`);
   let error = null;
   if (response.status !== 200) {
     error = `There was an error: ${response.status}`;

@@ -1,7 +1,29 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Script from "next/script";
 
 export default function Header({ title }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handler = () => {
+      setIsScrolled((isScrolled) => {
+        if (!isScrolled && (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80)) {
+          return true;
+        }
+
+        if (isScrolled && document.body.scrollTop < 80 && document.documentElement.scrollTop < 80) {
+          return false;
+        }
+
+        return isScrolled;
+      });
+    };
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
   return (
     <>
       <Head>
@@ -20,19 +42,28 @@ export default function Header({ title }) {
         <meta property="og:image" content="/images/og_image.jpg" />
         <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="/scripts/parallax.min.js"></script>
-
-        {/* Mess with wowjs later */}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-        <script src="/scripts/script.js" type="text/javascript"></script>
       </Head>
-      <div className="navbar_container animate__animated animate__fadeIn">
+      <Script strategy="afterInteractive" src="/scripts/script.js" type="text/javascript"></Script>
+      <div
+        className="navbar_container animate__animated animate__fadeIn"
+        style={{
+          boxShadow: isScrolled ? "0 0 10px rgba(0, 0, 0, 0.2)" : "0 0 10px rgba(0, 0, 0, 0)",
+          backgroundColor: isScrolled ? "white" : "rgba(250, 250, 250, 0)",
+        }}
+      >
         <a className="skip-nav-link" href="#main_content">
           Jump to content
         </a>
         <div id="progress_bar"></div>
-        <div className="row navbar" style={{ maxWidth: "1000px", margin: "auto" }}>
+        <div
+          className="row navbar"
+          style={{
+            maxWidth: "1000px",
+            margin: "auto",
+            paddingTop: isScrolled ? "20px" : "30px",
+            paddingBottom: isScrolled ? "20px" : "30px",
+          }}
+        >
           <div id="logo_cont" className="col-xs-5">
             <Link href="/">Eetu Eskelinen</Link>
           </div>
