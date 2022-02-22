@@ -133,7 +133,7 @@ function Home({ data, error }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.SITE_URL}/api/get-spotify-data`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/get-spotify-data`);
   let error = null;
   if (response.status !== 200) {
     error = `There was an error: ${response.status}`;
