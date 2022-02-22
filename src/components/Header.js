@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export default function Header({ title }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,8 +42,8 @@ export default function Header({ title }) {
         <meta property="og:image" content="/images/og_image.jpg" />
         <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
-        <script strategy="afterInteractive" src="/scripts/script.js" type="text/javascript"></script>
       </Head>
+      <Script strategy="afterInteractive" src="/scripts/script.js" type="text/javascript"></Script>
       <div
         className="navbar_container animate__animated animate__fadeIn"
         style={{
