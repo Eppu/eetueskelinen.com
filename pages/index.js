@@ -6,8 +6,10 @@ import Layout from "../src/components/layout";
 import FrontPageImage from "../public/images/image.jpg";
 
 function Home({ data, error }) {
-  const recentSong = data.recentlyPlayed.items[0].track.name;
-  const recentSongArtist = data.recentlyPlayed.items[0].track.artists.map((_artist) => _artist.name).join(`, `);
+  const recentSong = data.recentlyPlayed ? data.recentlyPlayed.items[0].track.name : null;
+  const recentSongArtist = data.recentlyPlayed
+    ? data.recentlyPlayed.items[0].track.artists.map((_artist) => _artist.name).join(`, `)
+    : null;
 
   // Set up listeners for labels
   useEffect(() => {
@@ -70,14 +72,15 @@ function Home({ data, error }) {
                 </span>
                 . 📫
               </p>
-
-              <p id="spotify_track_info" className="hidden animate__animated fadeInUpSmall delay-500ms">
-                The last song I listened to was{" "}
-                <Link id="spotify_song" href="/music" target="_blank" className="spotify_header_link">
-                  <span className="spotify_header_link"> {recentSong}</span>
-                </Link>{" "}
-                by {recentSongArtist}! 🎵
-              </p>
+              {recentSong != null && (
+                <p id="spotify_track_info" className="hidden animate__animated fadeInUpSmall delay-500ms">
+                  The last song I listened to was{" "}
+                  <Link id="spotify_song" href="/music" target="_blank" className="spotify_header_link">
+                    <span className="spotify_header_link"> {recentSong}</span>
+                  </Link>{" "}
+                  by {recentSongArtist}! 🎵
+                </p>
+              )}
               <br />
             </div>
           </div>
@@ -133,7 +136,9 @@ function Home({ data, error }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/get-spotify-data`);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL || `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`}/api/get-spotify-data`
+  );
   let error = null;
   if (response.status !== 200) {
     error = `There was an error: ${response.status}`;
