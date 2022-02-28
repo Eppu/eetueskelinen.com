@@ -1,4 +1,4 @@
-# 👷 HEAVILY WIP
+# 👷 WIP 👷
 
 <b>This project is still in a working state, and is likely to have breaking changes happening on the master branch regularly. Proceed with caution.</b>
 
