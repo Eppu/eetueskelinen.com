@@ -1,6 +1,4 @@
-# 👷 WIP 👷
-
-<b>This project is still in a working state, and is likely to have breaking changes happening on the master branch regularly. Proceed with caution.</b>
+<b>This project is still being worked on, and is likely to have breaking changes happening on the master branch regularly. Proceed with caution.</b>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
