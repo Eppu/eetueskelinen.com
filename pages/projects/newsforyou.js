@@ -339,16 +339,6 @@ export default function Mohavi() {
                       <b>the failures, the successes, and the in-betweens</b>.
                     </p>
                     <br />
-                    {/* 
-										<p>Based on this project, I actually created another site called The UX
-											Handbook.</p>
-										<p>It was built for my user-centered design course, but contains useful
-											information about the UX process. Check it out if you want to!</p>
-										<a className="proj_button" href="https://eetueskelinen.com/uxhandbook/"
-											target="_blank">
-											<div>UX Handbook</div>
-										</a> */}
-
                     <div className="row thanks">
                       <div className="col-xs-12">
                         <div className="line"></div>

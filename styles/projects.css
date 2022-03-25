@@ -198,25 +198,6 @@ PROJECT BODY
   transition: top 0.2s ease;
 }
 
-.proj_button {
-  border-bottom: none !important;
-  text-align: center;
-}
-
-.proj_button div:hover {
-  transform: translateY(-3px);
-}
-
-.proj_button div {
-  margin: 5px;
-  padding: 10px;
-  background-color: #414141;
-  color: white;
-  font-family: "Lato", sans-serif;
-  display: inline-block;
-  transition: all 0.2s ease;
-}
-
 .image_div {
   text-align: center;
 }
