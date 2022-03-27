@@ -1,3 +1,5 @@
+<a href="https://eetueskelinen.com" rel="noopener" target="_blank"><img alt="Vercel deployment status badge" src="https://img.shields.io/github/deployments/Eppu/portfolio-next/production?label=vercel&logo=vercel"></a>
+
 <b>This project is still being worked on, and is likely to have breaking changes happening on the master branch regularly. Proceed with caution.</b>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
