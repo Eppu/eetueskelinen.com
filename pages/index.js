@@ -90,12 +90,7 @@ function Home({ data, error }) {
           Work
         </h2>
         <div id="sandbox_container">
-          <div
-            // onMouseEnter={() => {
-            //   console.log("mouse enter")
-            // }}
-            className="project_item_container wow animate__animated fadeInUpSmall"
-          >
+          <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="/projects/mohavi">
               <a>
                 <div className="label">Mohavi</div>

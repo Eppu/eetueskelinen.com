@@ -2,11 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 import { getSpotifyData } from "../../utils/spotify";
 
-async function handler(
-  // req: NextApiRequest, res: NextApiResponse
-  req,
-  res
-) {
+async function handler(req, res) {
   if (req.method === `GET`) {
     try {
       const { responseTracks, responseArtists, responseRecently } = await getSpotifyData();
@@ -25,8 +21,6 @@ async function handler(
       const artists = await responseArtists.json();
       const songs = await responseTracks.json();
       const recentlyPlayed = await responseRecently.json();
-
-      // res.setHeader(`Cache-Control`, `public, s-maxage=30, stale-while-revalidate=15`);
 
       return res.status(200).json({ artists, songs, recentlyPlayed });
     } catch (e) {
