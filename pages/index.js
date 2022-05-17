@@ -51,7 +51,7 @@ function Home({ data, error }) {
               </p>
 
               <p className="animate__animated fadeInUpSmall delay-250ms">
-                I currently work at{" "}
+                <span className="kt_header_link"> ööäööäöä</span>I currently work at{" "}
                 <span className="kt_header_link">
                   <a target="_blank" href="https://futurice.com">
                     Futurice

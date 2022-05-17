@@ -150,6 +150,11 @@ NAVBAR
   opacity: 0.3;
 }
 
+#nav_links > .active {
+  /* color: hotpink; */
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 60%, #c7c7f0, 20%);
+}
+
 .hamburger:focus {
   outline: none;
 }
