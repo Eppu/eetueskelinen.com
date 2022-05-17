@@ -57,7 +57,7 @@ function Home({ data, error }) {
                     Futurice
                   </a>
                 </span>{" "}
-                as a 💫 Software Developer 💫.{" "}
+                as a ✨ Software Developer ✨.{" "}
               </p>
               <p className="animate__animated fadeInUpSmall delay-250ms">
                 You can reach me via{" "}
