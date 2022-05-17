@@ -51,13 +51,13 @@ function Home({ data, error }) {
               </p>
 
               <p className="animate__animated fadeInUpSmall delay-250ms">
-                <span className="kt_header_link"> ööäööäöä</span>I currently work at{" "}
+                I currently work at{" "}
                 <span className="kt_header_link">
                   <a target="_blank" href="https://futurice.com">
                     Futurice
                   </a>
                 </span>{" "}
-                as a 💫 Software Developer 💫.{" "}
+                as a ✨ Software Developer ✨.{" "}
               </p>
               <p className="animate__animated fadeInUpSmall delay-250ms">
                 You can reach me via{" "}

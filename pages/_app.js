@@ -3,7 +3,7 @@ import "../styles/style.css";
 import "../styles/flexboxgrid.min.css";
 import "../styles/animate.min.css";
 import "../styles/projects.css";
-import Navbar from "../src/components/NavBar";
+import Navbar from "../src/components/Navbar";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 

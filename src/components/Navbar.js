@@ -58,7 +58,6 @@ export default function Navbar() {
           <div id="nav_links" className="col-xs-7" style={{ zIndex: 9999 }}>
             {navLinks.map((link) => (
               <Link href={link.path} key={link.title}>
-                {/* <a className={router.pathname === link.path ? "active" : ""}>{link.title}</a> */}
                 <a>{router.pathname === link.path ? <span className="active">{link.title}</span> : link.title}</a>
               </Link>
             ))}
