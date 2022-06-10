@@ -2,7 +2,6 @@
 
 <strong>This project is still being worked on, and is likely to have breaking changes happening on the master branch regularly. Proceed with caution.</strong>
 
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -19,9 +18,9 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-New pages can be added by creating new files in the `pages/` directory. 
+New pages can be added by creating new files in the `pages/` directory.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on e.g. [http://localhost:3000/api/health](http://localhost:3000/api/health). This endpoint can be edited in `pages/api/hello.js`.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on e.g. [http://localhost:3000/api/health](http://localhost:3000/api/health). This endpoint can be edited in `pages/api/health.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
