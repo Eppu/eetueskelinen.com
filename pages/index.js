@@ -1,9 +1,6 @@
-import Head from "next/head";
-import Image from "next/image";
 import { useEffect } from "react";
 import Link from "next/link";
 import Layout from "../src/components/layout";
-import FrontPageImage from "../public/images/image.jpg";
 
 function Home({ data, error }) {
   const recentSong = data.recentlyPlayed ? data.recentlyPlayed.items[0].track.name : null;
