@@ -1,19 +1,17 @@
 <a href="https://eetueskelinen.com" target="_blank"><img alt="Vercel deployment status badge" src="https://img.shields.io/github/deployments/Eppu/portfolio-next/production?label=vercel&logo=vercel"></a>
 
-<strong>This project is still being worked on, and is likely to have breaking changes happening on the master branch regularly. Proceed with caution.</strong>
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-Copy the sample `.env` files and fill in the correct information. Better explanation to come.
+Copy the sample `.env` files and fill in necessary information.
+
+To get Spotify stats working you'll need to get a client ID, client secret and refresh token from [Spotify](https://developer.spotify.com/documentation/general/guides/authorization/).
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
