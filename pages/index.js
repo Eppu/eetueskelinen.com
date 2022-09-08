@@ -43,6 +43,7 @@ function Home({ data, error }) {
               width={300}
               height={300}
               layout="raw"
+              priority
               placeholder="blur"
               blurDataURL="/images/eetu.jpg"
             />
