@@ -35,12 +35,6 @@ function Home({ data, error }) {
       <>
         <div style={{ height: "100vh", display: "flex" }}>
           <div id="main_content" className="hero">
-            {/* <img
-              id="prof_pic_hero"
-              src="/images/eetu.jpg"
-              className="animate__animated fadeInUpSmall"
-              alt="Eetu Eskelinen looking to the up right"
-            /> */}
             <Image
               id="prof_pic_hero"
               src="/images/eetu.jpg"
@@ -49,7 +43,6 @@ function Home({ data, error }) {
               width={300}
               height={300}
               layout="raw"
-              priority
               placeholder="blur"
               blurDataURL="/images/eetu.jpg"
             />
