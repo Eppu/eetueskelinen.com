@@ -335,29 +335,6 @@ a {
   margin-bottom: 30px;
 }
 
-/* ========= Projects Specifics ========= */
-
-/* NEW PROJECT PANELS */
-#mohavi_panel {
-  background-image: url("/images/project_panels/mohavi.jpg");
-}
-
-#kamerastore_panel {
-  background-image: url("/images/project_panels/kamerastore.jpg");
-}
-
-#slush_panel {
-  background-image: url("/images/project_panels/slush.jpg");
-}
-
-#nfy_panel {
-  background-image: url("/images/project_panels/nfy.jpg");
-}
-
-#stoppi {
-  background-image: url("/images/experiments/stoppi.jpg");
-}
-
 /****************
 **** SANDBOX ****
 *****************/
