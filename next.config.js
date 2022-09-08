@@ -7,5 +7,10 @@ module.exports = {
   images: {
     domains: ["i.scdn.co"],
   },
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    },
+  },
   outputFileTracing: false,
 };

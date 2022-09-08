@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import Layout from "../src/components/layout";
+import Image from "next/future/image";
+import NextImage from "next/image";
 
 function Home({ data, error }) {
   const recentSong = data.recentlyPlayed ? data.recentlyPlayed.items[0].track.name : null;
@@ -33,11 +35,23 @@ function Home({ data, error }) {
       <>
         <div style={{ height: "100vh", display: "flex" }}>
           <div id="main_content" className="hero">
-            <img
+            {/* <img
               id="prof_pic_hero"
               src="/images/eetu.jpg"
               className="animate__animated fadeInUpSmall"
               alt="Eetu Eskelinen looking to the up right"
+            /> */}
+            <Image
+              id="prof_pic_hero"
+              src="/images/eetu.jpg"
+              className="animate__animated fadeInUpSmall"
+              alt="Eetu Eskelinen looking to the up right"
+              width={300}
+              height={300}
+              layout="raw"
+              priority
+              placeholder="blur"
+              blurDataURL="/images/eetu.jpg"
             />
             <div id="hero_page_container" style={{ position: "relative", color: "black" }}>
               <h1 id="title" className="animate__animated fadeInUpSmall">
@@ -91,7 +105,15 @@ function Home({ data, error }) {
             <Link href="/projects/mohavi">
               <a>
                 <div className="label">Mohavi</div>
-                <div className="old_project_item" id="mohavi_panel"></div>
+                <div className="old_project_item">
+                  <NextImage
+                    src="/images/project_panels/mohavi.jpg"
+                    alt="Mohavi"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "10px" }}
+                  />
+                </div>
               </a>
             </Link>
           </div>
@@ -99,7 +121,15 @@ function Home({ data, error }) {
             <Link href="/projects/kamerastore">
               <a>
                 <div className="label">Kamerastore</div>
-                <div className="old_project_item" id="kamerastore_panel"></div>
+                <div className="old_project_item">
+                  <NextImage
+                    src="/images/project_panels/kamerastore.jpg"
+                    alt="Kamerastore"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "10px" }}
+                  />
+                </div>
               </a>
             </Link>
           </div>
@@ -107,7 +137,15 @@ function Home({ data, error }) {
             <Link href="/projects/slush">
               <a>
                 <div className="label">Slush</div>
-                <div className="old_project_item" id="slush_panel"></div>
+                <div className="old_project_item">
+                  <NextImage
+                    src="/images/project_panels/slush.jpg"
+                    alt="Slush"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "10px" }}
+                  />
+                </div>
               </a>
             </Link>
           </div>
@@ -115,7 +153,15 @@ function Home({ data, error }) {
             <Link href="/projects/newsforyou">
               <a>
                 <div className="label">News For You</div>
-                <div className="old_project_item" id="nfy_panel"></div>
+                <div className="old_project_item">
+                  <NextImage
+                    src="/images/project_panels/nfy.jpg"
+                    alt="News For You"
+                    layout="fill"
+                    objectFit="cover"
+                    style={{ borderRadius: "10px" }}
+                  />
+                </div>
               </a>
             </Link>
           </div>
