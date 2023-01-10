@@ -106,6 +106,8 @@ function Home({ data, error }) {
                     layout="fill"
                     objectFit="cover"
                     style={{ borderRadius: "10px" }}
+                    placeholder="blur"
+                    blurDataURL="/images/project_panels/mohavi.jpg"
                   />
                 </div>
               </a>
@@ -122,6 +124,8 @@ function Home({ data, error }) {
                     layout="fill"
                     objectFit="cover"
                     style={{ borderRadius: "10px" }}
+                    placeholder="blur"
+                    blurDataURL="/images/project_panels/mohavi.jpg"
                   />
                 </div>
               </a>
@@ -138,6 +142,8 @@ function Home({ data, error }) {
                     layout="fill"
                     objectFit="cover"
                     style={{ borderRadius: "10px" }}
+                    placeholder="blur"
+                    blurDataURL="/images/project_panels/mohavi.jpg"
                   />
                 </div>
               </a>
@@ -154,6 +160,8 @@ function Home({ data, error }) {
                     layout="fill"
                     objectFit="cover"
                     style={{ borderRadius: "10px" }}
+                    placeholder="blur"
+                    blurDataURL="/images/project_panels/mohavi.jpg"
                   />
                 </div>
               </a>
