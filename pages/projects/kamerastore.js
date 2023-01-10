@@ -85,7 +85,7 @@ export default function Kamerastore() {
             <div className="row">
               <p>
                 <span id="final_link">
-                  <a href="https://kamerastore.com" target="_blank">
+                  <a href="https://kamerastore.com" target="_blank" rel="noopener nofollow">
                     <u>Open</u>
                     <i className="fa fa-link" aria-hidden="true" style={{ color: "black" }}></i>
                   </a>
@@ -132,7 +132,7 @@ export default function Kamerastore() {
                       <b>
                         I used to work as a lead developer on the Kamerastore website. I also built internal tools, and
                         ran a few other tech projects on the side, like{" "}
-                        <a target="_blank" href="https://camerarescue.org">
+                        <a target="_blank" rel="noopener nofollow" href="https://camerarescue.org">
                           camerarescue.org
                         </a>
                       </b>
@@ -153,7 +153,10 @@ export default function Kamerastore() {
                     <p>
                       During my time at Kamerastore, there were multiple exciting, ongoing projects in the company. The
                       most prominent one, of course, being the web store{" "}
-                      <a href="https://kamerastore.com">Kamerastore.com</a> and its various improvements.
+                      <a href="https://kamerastore.com" rel="noopener">
+                        Kamerastore.com
+                      </a>{" "}
+                      and its various improvements.
                     </p>
                     <p>
                       Unfortunately I can't disclose much about other projects I used to work on, but{" "}

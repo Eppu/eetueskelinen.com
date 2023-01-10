@@ -50,7 +50,11 @@ function Music() {
           <p className="animate__animated fadeInUpSmall delay-100ms">
             <strong>
               Here are some of{" "}
-              <a href="https://open.spotify.com/user/eetumro?si=6a2eba04f8b34567" target="_blank" rel="noreferrer">
+              <a
+                href="https://open.spotify.com/user/eetumro?si=6a2eba04f8b34567"
+                target="_blank"
+                rel="noreferrer noopener nofollow"
+              >
                 <span className="spotify_header_link">my favorites</span>
               </a>{" "}
               from the past month.
@@ -66,7 +70,11 @@ function Music() {
               {artists.length > 0
                 ? artists.map((artist, i) => (
                     <div className="music_item artist" key={i}>
-                      <a href={`https://open.spotify.com/artist/${artist.id}`} target="_blank" rel="noreferrer">
+                      <a
+                        href={`https://open.spotify.com/artist/${artist.id}`}
+                        target="_blank"
+                        rel="noreferrer noopener nofollow"
+                      >
                         <Image
                           className="animate__animated animate__fadeIn"
                           alt={"A promo picture of " + artist.name}
@@ -101,7 +109,7 @@ function Music() {
                 {/* If a song is currently playing... */}
                 {currentlyPlaying && currentlyPlaying.isPlaying ? (
                   <>
-                    <a href={currentlyPlaying.songUrl} target="_blank" rel="noreferrer">
+                    <a href={currentlyPlaying.songUrl} target="_blank" rel="noreferrer noopener nofollow">
                       <div className="album-cover">
                         <Image
                           className="animate__animated animate__fadeIn"
@@ -139,7 +147,7 @@ function Music() {
                 ? topSongs.map((song, i) => {
                     return (
                       <div className="music_item top_item" key={i}>
-                        <a href={song.external_urls.spotify} target="_blank" rel="noreferrer">
+                        <a href={song.external_urls.spotify} target="_blank" rel="noreferrer noopener nofollow">
                           <div className="album-cover">
                             <Image
                               className="animate__animated animate__fadeIn"
@@ -194,7 +202,7 @@ function Music() {
                 ? recentlyPlayed.map((song, i) => {
                     return (
                       <div className="music_item top_item" key={i}>
-                        <a href={song.track.external_urls.spotify} target="_blank" rel="noreferrer">
+                        <a href={song.track.external_urls.spotify} target="_blank" rel="noreferrer noopener nofollow">
                           <div className="album-cover">
                             <Image
                               className="animate__animated animate__fadeIn"

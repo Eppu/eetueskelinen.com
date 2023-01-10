@@ -81,7 +81,7 @@ export default function Mohavi() {
             <div className="row">
               <p>
                 <span id="final_link">
-                  <a href="https://mohavi.co/" target="_blank">
+                  <a href="https://mohavi.co/" target="_blank" rel="noopener nofollow">
                     <u>Open</u>
                     <i className="fa fa-link" aria-hidden="true" style={{ color: "black" }}></i>
                   </a>
@@ -217,7 +217,7 @@ export default function Mohavi() {
                     <p>
                       One of the most important aspects of the site is the portfolio section, filled with case studies
                       about{" "}
-                      <a target="_blank" href="https://mohavi.co/project/city-of-tampere-globi-kamu-ar/">
+                      <a target="_blank" href="https://mohavi.co/project/city-of-tampere-globi-kamu-ar/" rel="noopener">
                         projects
                       </a>
                       . This serves two purposes:

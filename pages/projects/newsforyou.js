@@ -88,7 +88,11 @@ export default function Mohavi() {
             <div className="row">
               <p>
                 <span id="final_link">
-                  <a href="https://projects.invisionapp.com/share/KGOQIA46EQ8#/screens" target="_blank">
+                  <a
+                    href="https://projects.invisionapp.com/share/KGOQIA46EQ8#/screens"
+                    target="_blank"
+                    rel="noopener nofollow"
+                  >
                     <u>Prototype</u>
                     <i className="fa fa-link" aria-hidden="true" style={{ color: "black" }}></i>
                   </a>

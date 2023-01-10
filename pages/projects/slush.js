@@ -80,7 +80,7 @@ export default function Slush() {
             <div className="row">
               <p>
                 <span id="final_link">
-                  <a href="https://www.slush.org/" target="_blank">
+                  <a href="https://www.slush.org/" target="_blank" rel="noopener nofollow">
                     <u>Learn more about Slush</u>
                     <i className="fa fa-link" aria-hidden="true" style={{ color: "black" }}></i>
                   </a>
@@ -347,7 +347,9 @@ export default function Slush() {
                         <a href="twitter.com/slushhq">@SlushHQ</a> for a great #Slush18! Thanks #volunteers for making
                         the #startup / #investor matchmaking run so smooth 👍🏼 See you 2019! #NordicMade— Magnus Lundin
                         (@magnusswede){" "}
-                        <a href="https://twitter.com/magnusswede/status/1070304094840086529">August 12, 2018</a>
+                        <a href="https://twitter.com/magnusswede/status/1070304094840086529" rel="noopener nofollow">
+                          August 12, 2018
+                        </a>
                       </p>
                       <h2 id="learnings">Learnings</h2>
                       <p>
