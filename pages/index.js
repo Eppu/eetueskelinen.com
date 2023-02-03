@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import Layout from "../src/components/layout";
-import Image from "next/future/image";
+import Image from "next/image";
 import NextImage from "next/image";
 
 function Home({ data, error }) {
@@ -58,7 +58,7 @@ function Home({ data, error }) {
               <p className="animate__animated fadeInUpSmall delay-250ms">
                 I currently work at{" "}
                 <span className="kt_header_link">
-                  <a target="_blank" noopener href="https://futurice.com">
+                  <a target="_blank" noopener="true" href="https://futurice.com">
                     Futurice
                   </a>
                 </span>{" "}
@@ -80,7 +80,7 @@ function Home({ data, error }) {
               {recentSong != null && (
                 <p id="spotify_track_info" className="hidden animate__animated fadeInUpSmall delay-500ms">
                   The last song I listened to was{" "}
-                  <Link id="spotify_song" href="/music" target="_blank" className="spotify_header_link">
+                  <Link id="spotify_song" href="/music" target="_blank" className="spotify_header_link" legacyBehavior>
                     <span className="spotify_header_link"> {recentSong}</span>
                   </Link>{" "}
                   by {recentSongArtist}! 🎵
@@ -97,74 +97,66 @@ function Home({ data, error }) {
         <div id="sandbox_container">
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="/projects/mohavi">
-              <a>
-                <div className="label">Mohavi</div>
-                <div className="old_project_item">
-                  <NextImage
-                    src="/images/project_panels/mohavi.jpg"
-                    alt="Mohavi"
-                    layout="fill"
-                    objectFit="cover"
-                    style={{ borderRadius: "10px" }}
-                    placeholder="blur"
-                    blurDataURL="/images/project_panels/mohavi.jpg"
-                  />
-                </div>
-              </a>
+              <div className="label">Mohavi</div>
+              <div className="old_project_item">
+                <NextImage
+                  src="/images/project_panels/mohavi.jpg"
+                  alt="Mohavi"
+                  layout="fill"
+                  objectFit="cover"
+                  style={{ borderRadius: "10px" }}
+                  placeholder="blur"
+                  blurDataURL="/images/project_panels/mohavi.jpg"
+                />
+              </div>
             </Link>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="/projects/kamerastore">
-              <a>
-                <div className="label">Kamerastore</div>
-                <div className="old_project_item">
-                  <NextImage
-                    src="/images/project_panels/kamerastore.jpg"
-                    alt="Kamerastore"
-                    layout="fill"
-                    objectFit="cover"
-                    style={{ borderRadius: "10px" }}
-                    placeholder="blur"
-                    blurDataURL="/images/project_panels/mohavi.jpg"
-                  />
-                </div>
-              </a>
+              <div className="label">Kamerastore</div>
+              <div className="old_project_item">
+                <NextImage
+                  src="/images/project_panels/kamerastore.jpg"
+                  alt="Kamerastore"
+                  layout="fill"
+                  objectFit="cover"
+                  style={{ borderRadius: "10px" }}
+                  placeholder="blur"
+                  blurDataURL="/images/project_panels/mohavi.jpg"
+                />
+              </div>
             </Link>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="/projects/slush">
-              <a>
-                <div className="label">Slush</div>
-                <div className="old_project_item">
-                  <NextImage
-                    src="/images/project_panels/slush.jpg"
-                    alt="Slush"
-                    layout="fill"
-                    objectFit="cover"
-                    style={{ borderRadius: "10px" }}
-                    placeholder="blur"
-                    blurDataURL="/images/project_panels/mohavi.jpg"
-                  />
-                </div>
-              </a>
+              <div className="label">Slush</div>
+              <div className="old_project_item">
+                <NextImage
+                  src="/images/project_panels/slush.jpg"
+                  alt="Slush"
+                  layout="fill"
+                  objectFit="cover"
+                  style={{ borderRadius: "10px" }}
+                  placeholder="blur"
+                  blurDataURL="/images/project_panels/mohavi.jpg"
+                />
+              </div>
             </Link>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="/projects/newsforyou">
-              <a>
-                <div className="label">News For You</div>
-                <div className="old_project_item">
-                  <NextImage
-                    src="/images/project_panels/nfy.jpg"
-                    alt="News For You"
-                    layout="fill"
-                    objectFit="cover"
-                    style={{ borderRadius: "10px" }}
-                    placeholder="blur"
-                    blurDataURL="/images/project_panels/mohavi.jpg"
-                  />
-                </div>
-              </a>
+              <div className="label">News For You</div>
+              <div className="old_project_item">
+                <NextImage
+                  src="/images/project_panels/nfy.jpg"
+                  alt="News For You"
+                  layout="fill"
+                  objectFit="cover"
+                  style={{ borderRadius: "10px" }}
+                  placeholder="blur"
+                  blurDataURL="/images/project_panels/mohavi.jpg"
+                />
+              </div>
             </Link>
           </div>
         </div>

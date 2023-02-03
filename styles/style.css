@@ -722,17 +722,11 @@ a {
   text-align: left;
 }
 
-.fa {
+.fa svg {
   margin: 0 10px 0 10px;
   opacity: 0.5;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
-}
-
-.footer .fa:hover {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-  opacity: 1;
 }
 
 .footer_links {

@@ -4,6 +4,9 @@ import "../styles/flexboxgrid.min.css";
 import "../styles/animate.min.css";
 import "../styles/projects.css";
 import Navbar from "../src/components/Navbar";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 import { QueryClient, QueryClientProvider } from "react-query";
 

@@ -34,7 +34,7 @@ export default function Custom404() {
                   Try heading back to the{" "}
                   <span className="kt_header_link">
                     <Link href="/">
-                      <a>home page</a>
+                      home page
                     </Link>
                   </span>{" "}
                   instead!
