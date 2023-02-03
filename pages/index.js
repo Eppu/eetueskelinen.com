@@ -58,7 +58,7 @@ function Home({ data, error }) {
               <p className="animate__animated fadeInUpSmall delay-250ms">
                 I currently work at{" "}
                 <span className="kt_header_link">
-                  <a target="_blank" noopener href="https://futurice.com">
+                  <a target="_blank" noopener="true" href="https://futurice.com">
                     Futurice
                   </a>
                 </span>{" "}
@@ -80,12 +80,7 @@ function Home({ data, error }) {
               {recentSong != null && (
                 <p id="spotify_track_info" className="hidden animate__animated fadeInUpSmall delay-500ms">
                   The last song I listened to was{" "}
-                  <Link
-                    id="spotify_song"
-                    href="/music"
-                    target="_blank"
-                    className="spotify_header_link"
-                    legacyBehavior>
+                  <Link id="spotify_song" href="/music" target="_blank" className="spotify_header_link" legacyBehavior>
                     <span className="spotify_header_link"> {recentSong}</span>
                   </Link>{" "}
                   by {recentSongArtist}! 🎵
@@ -102,7 +97,6 @@ function Home({ data, error }) {
         <div id="sandbox_container">
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="/projects/mohavi">
-
               <div className="label">Mohavi</div>
               <div className="old_project_item">
                 <NextImage
@@ -115,12 +109,10 @@ function Home({ data, error }) {
                   blurDataURL="/images/project_panels/mohavi.jpg"
                 />
               </div>
-
             </Link>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="/projects/kamerastore">
-
               <div className="label">Kamerastore</div>
               <div className="old_project_item">
                 <NextImage
@@ -133,12 +125,10 @@ function Home({ data, error }) {
                   blurDataURL="/images/project_panels/mohavi.jpg"
                 />
               </div>
-
             </Link>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="/projects/slush">
-
               <div className="label">Slush</div>
               <div className="old_project_item">
                 <NextImage
@@ -151,12 +141,10 @@ function Home({ data, error }) {
                   blurDataURL="/images/project_panels/mohavi.jpg"
                 />
               </div>
-
             </Link>
           </div>
           <div className="project_item_container wow animate__animated fadeInUpSmall">
             <Link href="/projects/newsforyou">
-
               <div className="label">News For You</div>
               <div className="old_project_item">
                 <NextImage
@@ -169,7 +157,6 @@ function Home({ data, error }) {
                   blurDataURL="/images/project_panels/mohavi.jpg"
                 />
               </div>
-
             </Link>
           </div>
         </div>

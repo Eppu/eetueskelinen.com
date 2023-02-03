@@ -257,7 +257,7 @@ NAVBAR
   text-align: left;
 }
 
-.fa {
+.fa svg {
   margin: 0 10px 0 10px;
   -webkit-transition: -webkit-transform 0.2s ease-out;
   transition: -webkit-transform 0.2s ease-out;
@@ -265,12 +265,18 @@ NAVBAR
   transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
 }
 
-.footer .fa:hover,
-.menu_container .fa:hover {
+.fa svg:hover {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
   opacity: 1;
 }
+
+/* .footer .fa:hover,
+.menu_container .fa:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  opacity: 1;
+} */
 
 .footer_links {
   text-align: right;
