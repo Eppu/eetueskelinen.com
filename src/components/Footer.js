@@ -10,26 +10,25 @@ export default function Footer() {
 
           <div>
             <a href="mailto:hello@eetueskelinen.com" target="_top">
-              <i aria-hidden className="fa fa-envelope fa-lg" id="email" title="Email"></i>
+              <i aria-hidden className="fa fa-envelope fa-lg" id="email" title="Email" />
             </a>
             <a href="../files/resume.pdf" target="_blank">
-              <i aria-hidden className="fa fa-file-text fa-lg" id="resume" title="Resume"></i>
+              <i aria-hidden className="fa fa-file-text fa-lg" id="resume" title="Resume" />
             </a>
             <a href="https://www.linkedin.com/in/eetueskelinen" target="_blank" rel="noreferrer">
-              <i aria-hidden className="fa fa-linkedin-square fa-lg" id="linkedin" title="LinkedIn"></i>
+              <i aria-hidden className="fa fa-linkedin-square fa-lg" id="linkedin" title="LinkedIn" />
             </a>
             <a href="https://instagram.com/eppu" target="_blank" rel="noreferrer">
-              <i aria-hidden className="fa fa-instagram fa-lg" id="instagram" title="Instagram"></i>
+              <i aria-hidden className="fa fa-instagram fa-lg" id="instagram" title="Instagram" />
             </a>
             <a href="https://github.com/eppu" target="_blank" rel="noreferrer">
-              <i aria-hidden className="fa fa-github fa-lg" id="github" title="GitHub"></i>
+              <i aria-hidden className="fa fa-github fa-lg" id="github" title="GitHub" />
             </a>
           </div>
         </div>
         <div className="col-sm-1 col-xs-0"></div>
       </div>
       {/* TODO: Replace with npm package */}
-      <script src="https://kit.fontawesome.com/e5746cfe5f.js" crossOrigin="anonymous"></script>
     </>
   );
 }

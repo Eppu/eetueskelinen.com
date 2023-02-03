@@ -79,8 +79,8 @@ function Music() {
                           className="animate__animated animate__fadeIn"
                           alt={"A promo picture of " + artist.name}
                           src={artist.images.filter((image) => image.height >= 150).slice(-1)[0].url}
-                          width="150px"
-                          height="150px"
+                          width="150"
+                          height="150"
                         />
                         <p className="animate__animated fadeInUpSmall delay-100ms">{artist.name}</p>
                       </a>
@@ -114,8 +114,9 @@ function Music() {
                         <Image
                           className="animate__animated animate__fadeIn"
                           src={currentlyPlaying.albumImageUrl}
-                          height="150px"
-                          width="150px"
+                          alt={"Album cover of" + currentlyPlaying.album + " by " + currentlyPlaying.artist}
+                          height="150"
+                          width="150"
                           fixed="true"
                         ></Image>
                       </div>
@@ -152,8 +153,14 @@ function Music() {
                             <Image
                               className="animate__animated animate__fadeIn"
                               src={song.album.images[0].url}
-                              height="100px"
-                              width="100px"
+                              alt={
+                                "Album cover of" +
+                                song.album.name +
+                                " by " +
+                                song.artists.map((_artist) => _artist.name).join(`, `)
+                              }
+                              height="100"
+                              width="100"
                               fixed="true"
                             />
                           </div>
@@ -207,8 +214,14 @@ function Music() {
                             <Image
                               className="animate__animated animate__fadeIn"
                               src={song.track.album.images[0].url}
-                              height="100px"
-                              width="100px"
+                              alt={
+                                "Album cover of" +
+                                song.track.album.name +
+                                " by " +
+                                song.track.artists.map((_artist) => _artist.name).join(`, `)
+                              }
+                              height="100"
+                              width="100"
                               fixed="true"
                             />
                           </div>
