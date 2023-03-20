@@ -15,10 +15,10 @@
   height: 100%;
 }
 
-body {
-  /* Setting position to absolute fixes sideways scrolling issue */
-  /* position: absolute; */
-}
+/* Setting position to absolute fixes sideways scrolling issue */
+/* body {
+  position: absolute; 
+}  */
 
 .page-overflow-container {
   position: absolute;
@@ -82,10 +82,6 @@ a {
 a:hover {
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-}
-
-#content_container ul {
-  /* font-family: 'Lora', serif; */
 }
 
 #content_container a {
@@ -254,14 +250,6 @@ PROJECT BODY
   -webkit-animation: fadeUp 1.2s;
   /* Safari 4.0 - 8.0 */
   animation: fadeUp 1.2s;
-}
-
-#content_container h2:before {
-  /* display: block;
-  content: " ";
-  margin-top: -120px;
-  height: 120px;
-  visibility: hidden; */
 }
 
 .sidenav {
@@ -474,21 +462,6 @@ PROJECT BODY
 .footer_quote {
   text-align: left;
 }
-
-/* .fa {
-  margin: 0 10px 0 10px;
-  opacity: 0.5;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  -webkit-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-} */
-
-/* .footer .fa:hover {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-  opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-} */
 
 .footer_links {
   text-align: right;
