@@ -2,17 +2,18 @@ import Head from "next/head";
 import Script from "next/script";
 
 export default function Header({ title }) {
+  const titleToDisplay = title ? "- " + title : "";
   return (
     <>
       <Head>
-        <title>Eetu Eskelinen {title ? "- " + title : ""}</title>
+        <title>Eetu Eskelinen {titleToDisplay}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
         <meta
           name="description"
           content="Eetu Eskelinen is a UX Engineer and software developer currently based in Tampere, Finland."
         />
-        <meta property="og:title" content={`Eetu Eskelinen - ${title}`} />
+        <meta property="og:title" content={`Eetu Eskelinen ${titleToDisplay}`} />
         <meta
           property="og:description"
           content="Eetu Eskelinen is a UX Engineer and software developer currently based in Tampere, Finland."
