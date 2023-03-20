@@ -479,7 +479,7 @@ a {
 .top_item img {
   border-radius: 10px;
   float: left;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 .currently_playing .song_info {
   display: flex;
