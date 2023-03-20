@@ -6,7 +6,7 @@ export default function Header({ title }) {
   return (
     <>
       <Head>
-        <title>Eetu Eskelinen {titleToDisplay}</title>
+        <title>{`Eetu Eskelinen ${titleToDisplay}`}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
         <meta
