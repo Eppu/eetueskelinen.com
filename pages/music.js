@@ -8,20 +8,16 @@ function Music() {
   let [artists, setArtists] = useState({});
   let [recentlyPlayed, setRecentlyPlayed] = useState([]);
   let [topSongs, setTopSongs] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
   const artistCount = 3;
   const songCount = 10;
 
   useEffect(() => {
-    setIsLoading(true);
-
     fetch(`/api/get-spotify-data`)
       .then((response) => response.json())
       .then((data) => {
         setArtists(data.artists.items);
         setRecentlyPlayed(data.recentlyPlayed.items);
         setTopSongs(data.songs.items);
-        setIsLoading(false);
       });
   }, []);
 
@@ -184,14 +180,14 @@ function Music() {
                         </div>
                         <div className="song_info">
                           <strong className="top_song_title">
-                            <Skeleton width={225} />
+                            <Skeleton width={250} />
                           </strong>
                           <div className="song_details">
                             <p className="artist_name">
-                              <Skeleton />
+                              <Skeleton duration={2} width={225} />
                             </p>
                             <p className="album_name">
-                              <Skeleton />
+                              <Skeleton duration={3} width={175} />
                             </p>
                           </div>
                         </div>
@@ -205,7 +201,7 @@ function Music() {
           <div className="project_item_container music_item_container">
             <h4 className="animate__animated animate__fadeInUp delay-500ms">Recently listened</h4>
             <div className="song_list_container delay-750ms animate__animated fadeInUpSmall">
-              {recentlyPlayed
+              {recentlyPlayed.length > 0
                 ? recentlyPlayed.map((song, i) => {
                     return (
                       <div className="music_item top_item" key={i}>
