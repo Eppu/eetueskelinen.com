@@ -11,12 +11,12 @@ export default function Header({ title }) {
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
         <meta
           name="description"
-          content="Eetu Eskelinen is a UX Engineer and software developer currently based in Tampere, Finland."
+          content="Eetu Eskelinen is a software developer and UX engineer currently based in Tampere, Finland."
         />
         <meta property="og:title" content={`Eetu Eskelinen ${titleToDisplay}`} />
         <meta
           property="og:description"
-          content="Eetu Eskelinen is a UX Engineer and software developer currently based in Tampere, Finland."
+          content="Eetu Eskelinen is a software developer and UX engineer currently based in Tampere, Finland."
         />
         <meta property="og:image" content="/images/og_image.jpg" />
         <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" />
