@@ -1,5 +1,10 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
-import { JSX } from "react";
+import { highlight } from "sugar-high";
+
+function Code({ children, ...props }) {
+  let codeHTML = highlight(children);
+  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+}
 
 const components = {
   //   h1: (props: any) => (
@@ -7,8 +12,9 @@ const components = {
   //       {props.children}
   //     </h1>
   //   ),
+  code: Code,
 };
 
-export function CustomMDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
+export function CustomMDX(props) {
   return <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />;
 }

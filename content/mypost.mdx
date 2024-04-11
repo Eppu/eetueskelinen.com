@@ -18,6 +18,17 @@ MDX supports all the standard Markdown features, such as:
 - Images
 - Code blocks
 
+Here is an example of a code block in Markdown:
+
+```js
+import fs from "fs";
+import path from "path";
+
+function getMDXFiles(dir) {
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+}
+```
+
 ## JSX Components
 
 In addition to Markdown, you can also include JSX components in your blog post. This allows you to add interactivity and dynamic content to your posts. For example, you can embed a YouTube video:

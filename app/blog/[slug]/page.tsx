@@ -39,7 +39,9 @@ export default function Blog({ params }) {
       <h1>{post.metadata.title}</h1>
       <p>Published on {post.metadata.publishedAt}</p>
       {post.metadata.updatedAt && <p>Updated on {post.metadata.updatedAt}</p>}
-      <CustomMDX source={post.content} />
+      <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+        <CustomMDX source={post.content} />
+      </article>
     </section>
   );
 }
