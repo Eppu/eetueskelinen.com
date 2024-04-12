@@ -55,6 +55,26 @@
   }
 }
 
+.prose h2,
+h3,
+h4 {
+  @apply font-medium tracking-tighter !important;
+}
+
+.prose img {
+  /* Don't apply styles to next/image  */
+  @apply m-0 px-1 py-0.5 rounded-lg shadow-md;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 /* Preset stuff to look at later */
 /* 
 @tailwind base;

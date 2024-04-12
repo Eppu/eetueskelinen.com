@@ -9,13 +9,21 @@ const config: Config = {
     "./content/**/*.mdx",
   ],
   theme: {
-    colors: {
-      yellowgreen: "#c8f176",
-    },
     extend: {
+      colors: {
+        yellowgreen: "#c8f176",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      typography: {
+        quoteless: {
+          css: {
+            "blockquote p:first-of-type::before": { content: "none" },
+            "blockquote p:first-of-type::after": { content: "none" },
+          },
+        },
       },
     },
   },
