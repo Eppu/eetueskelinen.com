@@ -5,6 +5,7 @@ type Metadata = {
   title: string;
   publishedAt: string;
   updatedAt?: string;
+  summary?: string;
 };
 
 // Frontmatter parsing and MDX file reading code originally by Lee Robinson (@leerob)

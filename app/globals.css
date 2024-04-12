@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -14,12 +14,12 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-}
+} */
 
 @layer utilities {
   .text-balance {
@@ -27,17 +27,10 @@ body {
   }
 }
 
-/* Preset stuff to look at later */
-/* 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 ::selection {
-  background-color: #47a3f3;
-  color: #fefefe;
+  background-color: #c8f176;
+  color: #0a0a0a;
 }
-
 :root {
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
@@ -49,7 +42,7 @@ body {
   --sh-property: #e25a1c;
   --sh-entity: #e25a1c;
 }
-
+/* TODO: Find a nice theme for this */
 @media (prefers-color-scheme: dark) {
   :root {
     --sh-class: #4c97f8;
@@ -61,6 +54,12 @@ body {
     color-scheme: dark;
   }
 }
+
+/* Preset stuff to look at later */
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html {
   min-width: 360px;

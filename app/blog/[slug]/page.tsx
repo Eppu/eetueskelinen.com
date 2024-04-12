@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { CustomMDX } from "@/app/components/mdx";
 import { getBlogPosts } from "@/app/utils/blog";
 import { notFound } from "next/navigation";
@@ -15,7 +14,7 @@ export async function generateMetadata({ params }): Promise<Metadata | undefined
     return;
   }
 
-  let { title, publishedAt, updatedAt } = post.metadata;
+  let { title, publishedAt, updatedAt, summary } = post.metadata;
 
   return {
     title,
@@ -36,10 +35,13 @@ export default function Blog({ params }) {
   }
   return (
     <section>
-      <h1>{post.metadata.title}</h1>
       <p>Published on {post.metadata.publishedAt}</p>
       {post.metadata.updatedAt && <p>Updated on {post.metadata.updatedAt}</p>}
-      <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+      <article className="prose prose-xl prose-quoteless prose-neutral dark:prose-invert max-w-none">
+        <div className="flex flex-col">
+          <h1 className="text-5xl leading-tight mb-0">{post.metadata.title}</h1>
+          {post.metadata.summary && <p className="text-2xl mt-4">{post.metadata.summary}</p>}
+        </div>
         <CustomMDX source={post.content} />
       </article>
     </section>

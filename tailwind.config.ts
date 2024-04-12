@@ -9,6 +9,9 @@ const config: Config = {
     "./content/**/*.mdx",
   ],
   theme: {
+    colors: {
+      yellowgreen: "#c8f176",
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
