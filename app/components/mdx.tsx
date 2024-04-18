@@ -1,7 +1,10 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 
-function Code({ children, ...props }) {
+async function Code({ children, ...props }) {
+  console.log("children", children);
+  console.log("props", props);
+  // TODO: Figure out why highlight wants to add a sh__token--string to the end of each line. It causes duplicate line breaks.
   let codeHTML = highlight(children);
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
