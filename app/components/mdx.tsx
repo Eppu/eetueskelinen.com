@@ -5,6 +5,7 @@ async function Code({ children, ...props }) {
   console.log("children", children);
   console.log("props", props);
   // TODO: Figure out why highlight wants to add a sh__token--string to the end of each line. It causes duplicate line breaks.
+  // Update: Doesn't seem to happen on Mac, only on Windows. Maybe a line ending issue? 🤷‍♂️
   let codeHTML = highlight(children);
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
