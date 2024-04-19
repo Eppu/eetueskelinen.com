@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { DM_Sans, DM_Serif_Display } from "next/font/google";
 
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://eetueskelinen.com"),
@@ -43,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={dmSans.className}>
       {/* <body className={inter.className}>{children}</body> */}
       <body className="antialiased bg-[#111010]">
         <main className="mb-40 max-w-7xl flex flex-col md:flex-row mx-4 mt-12 lg:mx-auto flex-auto min-w-0 px-2 md:px-0">
