@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { DM_Sans, DM_Serif_Display } from "next/font/google";
 
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,9 +50,10 @@ export default function RootLayout({
     <html lang="en" className={dmSans.className}>
       {/* <body className={inter.className}>{children}</body> */}
       <body className="antialiased bg-[#111010]">
-        <main className="mb-40 max-w-7xl flex flex-col md:flex-row mx-4 mt-12 lg:mx-auto flex-auto min-w-0 px-2 md:px-0">
-          {children}
-        </main>
+        <div className="mb-40 max-w-7xl flex flex-col mx-4 mt-4 md:px-16   lg:mx-auto flex-auto min-w-0 px-2 md:px-0">
+          <Navbar />
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   );
