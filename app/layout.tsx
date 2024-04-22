@@ -50,7 +50,7 @@ export default function RootLayout({
     <html lang="en" className={dmSans.className}>
       {/* <body className={inter.className}>{children}</body> */}
       <body className="antialiased bg-[#111010]">
-        <div className="mb-40 max-w-7xl flex flex-col mx-4 mt-4 md:px-16   lg:mx-auto flex-auto min-w-0 px-2 md:px-0">
+        <div className="mb-40 max-w-7xl flex flex-col mx-4 mt-4 md:px-16 lg:mx-auto flex-auto min-w-0 px-2">
           <Navbar />
           <main>{children}</main>
         </div>
