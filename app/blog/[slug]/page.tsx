@@ -38,7 +38,7 @@ export default function Blog({ params }) {
     <section>
       <p>Published on {post.metadata.publishedAt}</p>
       {post.metadata.updatedAt && <p>Updated on {post.metadata.updatedAt}</p>}
-      <article className="prose prose-xl prose-quoteless prose-neutral dark:prose-invert max-w-none">
+      <article className="prose prose-xl prose-quoteless prose-neutral prose-invert max-w-none">
         <div className={dmSans.className}>
           <div className="flex flex-col">
             <div className={playfairDisplay.className}>

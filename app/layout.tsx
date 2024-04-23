@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { DM_Sans, DM_Serif_Display } from "next/font/google";
+// import { DM_Sans, DM_Serif_Display } from "next/font/google";
+import { dmSans } from "./utils/fonts";
 
 import "./globals.css";
 import Navbar from "./components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
-
-const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://eetueskelinen.com"),
