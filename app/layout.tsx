@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://eetueskelinen.com"),
   title: {
     default: "Eetu Eskelinen",
-    template: "%s - Eetu Eskelinen",
+    template: "%s – Eetu Eskelinen",
   },
   description: "Eetu Eskelinen is a software developer and UX engineer based in Tampere, Finland.",
   openGraph: {

@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import typography from "@tailwindcss/typography";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   content: [
@@ -53,11 +54,29 @@ const config: Config = {
       animation: {
         // "fade-in-down": "fade-in-down 1s ease 0s 1 normal forwards",
         // "fade-in-up": "fade-in-up 1s ease 0s 1 normal forwards",
-        "fade-in-down": "fade-in-down 1s ease var(--fadein-delay, 0) normal forwards",
-        "fade-in-up": "fade-in-up 1s ease var(--fadein-delay, 0) normal forwards",
+        // "fade-in-down": "fade-in-down 1s ease var(--fadein-delay, 0) normal forwards",
+        // "fade-in-up": "fade-in-up 1s ease var(--fadein-delay, 0) normal forwards",
+        "fade-in-down": "fade-in-down 1s ease 0s 1 normal forwards",
+        "fade-in-up": "fade-in-up 1s ease 0s 1 normal forwards",
       },
     },
   },
-  plugins: [typography],
+  plugins: [
+    typography,
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          "animation-delay": (value) => {
+            return {
+              "animation-delay": value,
+            };
+          },
+        },
+        {
+          values: theme("transitionDelay"),
+        }
+      );
+    }),
+  ],
 };
 export default config;

@@ -59,7 +59,7 @@ html {
 .prose h2,
 h3,
 h4 {
-  @apply font-medium tracking-tighter !important;
+  @apply font-medium tracking-tight !important;
 }
 
 .prose img {
@@ -75,6 +75,15 @@ pre {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.prose img {
+  /* Don't apply styles to next/image  */
+  @apply m-0;
+}
+
+/* .prose pre {
+  @apply bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-900;
+} */
 
 /* Preset stuff to look at later */
 /* 

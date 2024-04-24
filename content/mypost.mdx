@@ -21,9 +21,24 @@ This text is **in bold**, while this is _in italics_. You can also include [link
 }
 ```
 
-Here is an image embedded in the post:
+> blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote
+>
+> more quotes with a [link](https://example.com)
+
+## Images
+
+Here is an image embedded in the post with regular markdown syntax:
 
 ![Sample Image](/images/eetueskelinen-full.jpg)
+
+Here's an image using the custom `next/image` component:
+
+<Image
+  alt={`A sample image with a custom component`}
+  src={`/images/eetueskelinen-full.jpg`}
+  width={3840 / 3}
+  height={2160 / 3}
+/>
 
 ## Markdown Features
 

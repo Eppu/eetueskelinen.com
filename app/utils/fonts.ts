@@ -8,3 +8,8 @@ export const playfairDisplay = Playfair_Display({
   style: ["normal", "italic"],
   subsets: ["latin"],
 });
+
+export const animationDelay = (delay: number) => ({
+  animationDelay: `${delay}ms`,
+  animationFillMode: "both",
+});
