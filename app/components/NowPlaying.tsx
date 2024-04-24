@@ -1,6 +1,8 @@
 import { getNowPlaying } from "../utils/spotify";
+import { unstable_noStore as noStore } from "next/cache";
 
 export default async function NowPlaying() {
+  noStore();
   const res = await getNowPlaying();
   const song = await res.json();
 
@@ -21,13 +23,6 @@ export default async function NowPlaying() {
           He is currently listening to <strong>{song.item.name}</strong> by {artistName}
         </a>
       </p>
-      //   <div className="flex items-center justify-center">
-      //     <img src={song.item.album.images[0].url} alt="Album cover" className="rounded-full" />
-      //     <div className="ml-3">
-      //       <h3 className="text-lg font-semibold">{song.item.name}</h3>
-      //       <p className="text-sm">{song.item.artists.map((artist) => artist.name).join(", ")}</p>
-      //     </div>
-      //   </div>
     )
   );
 }
