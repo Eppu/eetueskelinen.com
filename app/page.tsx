@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { playfairDisplay } from "@/app/utils/fonts";
 import { HeroLine } from "./components/HeroLine";
+import NowPlaying from "./components/NowPlaying";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -30,6 +32,9 @@ export default function Home() {
           </a>
           .
         </p>
+        <Suspense>
+          <NowPlaying />
+        </Suspense>
       </div>
     </section>
   );
