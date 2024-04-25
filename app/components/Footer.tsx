@@ -35,7 +35,7 @@ export default function Footer() {
       </div>
       <div className="flex flex-col text-sm text-neutral-600">
         {navItems.map((item) => (
-          <Link key={item.href} href={item.href} className=" hover:transition-all hover:text-neutral-200 duration-50">
+          <Link key={item.href} href={item.href} className=" hover:transition-all hover:text-yellowgreen duration-50">
             {item.name}
           </Link>
         ))}

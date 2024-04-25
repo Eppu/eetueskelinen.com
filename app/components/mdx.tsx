@@ -12,7 +12,6 @@ function Code({ children, ...props }) {
 }
 
 function NextImage(props) {
-  console.log("got image props: ", props);
   return <Image alt={props.alt} className="rounded-3xl" {...props} />;
 }
 
