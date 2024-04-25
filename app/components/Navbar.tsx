@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-const navItems = [
+export const navItems = [
   { name: "home", href: "/" },
-  { name: "about", href: "/blog" },
-  { name: "work", href: "/about" },
+  { name: "about", href: "/about" },
+  { name: "work", href: "/work" },
   { name: "blog", href: "/blog/mypost" },
 ];
 

@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-// import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import { dmSans } from "./utils/fonts";
 
 import "./globals.css";
 import Navbar from "./components/Navbar";
-
-const inter = Inter({ subsets: ["latin"] });
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://eetueskelinen.com"),
@@ -49,9 +46,10 @@ export default function RootLayout({
     <html lang="en" className={dmSans.className}>
       {/* <body className={inter.className}>{children}</body> */}
       <body className="antialiased bg-[#111010]">
-        <div className="mb-40 max-w-7xl flex flex-col mx-4 mt-4 md:px-16 lg:mx-auto flex-auto min-w-0 px-2">
+        <div className="max-w-7xl flex flex-col mx-4 mt-4 md:px-16 lg:mx-auto flex-auto min-w-0 px-2">
           <Navbar />
-          <main>{children}</main>
+          <main className="mb-40 md:flex-row mt-8 lg:mx-auto">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
