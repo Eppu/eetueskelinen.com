@@ -44,11 +44,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={dmSans.className}>
-      {/* <body className={inter.className}>{children}</body> */}
       <body className="antialiased bg-[#111010]">
         <div className="max-w-7xl flex flex-col mx-4 mt-4 md:px-16 lg:mx-auto flex-auto min-w-0 px-2">
           <Navbar />
-          <main className="mb-40 md:flex-row mt-8 lg:mx-auto">{children}</main>
+          {/* <main className="mb-40 md:flex-row mt-8 lg:mx-auto">{children}</main> */}
+          <main className="mb-40">{children}</main>
           <Footer />
         </div>
       </body>
