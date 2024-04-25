@@ -3,9 +3,21 @@ import { unstable_noStore as noStore } from "next/cache";
 
 export default async function NowPlaying() {
   noStore();
-  const res = await getNowPlaying();
-  const song = await res.json();
+  let res = await getNowPlaying();
 
+  if (res.status === 204) {
+    // No content, just return null
+    return null;
+  }
+
+  if (res.status !== 200) {
+    console.warn("Spotify response was not successful: ", res);
+    // Return null to avoid error messages. This doesn't display anything on the page.
+    // Also makes it possible to run the site without Spotify API keys.
+    return null;
+  }
+
+  const song = await res.json();
   const isPlaying = song.is_playing;
 
   // only display the first artist and the text "and others" if there are multiple artists
@@ -20,7 +32,7 @@ export default async function NowPlaying() {
         style={{ animationDelay: "1500ms" }}
       >
         <a href="https://open.spotify.com/user/eetumro" target="_blank" rel="noopener noreferrer">
-          He is currently listening to <strong>{song.item.name}</strong> by {artistName}
+          He is currently listening to <i>{song.item.name}</i> by {artistName}.
         </a>
       </p>
     )
