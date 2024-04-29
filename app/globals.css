@@ -81,6 +81,32 @@ pre {
   @apply m-0;
 }
 
+/* Kinda working */
+/* a {
+  background: linear-gradient(to top, hsla(0, 0%, 0%, 0) 0px, #c8f176 0),
+    linear-gradient(to top, hsla(0, 0%, 100%, 0) 0px, #c8f176 0);
+  background-size: 100% 0.1em, 0 0.1em;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+a:hover,
+a:focus {
+  background-size: 0 0.5em, 100% 0.5em;
+} */
+
+/* a {
+  background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 99%, #c8f176 0);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+a:hover {
+  background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 0px, #c8f176 0);
+} */
+
 /* .prose pre {
   @apply bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-900;
 } */
