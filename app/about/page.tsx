@@ -21,7 +21,7 @@ export default function About() {
         <div className="leading-snug">
           <div className="max-w-5xl"></div>
           <p className="mb-6">
-            I'm a full-stack software developer and product engineer excited by building products that make a
+            I'm a full-stack software developer, product engineer and designer excited by building products that make a
             difference.
           </p>
           <p className="mb-6">
@@ -49,6 +49,54 @@ export default function About() {
             Futurice
           </a>
           , a digital transformation agency.
+        </p>
+      </div>
+      <div className="mt-16 md:mt-32">
+        <h2 className={`${playfairDisplay.className} md:text-3xl text-2xl font-light mb-8`}>Get in touch</h2>
+        <p className="md:text-xl text-xl font-light">
+          I'm always interested in hearing about new opportunities, projects or just to chat. Feel free to reach out to
+          me at{" "}
+          <span className="email">
+            hello@eetueskelinen<b>.obfuscation</b>.com
+          </span>
+        </p>
+        <p className="md:text-xl text-xl font-light mt-4">
+          You can also find me on{" "}
+          <a
+            href="
+            https://www.linkedin.com/in/eetueskelinen/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-neutral-400 hover:underline"
+          >
+            LinkedIn
+          </a>
+          ,{" "}
+          <a
+            href="https://x.com/edwardtehgreat"
+            target="_blank"
+            rel="noreferrer"
+            className="text-neutral-400 hover:underline"
+          >
+            X
+          </a>
+          , and{" "}
+          <a
+            href="https://github.com/eppu"
+            target="_blank"
+            rel="noreferrer"
+            className="text-neutral-400 hover:underline"
+          >
+            GitHub
+          </a>
+          .
+        </p>
+        <p className="md:text-xl text-xl font-light mt-4">
+          My resume is available{" "}
+          <a href="/files/resume.pdf" className="text-neutral-400 hover:underline">
+            here
+          </a>
+          .
         </p>
       </div>
     </section>

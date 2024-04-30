@@ -81,6 +81,11 @@ pre {
   @apply m-0;
 }
 
+/* Email obfuscation */
+span.email b {
+  display: none;
+}
+
 /* Kinda working */
 /* a {
   background: linear-gradient(to top, hsla(0, 0%, 0%, 0) 0px, #c8f176 0),
