@@ -42,62 +42,44 @@ export default function About() {
             >
               Futurice
             </a>{" "}
-            as a full-stack developer.
+            as a full-stack developer, and I'm based in Tampere, Finland.
           </p>
         </div>
         <div className="md:ml-8 lg:max-w-96">
           {/* <img src="/images/eetu2.jpg" alt="Eetu Eskelinen" className="rounded-lg" /> */}
-          <Image src={randomImage} alt="Eetu Eskelinen" width={1000} height={100} className="rounded-lg" />
+          <Image src={randomImage} alt="Eetu Eskelinen" width={500} height={100} className="rounded-lg" />
         </div>
       </div>
-
-      <div className="mt-16 md:mt-32 md:text-xl text-xl font-light flex flex-col gap-8">
-        <h2 className={`${playfairDisplay.className} md:text-3xl text-2xl font-light mb-2`}>A little bit about me</h2>
-        <p>
-          I'm currently based in Tampere, Finland, and have been working in the software industry since 2014. In my
-          work, I have skills and experience spanning most aspects of design and engineering, allowing me to shepherd
-          ideas from concept to mock, prototype, and ultimately, functional world-class end products.
-        </p>
-        <p>
-          I'm furiously passionate about understanding the big picture, the small details, and everything in between. I
-          love to learn and am always looking for ways to improve my skills and knowledge. Along with keeping my tech
-          skills up to date, I'm also interested in psychology, philosophy and anthropology.
-        </p>
-        <p>
-          In my life outside of work, I find joy in making and playing music 🥁, taking photos with film cameras 📸 and
-          hitting the open road on my motorcycle 🏍️.
-        </p>
+      <div className="grid md:grid-cols-[5fr_3fr] items-center">
+        <div className="mt-16 md:mt-32 md:text-1xl text-xl font-light flex flex-col gap-8 md:leading-semi-snug leading-normal">
+          <h2 className={`${playfairDisplay.className} md:text-4xl text-3xl font-light mb-2`}>A little bit about me</h2>
+          <p>
+            I have been working in the software industry since 2014. In my work, I have skills and experience spanning
+            most aspects of design and software engineering, allowing me to shepherd ideas from concept to mock,
+            prototype, and ultimately, functional world-class end products.
+            <br />
+            <br />
+            I'm furiously passionate about understanding the big picture, the small details, and the user.
+          </p>
+          <p>
+            I love to learn and am always looking for ways to improve my skills and knowledge. Along with keeping my
+            tech skills up to date, I'm also interested in psychology, philosophy and anthropology.
+          </p>
+          <p>
+            In my life outside of work, I find joy in making and playing music 🥁, taking photos with film cameras 📸
+            and hitting the open road on my motorcycle 🏍️.
+          </p>
+        </div>
       </div>
-
-      <div className="mt-16 md:mt-32 md:text-xl text🥁-xl font-light flex flex-col gap-8">
-        <h2 className={`${playfairDisplay.className} md:text-3xl text-2xl font-light mb-2`}>On work</h2>
-        <p>
-          Throughout my career I've gotten to work on tons of interesting business problems, lead remote teams, and
-          collaborate with some of the most talented individuals in the industry. I've worked with clients ranging from
-          small startups to large corporations across various industries.
-        </p>
-        <p>
-          The one thing common with every project I've worked on has been the focus on the user. I believe there is no
-          substitute for understanding the people who will use the products we build. After all, what's the purpose of
-          building something if it fails to solve a problem for someone or doesn't resonate with their needs?
-        </p>
-        <p>
-          The intersection of design and technology is where I feel most at home. I'm passionate about creating
-          experiences that are intuitive, delightful and accessible. I'm all for championing the user, but also
-          understand and consider the importance of the business side of things, as well as the technical aspects of
-          building world-class software.
-        </p>
-      </div>
-
-      <div className="mt-16 md:mt-32">
-        <h2 className={`${playfairDisplay.className} md:text-3xl text-2xl font-light mb-8`}>Get in touch</h2>
-        <p className="md:text-xl text-xl font-light">
+      <div className="mt-16 md:mt-32 md:text-1xl text-xl font-light md:leading-semi-snug leading-normal">
+        <h2 className={`${playfairDisplay.className} md:text-4xl text-2xl font-light mb-8`}>Get in touch</h2>
+        <p className="mb-4">
           I'm always open to hearing about new opportunities, projects or just to chat. Feel free to reach out to me at{" "}
           <span className="email">
             hello@eetueskelinen<b>.obfuscation</b>.com
           </span>
         </p>
-        <p className="md:text-xl text-xl font-light mt-4">
+        <p className="mb-4">
           You can also find me on{" "}
           <a
             href="
@@ -128,9 +110,9 @@ export default function About() {
           </a>
           .
         </p>
-        <p className="md:text-xl text-xl font-light mt-4">
+        <p className="mb-4">
           My resume is available{" "}
-          <a href="/files/resume.pdf" className="text-neutral-400 hover:underline">
+          <a href="/files/resume.pdf" target="_blank" className="text-neutral-400 hover:underline">
             here
           </a>
           .

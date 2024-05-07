@@ -16,6 +16,10 @@ const config: Config = {
       },
       lineHeight: {
         "semi-tight": "1.15",
+        "semi-snug": "1.425",
+      },
+      fontSize: {
+        "1xl": "1.35rem",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

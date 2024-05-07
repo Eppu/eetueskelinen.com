@@ -22,15 +22,15 @@ function createHeading(level) {
       `h${level}`,
       {
         id: slug,
-        // className: `${playfairDisplay.className} tracking-wide`
+        className: `${playfairDisplay.className} tracking-wide`,
       },
-      // [
-      //   React.createElement("a", {
-      //     href: `#${slug}`,
-      //     key: `link-${slug}`,
-      //     className: `anchor`,
-      //   }),
-      // ],
+      [
+        React.createElement("a", {
+          href: `#${slug}`,
+          key: `link-${slug}`,
+          className: `anchor`,
+        }),
+      ],
       children
     );
   };

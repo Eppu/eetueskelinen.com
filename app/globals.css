@@ -86,6 +86,29 @@ span.email b {
   display: none;
 }
 
+.prose .anchor {
+  @apply absolute invisible no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose .anchor:after {
+  @apply text-neutral-300 dark:text-neutral-500;
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
 /* Kinda working */
 /* a {
   background: linear-gradient(to top, hsla(0, 0%, 0%, 0) 0px, #c8f176 0),
