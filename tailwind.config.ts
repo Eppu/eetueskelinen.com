@@ -12,7 +12,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        yellowgreen: "#c8f176",
+        // yellowgreen: "#c8f176",
+        yellowgreen: "#9DFA05",
       },
       lineHeight: {
         "semi-tight": "1.15",

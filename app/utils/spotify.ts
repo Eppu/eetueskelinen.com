@@ -60,3 +60,35 @@ export const getSpotifyData = async () => {
 
   return { responseArtists, responseRecently, responseTracks };
 };
+
+// If I'm currently playing something, return that. Otherwise, return the most recently played track.
+export const getMostRecentlyPlayed = async () => {
+  const { access_token } = await getAccessToken();
+
+  const nowPlaying = await fetch(NOW_PLAYING_ENDPOINT, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+
+  if (nowPlaying.status !== 200) {
+    const recentlyPlayed = await fetch(RECENTLY_PLAYED_ENDPOINT, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+
+    const mostRecentTrack = await recentlyPlayed.json();
+    return {
+      currentlyPlaying: false,
+      item: mostRecentTrack.items[0],
+    };
+  }
+
+  const nowPlayingResponse = await nowPlaying.json();
+
+  return {
+    isPlaying: nowPlayingResponse.is_playing,
+    item: { track: nowPlayingResponse.item },
+  };
+};

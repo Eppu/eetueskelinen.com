@@ -1,4 +1,5 @@
 import { playfairDisplay } from "../utils/fonts";
+import Title from "../components/Title";
 import Image from "next/image";
 import type { Metadata } from "next";
 
@@ -13,9 +14,7 @@ export default function About() {
 
   return (
     <section className="flex min-h-screen flex-col md:py-16 max-w-7xl">
-      <h1 className={`${playfairDisplay.className} mb-12 md:text-5xl md:leading-tight text-5xl leading-tight`}>
-        Hello, I'm Eetu Eskelinen 👋🏻
-      </h1>
+      <Title>Hey, I'm Eetu 👋🏻</Title>
       <div className="grid md:grid-cols-[5fr_3fr] gap-8 md:text-2xl text-xl font-light items-center">
         {/* <div className="flex flex-col lg:flex-row gap-8 md:text-2xl text-xl font-light"> */}
         <div className="leading-snug">
@@ -54,13 +53,15 @@ export default function About() {
         <div className="mt-16 md:mt-32 md:text-1xl text-xl font-light flex flex-col gap-8 md:leading-semi-snug leading-normal">
           <h2 className={`${playfairDisplay.className} md:text-4xl text-3xl font-light mb-2`}>A little bit about me</h2>
           <p>
-            I have been working in the software industry since 2014. In my work, I have skills and experience spanning
-            most aspects of design and software engineering, allowing me to shepherd ideas from concept to mock,
-            prototype, and ultimately, functional world-class end products.
-            <br />
-            <br />
-            I'm furiously passionate about understanding the big picture, the small details, and the user.
+            After working in and around the software industry for around a decade, I've found my place (for now, at
+            least) in bridging gaps somewhere between design, development and business.
           </p>
+          <p>
+            Through the years I've gathered skills and experience spanning most aspects of design and software
+            engineering, allowing me to shepherd ideas from concept to mock, prototype, and ultimately, functional
+            world-class end products.
+          </p>
+          <p>I'm furiously passionate about understanding the big picture, the small details, and the user.</p>
           <p>
             I love to learn and am always looking for ways to improve my skills and knowledge. Along with keeping my
             tech skills up to date, I'm also interested in psychology, philosophy and anthropology.
