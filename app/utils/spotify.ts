@@ -63,32 +63,47 @@ export const getSpotifyData = async () => {
 
 // If I'm currently playing something, return that. Otherwise, return the most recently played track.
 export const getMostRecentlyPlayed = async () => {
-  const { access_token } = await getAccessToken();
+  try {
+    const { access_token } = await getAccessToken();
 
-  const nowPlaying = await fetch(NOW_PLAYING_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-  });
-
-  if (nowPlaying.status !== 200) {
-    const recentlyPlayed = await fetch(RECENTLY_PLAYED_ENDPOINT, {
+    const nowPlaying = await fetch(NOW_PLAYING_ENDPOINT, {
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
     });
 
-    const mostRecentTrack = await recentlyPlayed.json();
+    if (nowPlaying.status !== 200) {
+      const recentlyPlayed = await fetch(RECENTLY_PLAYED_ENDPOINT, {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
+
+      if (!recentlyPlayed.ok) {
+        throw new Error(`Error fetching recently played: ${recentlyPlayed.status}`);
+      }
+
+      const mostRecentTrack = await recentlyPlayed.json();
+      return {
+        currentlyPlaying: false,
+        type: "recent",
+        item: mostRecentTrack.items[0],
+      };
+    }
+
+    if (!nowPlaying.ok) {
+      throw new Error(`Error fetching now playing: ${nowPlaying.status}`);
+    }
+
+    const nowPlayingResponse = await nowPlaying.json();
+
     return {
-      currentlyPlaying: false,
-      item: mostRecentTrack.items[0],
+      isPlaying: nowPlayingResponse.is_playing,
+      type: "current",
+      item: { track: nowPlayingResponse.item },
     };
+  } catch (error) {
+    console.error(error);
+    return null;
   }
-
-  const nowPlayingResponse = await nowPlaying.json();
-
-  return {
-    isPlaying: nowPlayingResponse.is_playing,
-    item: { track: nowPlayingResponse.item },
-  };
 };

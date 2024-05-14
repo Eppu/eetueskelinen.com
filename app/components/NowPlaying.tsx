@@ -6,28 +6,26 @@ export default async function NowPlaying() {
   noStore();
   let res = await getMostRecentlyPlayed();
 
-  // console.log("res", res);
-
-  // let getMostRecentlyPlayedRes = await getMostRecentlyPlayed();
-  // console.log("getMostRecentlyPlayedRes", getMostRecentlyPlayedRes);
-
-  // if (res.status === 204) {
-  //   console.log("res status is 204");
-  //   // No content, just return null
-  //   return null;
-  // }
-
-  // if (res.status !== 200) {
-  //   console.warn("Spotify response was not successful: ", res);
-  //   // Return null to avoid error messages. This doesn't display anything on the page.
-  //   // Also makes it possible to run the site without Spotify API keys.
-  //   return null;
-  // }
+  if (!res) {
+    console.warn("No Spotify data found");
+    return null;
+  }
 
   const song = res.item.track;
-  // console.log("song", song);
   const isPlaying = res.isPlaying;
+  const isRecent = res.type === "recent";
   console.log("isPlaying", isPlaying);
+  console.log("isRecent", isRecent);
+
+  let nowPlayingMessage: string = "";
+
+  if (!isPlaying && !isRecent) {
+    nowPlayingMessage = "He was just listening to";
+  } else if (isPlaying) {
+    nowPlayingMessage = "He is currently listening to";
+  } else if (isRecent) {
+    nowPlayingMessage = "He last listened to";
+  }
 
   // only display the first artist and the text "and others" if there are multiple artists
   const artistName = song.artists.length > 1 ? `${song.artists[0].name} and others` : song.artists[0].name;
@@ -39,7 +37,7 @@ export default async function NowPlaying() {
         style={{ animationDelay: "1500ms" }}
       >
         <Link href="/music">
-          {isPlaying ? "He is currently listening to" : "He last listened to"} <i>{song.name}</i> by {artistName}.
+          {nowPlayingMessage} <i>{song.name}</i> by {artistName}.
         </Link>
       </p>
     )
