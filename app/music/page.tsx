@@ -21,8 +21,6 @@ export default async function Music() {
   const recently = await res.responseRecently.json();
   const tracks = await res.responseTracks.json();
 
-  console.log("recently", JSON.stringify(recently.items, null, 2));
-
   return (
     <section className="flex flex-col md:py-16 max-w-7xl">
       <Title>Music</Title>
@@ -39,6 +37,7 @@ export default async function Music() {
       <ul>
         {artists.items.map((artist) => (
           <li key={artist.id}>
+            {artist.id}
             <a href={artist.external_urls.spotify} target="_blank" rel="noreferrer">
               {artist.name}
             </a>
@@ -50,6 +49,7 @@ export default async function Music() {
       <ul>
         {tracks.items.map((track) => (
           <li key={track.id}>
+            {track.id}
             <a href={track.external_urls.spotify} target="_blank" rel="noreferrer">
               {track.name} by {track.artists[0].name}
             </a>
@@ -61,7 +61,7 @@ export default async function Music() {
       <h2 className="md:text-2xl text-xl mt-8">Recently played tracks</h2>
       <ul>
         {recently.items.map((recent) => (
-          <li key={recent.id}>
+          <li key={`recent-${recent.track.id}`}>
             <a href={recent.track.external_urls.spotify} target="_blank" rel="noreferrer">
               {recent.track.name} by {recent.track.artists[0].name}
             </a>
