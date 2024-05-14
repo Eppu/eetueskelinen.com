@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { playfairDisplay } from "../utils/fonts";
 import { slugify } from "../utils/blog";
+import BigQuote from "./mdx/BigQuote";
 
 function Code({ children, ...props }) {
   // highlight wants to add a sh__token--string to the end of each line on Windows. It causes duplicate line breaks on local envs, but is not a problem in production.
@@ -51,6 +52,7 @@ const components = {
   h6: createHeading(6),
   code: Code,
   Image: NextImage,
+  BigQuote,
 };
 
 export function CustomMDX(props) {

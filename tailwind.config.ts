@@ -12,7 +12,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // yellowgreen: "#c8f176",
+        yellowgreenlight: "#c8f176",
         yellowgreen: "#9DFA05",
       },
       lineHeight: {
