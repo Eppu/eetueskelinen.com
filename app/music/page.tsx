@@ -24,7 +24,7 @@ export default async function Music() {
   return (
     <section className="flex flex-col md:py-16 max-w-7xl">
       <Title>Music</Title>
-      <p>
+      <p className="md:text-2xl text-xl mb-8">
         Tracks and artists I've listened to the most during the past month, according to{" "}
         <a href="https://open.spotify.com/user/eetumro" target="_blank" rel="noopener noreferrer">
           Spotify
@@ -33,11 +33,10 @@ export default async function Music() {
       </p>
       {/* <div className="grid grid-cols-2 gap-4"> */}
       {/* <div> */}
-      <h2 className="md:text-2xl text-xl mt-8">Top artists</h2>
-      <ul>
+      <h2 className="md:text-2xl text-xl mt-8 mb-4">Top artists</h2>
+      <ul className="mb-2">
         {artists.items.map((artist) => (
-          <li key={artist.id}>
-            {artist.id}
+          <li key={artist.id} className="mb-1">
             <a href={artist.external_urls.spotify} target="_blank" rel="noreferrer">
               {artist.name}
             </a>
@@ -45,11 +44,10 @@ export default async function Music() {
         ))}
       </ul>
 
-      <h2 className="md:text-2xl text-xl mt-8">Top tracks</h2>
-      <ul>
+      <h2 className="md:text-2xl text-xl mt-8 mb-4">Top tracks</h2>
+      <ul className="mb-2">
         {tracks.items.map((track) => (
-          <li key={track.id}>
-            {track.id}
+          <li key={track.id} className="mb-2">
             <a href={track.external_urls.spotify} target="_blank" rel="noreferrer">
               {track.name} by {track.artists[0].name}
             </a>
@@ -58,10 +56,10 @@ export default async function Music() {
       </ul>
       {/* </div> */}
       {/* <div> */}
-      <h2 className="md:text-2xl text-xl mt-8">Recently played tracks</h2>
-      <ul>
+      <h2 className="md:text-2xl text-xl mt-8 mb-4">Recently played tracks</h2>
+      <ul className="mb-2">
         {recently.items.map((recent) => (
-          <li key={`recent-${recent.track.id}`}>
+          <li key={`recent-${recent.track.id}`} className="mb-2">
             <a href={recent.track.external_urls.spotify} target="_blank" rel="noreferrer">
               {recent.track.name} by {recent.track.artists[0].name}
             </a>

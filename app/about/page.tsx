@@ -2,6 +2,8 @@ import { playfairDisplay } from "../utils/fonts";
 import Title from "../components/Title";
 import Image from "next/image";
 import type { Metadata } from "next";
+import Image1 from "@/public/images/eetu1.jpg";
+import Image2 from "@/public/images/eetu2.jpg";
 
 export const metadata: Metadata = {
   title: "About",
@@ -9,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
-  const images = ["/images/eetu1.jpg", "/images/eetu2.jpg"];
+  const images = [Image1, Image2];
   const randomImage = images[Math.floor(Math.random() * images.length)];
 
   return (
@@ -46,7 +48,15 @@ export default function About() {
         </div>
         <div className="md:ml-8 lg:max-w-96">
           {/* <img src="/images/eetu2.jpg" alt="Eetu Eskelinen" className="rounded-lg" /> */}
-          <Image src={randomImage} alt="Eetu Eskelinen" width={500} height={100} className="rounded-lg" />
+          <Image
+            src={randomImage}
+            // priority={true}
+            placeholder="blur"
+            alt="Eetu Eskelinen"
+            width={500}
+            height={100}
+            className="rounded-lg"
+          />
         </div>
       </div>
       <div className="grid md:grid-cols-[5fr_3fr] items-center">
