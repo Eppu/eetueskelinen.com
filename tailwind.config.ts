@@ -13,6 +13,7 @@ const config: Config = {
     extend: {
       colors: {
         yellowgreenlight: "#c8f176",
+        // yellowgreen: "#9DFA05",
         yellowgreen: "#9DFA05",
       },
       lineHeight: {
