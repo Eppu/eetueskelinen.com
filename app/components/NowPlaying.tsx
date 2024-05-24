@@ -1,6 +1,7 @@
 import { getNowPlaying, getMostRecentlyPlayed } from "../utils/spotify";
 import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
+import GradientText from "./GradientText";
 
 export default async function NowPlaying() {
   noStore();
@@ -14,8 +15,6 @@ export default async function NowPlaying() {
   const song = res.item.track;
   const isPlaying = res.isPlaying;
   const isRecent = res.type === "recent";
-  console.log("isPlaying", isPlaying);
-  console.log("isRecent", isRecent);
 
   let nowPlayingMessage: string = "";
 
@@ -37,7 +36,9 @@ export default async function NowPlaying() {
         style={{ animationDelay: "1500ms" }}
       >
         <Link href="/music">
-          {nowPlayingMessage} <i>{song.name}</i> by {artistName}.
+          {/* TODO: Don't know if I like the gradient yet. Another option would be to just use a <i>. */}
+          {/* {nowPlayingMessage} <i>{song.name}</i> by {artistName}. */}
+          {nowPlayingMessage} <GradientText animated>{song.name}</GradientText> by {artistName}.
         </Link>
       </p>
     )

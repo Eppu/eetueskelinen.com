@@ -35,6 +35,15 @@ const config: Config = {
           },
         },
       },
+      animation: {
+        // "fade-in-down": "fade-in-down 1s ease 0s 1 normal forwards",
+        // "fade-in-up": "fade-in-up 1s ease 0s 1 normal forwards",
+        // "fade-in-down": "fade-in-down 1s ease var(--fadein-delay, 0) normal forwards",
+        // "fade-in-up": "fade-in-up 1s ease var(--fadein-delay, 0) normal forwards",
+        "fade-in-down": "fade-in-down 1s ease 0s 1 normal forwards",
+        "fade-in-up": "fade-in-up 1s ease 0s 1 normal forwards",
+        gradient: "gradient 60s linear infinite",
+      },
       keyframes: {
         "fade-in-down": {
           "0%": {
@@ -56,14 +65,9 @@ const config: Config = {
             transform: "translateY(0)",
           },
         },
-      },
-      animation: {
-        // "fade-in-down": "fade-in-down 1s ease 0s 1 normal forwards",
-        // "fade-in-up": "fade-in-up 1s ease 0s 1 normal forwards",
-        // "fade-in-down": "fade-in-down 1s ease var(--fadein-delay, 0) normal forwards",
-        // "fade-in-up": "fade-in-up 1s ease var(--fadein-delay, 0) normal forwards",
-        "fade-in-down": "fade-in-down 1s ease 0s 1 normal forwards",
-        "fade-in-up": "fade-in-up 1s ease 0s 1 normal forwards",
+        gradient: {
+          to: { backgroundPosition: "200% center" },
+        },
       },
     },
   },
