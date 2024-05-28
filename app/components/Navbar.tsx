@@ -10,7 +10,7 @@ export const navItems = [
 export default function Navbar() {
   return (
     <nav
-      className="mb-12 mt-8 w-full flex justify-between items-center"
+      className="mb-12 mt-12 w-full flex justify-between items-center"
       // className="flex justify-between items-center max-w-7xl mx-4 mt-12 lg:mx-auto"
     >
       {/* <a href="/" className="text-lg">

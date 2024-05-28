@@ -6,7 +6,7 @@ import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <section className="flex min-h-screen flex-col md:py-16 justify-between max-w-7xl">
+    <section className="flex flex-col md:py-16 justify-between max-w-7xl">
       <div className="max-w-5xl ">
         <h1 className={`${playfairDisplay.className} md:text-7xl md:leading-tight text-5xl leading-tight`}>
           <HeroLine delay={100}>

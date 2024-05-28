@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Work() {
   return (
-    <section className="flex min-h-screen flex-col md:py-16 max-w-7xl">
+    <section className="flex flex-col md:py-16 max-w-7xl">
       <Title>Work</Title>
       <p className="text-xl">The work I've done during my career.</p>
       <hr className="my-10 border-neutral-800" />

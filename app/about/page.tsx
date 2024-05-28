@@ -15,7 +15,7 @@ export default function About() {
   const randomImage = images[Math.floor(Math.random() * images.length)];
 
   return (
-    <section className="flex min-h-screen flex-col md:py-16 max-w-7xl">
+    <section className="flex flex-col md:py-16 max-w-7xl">
       <Title>Hey, I'm Eetu 👋🏻</Title>
       <div className="grid md:grid-cols-[5fr_3fr] gap-8 md:text-2xl text-xl font-light items-center">
         {/* <div className="flex flex-col lg:flex-row gap-8 md:text-2xl text-xl font-light"> */}
@@ -50,7 +50,7 @@ export default function About() {
           {/* <img src="/images/eetu2.jpg" alt="Eetu Eskelinen" className="rounded-lg" /> */}
           <Image
             src={randomImage}
-            // priority={true}
+            priority={true}
             placeholder="blur"
             alt="Eetu Eskelinen"
             width={500}

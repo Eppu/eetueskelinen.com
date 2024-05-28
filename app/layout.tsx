@@ -47,9 +47,9 @@ export default function RootLayout({
       {/* <body className="antialiased bg-[#0b0b0b]"> */}
       <body className="antialiased bg-[#080808]">
         {/* <body className="antialiased bg-[#000]"> */}
-        <div className="max-w-7xl flex flex-col mx-4 mt-4 md:px-16 lg:mx-auto flex-auto min-w-0 px-2">
+        <div className="max-w-7xl flex flex-col min-h-screen mx-4 md:px-16 lg:mx-auto flex-auto min-w-0 pb-2">
           <Navbar />
-          <main className="mb-40">{children}</main>
+          <main className="mb-40 flex-grow">{children}</main>
           <Footer />
         </div>
       </body>
