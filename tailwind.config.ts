@@ -15,6 +15,7 @@ const config: Config = {
         yellowgreenlight: "#c8f176",
         // yellowgreen: "#9DFA05",
         yellowgreen: "#9DFA05",
+        yellowgreenselection: "#d0ff00",
       },
       lineHeight: {
         "semi-tight": "1.15",

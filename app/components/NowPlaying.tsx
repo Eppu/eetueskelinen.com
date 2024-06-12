@@ -35,11 +35,17 @@ export default async function NowPlaying() {
         className="motion-safe:opacity-0 motion-safe:animate-fade-in-up md:text-2xl text-xl mt-8"
         style={{ animationDelay: "1500ms" }}
       >
-        <Link href="/music">
-          {/* TODO: Don't know if I like the gradient yet. Another option would be to just use a <i>. */}
-          {/* {nowPlayingMessage} <i>{song.name}</i> by {artistName}. */}
-          {nowPlayingMessage} <GradientText animated>{song.name}</GradientText> by {artistName}.
-        </Link>
+        {/* TODO: Don't know if I like the gradient yet. Another option would be to just use a <i>. */}
+        {/* {nowPlayingMessage} <i>{song.name}</i> by {artistName}. */}
+        {nowPlayingMessage}{" "}
+        <Link
+          href="/music"
+          className="
+        hover:brightness-75 hover:scale-125"
+        >
+          <GradientText animated>{song.name}</GradientText>
+        </Link>{" "}
+        by {artistName}.
       </p>
     )
   );

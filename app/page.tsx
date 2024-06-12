@@ -27,7 +27,7 @@ export default function Home() {
           style={{ animationDelay: "1500ms" }}
         >
           Eetu currently works as a software developer at{" "}
-          <a href="https://futurice.com" className="group hover:text-yellowgreen" target="blank">
+          <a href="https://futurice.com" className="group hover:text-yellowgreenselection" target="blank">
             Futurice
           </a>
           .

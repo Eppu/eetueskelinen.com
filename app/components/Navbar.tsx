@@ -9,10 +9,7 @@ export const navItems = [
 
 export default function Navbar() {
   return (
-    <nav
-      className="mb-12 mt-12 w-full flex justify-between items-center"
-      // className="flex justify-between items-center max-w-7xl mx-4 mt-12 lg:mx-auto"
-    >
+    <nav className="mb-12 mt-12 w-full flex justify-between items-center">
       {/* <a href="/" className="text-lg">
         Eetu Eskelinen
       </a> */}
@@ -21,7 +18,7 @@ export default function Navbar() {
           <Link
             key={item.href}
             href={item.href}
-            className="text-lg hover:transition-all hover:text-neutral-200 duration-50"
+            className="text-lg hover:transition-all hover:text-neutral-400 duration-50"
           >
             {item.name}
           </Link>
