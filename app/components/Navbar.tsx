@@ -4,7 +4,7 @@ export const navItems = [
   { name: "home", href: "/" },
   { name: "about", href: "/about" },
   { name: "work", href: "/work" },
-  { name: "blog", href: "/blog/mypost" },
+  { name: "blog", href: "/blog/" },
 ];
 
 export default function Navbar() {

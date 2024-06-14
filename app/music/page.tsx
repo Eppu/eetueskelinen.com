@@ -26,13 +26,20 @@ export default async function Music() {
   return (
     <section className="flex flex-col md:py-16 max-w-7xl">
       <Title>Music</Title>
-      <p className="md:text-2xl text-xl mb-8">
+      <p className="text-xl mb-4">
         Tracks and artists I've listened to the most during the past month, according to{" "}
         <a href="https://open.spotify.com/user/eetumro" target="_blank" rel="noopener noreferrer">
           Spotify
         </a>
         .
       </p>
+      {/* <p className="md:text-2xl text-xl mb-8">
+        Tracks and artists I've listened to the most during the past month, according to{" "}
+        <a href="https://open.spotify.com/user/eetumro" target="_blank" rel="noopener noreferrer">
+          Spotify
+        </a>
+        .
+      </p> */}
 
       <h2 className="md:text-2xl text-xl my-8">Top artists</h2>
       <ul className="mb-10 flex flex-row md:gap-8 gap-4">

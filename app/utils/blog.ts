@@ -7,6 +7,7 @@ type Metadata = {
   publishedAt: string;
   updatedAt?: string;
   summary?: string;
+  draft?: string;
 };
 
 // Frontmatter parsing and MDX file reading code originally by Lee Robinson (@leerob)
@@ -88,6 +89,7 @@ export function formatDateToString(date: string) {
     year: "numeric",
   });
 
+  // TODO: Replace this with isMatch and formatDistanceToNow from date-fns
   if (daysAgo < 1) {
     return "Today";
   } else if (daysAgo < 7) {
