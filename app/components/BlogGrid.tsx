@@ -20,7 +20,7 @@ export default function BlogGrid({ posts }) {
         <Link
           href={`/blog/${post.slug}`}
           className="md:text-xl text-lg relative mb-0 md:mb-4 hover:scale-105 transition-all duration-200 ease-in-out
-                rounded-md shadow-md motion-reduce:transition-none border
+                rounded-md shadow-md motion-reduce:transition-none
                 "
           key={post.slug}
         >
