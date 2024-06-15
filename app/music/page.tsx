@@ -41,19 +41,23 @@ export default async function Music() {
         .
       </p> */}
 
-      <h2 className="md:text-2xl text-xl my-8">Top artists</h2>
+      <h2 className="md:text-2xl text-xl my-8 font-medium">Top artists</h2>
       <ul className="mb-10 flex flex-row md:gap-8 gap-4">
         {artists.items.map((artist) => (
           <li key={artist.id}>
             <a href={artist.external_urls.spotify} target="_blank" rel="noreferrer">
-              <div className="flex items-center flex-col ">
-                <Image
-                  src={artist.images[0].url}
-                  alt={artist.name}
-                  className="rounded-full object-cover aspect-square"
-                  width={128}
-                  height={128}
-                />
+              <div className="flex items-center flex-col">
+                <div className="relative max-w-xs overflow-hidden bg-cover bg-no-repeat">
+                  <Image
+                    src={artist.images[0].url}
+                    alt={artist.name}
+                    className="rounded-full object-cover aspect-square"
+                    width={128}
+                    height={128}
+                  />
+                  <div className="rounded-full absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-neutral-50  bg-fixed opacity-0 transition duration-150 ease-in-out hover:opacity-15"></div>
+                </div>
+
                 <p className="text-center mt-2 text-xl font-medium">{artist.name}</p>
               </div>
             </a>
@@ -63,7 +67,7 @@ export default async function Music() {
 
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-16">
         <div>
-          <h2 className="md:text-2xl text-xl mt-8 mb-4">Top tracks</h2>
+          <h2 className="md:text-2xl text-xl mt-8 mb-4 font-medium">Top tracks</h2>
           <ul className="mb-2">
             {tracks.items.map((track) => (
               <li key={track.id} className="mb-4">
@@ -80,7 +84,7 @@ export default async function Music() {
         </div>
 
         <div>
-          <h2 className="md:text-2xl text-xl mt-8 mb-4">Recently played tracks</h2>
+          <h2 className="md:text-2xl text-xl mt-8 mb-4 font-medium">Recently played tracks</h2>
           <ul className="mb-2">
             {recently.items.map((recent) => (
               <li key={`recent-${recent.track.id}`} className="mb-4">
