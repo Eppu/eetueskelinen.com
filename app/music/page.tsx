@@ -3,6 +3,7 @@ import { unstable_noStore as noStore } from "next/cache";
 import Title from "../components/Title";
 import Image from "next/image";
 import { MusicCard } from "../components/MusicCard";
+import ExternalLink from "../components/ExternalLink";
 
 export default async function Music() {
   noStore();
@@ -28,18 +29,8 @@ export default async function Music() {
       <Title>Music</Title>
       <p className="text-xl mb-4">
         Tracks and artists I've listened to the most during the past month, according to{" "}
-        <a href="https://open.spotify.com/user/eetumro" target="_blank" rel="noopener noreferrer">
-          Spotify
-        </a>
-        .
+        <ExternalLink href="https://open.spotify.com/user/eetumro">Spotify</ExternalLink>.
       </p>
-      {/* <p className="md:text-2xl text-xl mb-8">
-        Tracks and artists I've listened to the most during the past month, according to{" "}
-        <a href="https://open.spotify.com/user/eetumro" target="_blank" rel="noopener noreferrer">
-          Spotify
-        </a>
-        .
-      </p> */}
 
       <h2 className="md:text-2xl text-xl my-8 font-medium">Top artists</h2>
       <ul className="mb-10 flex flex-row md:gap-8 gap-4">

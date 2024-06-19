@@ -3,7 +3,7 @@ import { formatDateToString } from "../utils/blog";
 import { DraftIndicatorDot } from "./DraftIndicatorDot";
 
 export default function BlogGrid({ posts }) {
-  if (!posts.length) {
+  if (posts.length) {
     return (
       <>
         <hr className="mt-1 mb-9 border-neutral-800" />

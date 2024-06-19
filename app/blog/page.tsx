@@ -2,6 +2,7 @@ import { getBlogPosts } from "../utils/blog";
 import type { Metadata } from "next";
 import Title from "../components/Title";
 import BlogGrid from "../components/BlogGrid";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -9,6 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+  if (process.env.BLOG_ENABLED !== "true") {
+    return notFound();
+  }
+
   let posts = getBlogPosts();
 
   return (
