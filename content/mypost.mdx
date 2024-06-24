@@ -1,0 +1,90 @@
+---
+title: "Sample Blog Post"
+publishedAt: "2024-04-11"
+updatedAt: "2024-04-12"
+summary: "This is a sample blog post written in MDX format."
+draft: "true"
+---
+
+MDX allows you to write JSX (React components) alongside Markdown content, making it a powerful tool for creating dynamic and interactive blog posts.
+
+<BigQuote>
+  MDX is a great choice for creating blog posts that combine the simplicity of Markdown with the power of React
+  components.
+</BigQuote>
+
+This text is **in bold**, while this is _in italics_. You can also include [links](https://example.com) in your blog posts.
+
+```jsx
+.button {
+  color: black;
+  background-color: gray;
+}
+
+.button--primary {
+  color: white;
+  background-color: green;
+}
+```
+
+> blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote blockquote
+>
+> more quotes with a [link](https://example.com)
+
+## Images
+
+Here is an image embedded in the post with regular markdown syntax:
+
+![Sample Image](/images/eetueskelinen-full.jpg)
+
+Here's an image using the custom `next/image` component:
+
+<Image
+  alt={`A sample image with a custom component`}
+  src={`/images/eetueskelinen-full.jpg`}
+  width={3840 / 3}
+  height={2160 / 3}
+/>
+
+## Markdown Features
+
+MDX supports all the standard Markdown features, such as:
+
+- Headings
+- Lists
+- Links
+- Images
+- Code blocks
+
+Here is an example of a code block in Markdown:
+
+```js
+import fs from "fs";
+import path from "path";
+
+function getMDXFiles(dir) {
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+}
+```
+
+## JSX Components
+
+In addition to Markdown, you can also include JSX components in your blog post. This allows you to add interactivity and dynamic content to your posts. For example, you can embed a YouTube video:
+
+### This is a level 3 heading
+
+It's only a matter of time before you can embed a YouTube video in your blog post:
+
+```js
+import YouTube from "react-youtube";
+function YouTubeVideo() {
+  const videoId = "dQw4w9WgXcQ"; // Rick Astley - Never Gonna Give You Up
+  return <YouTube videoId={videoId} />;
+}
+```
+
+## Conclusion
+
+MDX is a great choice for creating blog posts that combine the simplicity of Markdown with the power of React components. It provides a flexible and extensible way to create rich and interactive content.
+
+Happy blogging!
