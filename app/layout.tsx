@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { dmSans } from "./utils/fonts";
 import "./globals.css";
 
+import SkipToContentLink from "./components/SkipToContentLink";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -39,6 +40,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const MAIN_CONTENT_ID = "main-content";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -48,8 +51,11 @@ export default function RootLayout({
     <html lang="en" className={dmSans.className}>
       <body className="antialiased bg-[#080808]">
         <div className="max-w-7xl flex flex-col min-h-screen mx-4 md:px-16 lg:mx-auto flex-auto min-w-0 pb-2">
+          <SkipToContentLink />
           <Navbar />
-          <main className="mb-40 flex-grow">{children}</main>
+          <main id={MAIN_CONTENT_ID} className="mb-40 flex-grow">
+            {children}
+          </main>
           <Footer />
         </div>
         <Analytics />
