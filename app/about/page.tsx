@@ -11,10 +11,25 @@ export const metadata: Metadata = {
   description: "Information about Eetu Eskelinen, a software developer and product engineer based in Tampere, Finland.",
 };
 
-export default function About() {
-  const images = [Image1, Image2];
-  const randomImage = images[Math.floor(Math.random() * images.length)];
+const images = [Image1, Image2];
 
+function RandomImage() {
+  const image = images[Math.floor(Math.random() * images.length)];
+
+  return (
+    <Image
+      src={image}
+      priority={true}
+      placeholder="blur"
+      alt="Eetu Eskelinen"
+      width={500}
+      height={100}
+      className="rounded-lg"
+    />
+  );
+}
+
+export default function About() {
   return (
     <section className="flex flex-col md:py-16 max-w-7xl">
       <Title>Hey, I'm Eetu 👋🏻</Title>
@@ -27,12 +42,12 @@ export default function About() {
             make a difference.
           </p>
           <p className="mb-6">
-            My time in the software industry began in 2014, and since then I've been designing, building and shipping
-            products for clients and users around the world.
-          </p>
-          <p className="mb-6">
             I'm driven by a fascination with bleeding-edge tech and intuitive, delightful design. The magic of using
             something that <i>just works.</i>
+          </p>
+          <p className="mb-6">
+            My time in the software industry began in 2014, and since then I've been designing, building and shipping
+            products for clients and users around the world.
           </p>
           <p className="mb-6">
             I currently work at <ExternalLink href="https://futurice.com">Futurice</ExternalLink> as a full-stack
@@ -41,15 +56,7 @@ export default function About() {
         </div>
         <div className="lg:ml-8 lg:max-w-96">
           {/* <img src="/images/eetu2.jpg" alt="Eetu Eskelinen" className="rounded-lg" /> */}
-          <Image
-            src={randomImage}
-            priority={true}
-            placeholder="blur"
-            alt="Eetu Eskelinen"
-            width={500}
-            height={100}
-            className="rounded-lg"
-          />
+          <RandomImage />
         </div>
       </div>
       <div className="grid lg:grid-cols-[5fr_3fr] items-center">
