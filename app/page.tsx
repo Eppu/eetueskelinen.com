@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { playfairDisplay } from "@/app/utils/fonts";
 import { HeroLine } from "./components/HeroLine";
 import NowPlaying from "./components/NowPlaying";
 import { Suspense } from "react";
+import ExternalLink from "./components/ExternalLink";
 
 export default function Home() {
   return (
@@ -27,10 +27,7 @@ export default function Home() {
           style={{ animationDelay: "1500ms" }}
         >
           Eetu currently works as a software developer at{" "}
-          <a href="https://futurice.com" className="group hover:text-yellowgreenselection" target="blank">
-            Futurice
-          </a>
-          .
+          <ExternalLink href="https://futurice.com">Futurice</ExternalLink>.
         </p>
         <Suspense>
           <NowPlaying />
