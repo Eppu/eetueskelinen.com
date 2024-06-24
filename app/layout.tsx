@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { dmSans } from "./utils/fonts";
 import "./globals.css";
 
+import { MAIN_CONTENT_ID } from "./utils/constants";
 import SkipToContentLink from "./components/SkipToContentLink";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -39,8 +40,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
 };
-
-export const MAIN_CONTENT_ID = "main-content";
 
 export default function RootLayout({
   children,

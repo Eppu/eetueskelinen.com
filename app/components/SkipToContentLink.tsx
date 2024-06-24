@@ -1,4 +1,4 @@
-import { MAIN_CONTENT_ID } from "../layout";
+import { MAIN_CONTENT_ID } from "../utils/constants";
 
 export default function SkipToContentLink() {
   return (
