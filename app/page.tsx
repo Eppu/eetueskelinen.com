@@ -29,7 +29,7 @@ export default function Home() {
           Eetu currently works as a software developer at{" "}
           <ExternalLink href="https://futurice.com">Futurice</ExternalLink>.
         </p>
-        <Suspense>
+        <Suspense fallback={<div className="h-8 mt-8" />}>
           <NowPlaying />
         </Suspense>
       </div>
