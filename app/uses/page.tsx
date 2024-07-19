@@ -119,6 +119,7 @@ export default function Work() {
             <li>Apple Watch Series 7</li>
             <li>Apple AirPods Pro</li>
             <li>Apple iPad Air (M2)</li>
+            <li>Apple Pencil Pro</li>
             <li>Bose QC35</li>
           </ul>
         </div>
