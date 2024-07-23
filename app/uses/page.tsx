@@ -62,11 +62,11 @@ export default function Work() {
           <p className="text-lg mt-6">
             I use Firefox as my main browser, and Visual Studio Code as my editor. I use a mix of tools for development,
             design and productivity. I like to keep things pretty simple, but once I find tools I like, I tend to stick
-            with them.
+            with them. Probably forgot a few things here, but I'll update this list as I remember them.
           </p>
           <p className="text-lg mt-4">
             I'm a big fan of using built-in tools, and really like using things like the Notes app on Mac, or Notepad on
-            Windows. I also do a lot of stuff through the terminal, so I tend to use that a lot.
+            Windows. I also do a lot of stuff through the terminal.
           </p>
         </div>
         <div>
@@ -104,8 +104,8 @@ export default function Work() {
             <li>GoPro Hero 11</li>
           </ul>
           <p className="text-lg mt-6">
-            I mainly tend to shoot on film these days. It's a nice hobby that lets me get away from screens. I'm a bit
-            of a collector, so these are just some of the cameras I use the most.
+            I mainly tend to shoot on film these days. It's a nice hobby for getting away from screens. I'm a bit of a
+            collector, so these are just some of the cameras I use the most.
           </p>
           <p className="text-lg mt-4">
             I use a Canon 70D and a Valoi film holder for scanning my negatives, but the majority of my digital
@@ -120,7 +120,7 @@ export default function Work() {
             <li>Apple AirPods Pro</li>
             <li>Apple iPad Air (M2)</li>
             <li>Apple Pencil Pro</li>
-            <li>Bose QC35</li>
+            <li>Bose QC35 II</li>
           </ul>
         </div>
       </div>

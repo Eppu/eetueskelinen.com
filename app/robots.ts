@@ -8,5 +8,6 @@ export default function robots() {
       },
     ],
     sitemap: "https://eetueskelinen.com/sitemap.xml",
+    host: "https://eetueskelinen.com",
   };
 }
