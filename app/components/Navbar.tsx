@@ -4,6 +4,8 @@ export const navItems = [
   { name: "home", href: "/" },
   { name: "about", href: "/about" },
   { name: "work", href: "/work" },
+  // TODO: Remove this check once the blog is ready to be published
+  ...(process.env.BLOG_ENABLED === "true" ? [{ name: "blog", href: "/blog" }] : []),
   // { name: "blog", href: "/blog/" },
 ];
 
