@@ -75,6 +75,7 @@ export default async function Blog({ params }) {
                 <p className="text-sm  mt-1 mb-0">Updated on {formatDateToString(post.metadata.updatedAt)}</p>
               )}
               {/* TODO: Uncomment this when we want to actually show a view count on the posts */}
+              {/* Could also probably use Suspense for this */}
               {/* <Views slug={post.slug} /> */}
             </div>
           </div>

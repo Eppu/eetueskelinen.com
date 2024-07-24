@@ -4,6 +4,10 @@ import { sql } from "@vercel/postgres";
 import { unstable_noStore as noStore } from "next/cache";
 
 export async function incrementViews(slug: string) {
+  if (!process.env.POSTGRES_URL) {
+    return;
+  }
+
   noStore();
   await sql`
     INSERT INTO views (slug, count)
