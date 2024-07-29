@@ -4,6 +4,8 @@ import { formatDateToString, getBlogPosts } from "@/app/utils/blog";
 import { notFound } from "next/navigation";
 import { dmSans, playfairDisplay } from "@/app/utils/fonts";
 import { unstable_noStore as noStore } from "next/cache";
+import { incrementViews, getViewCount } from "@/app/db/actions";
+import { cache } from "react";
 
 const isLocal = process.env.NODE_ENV === "development";
 
@@ -34,12 +36,16 @@ export async function generateMetadata({ params }): Promise<Metadata | undefined
 }
 
 // Using SSR instead of SSG for this, since I might add dynamic content in the future
-export default function Blog({ params }) {
+export default async function Blog({ params }) {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
 
-  if (!post) {
+  if (!post || process.env.BLOG_ENABLED !== "true") {
     return notFound();
   }
+
+  let incrementViewCount = cache(incrementViews);
+  incrementViewCount(post.slug);
+
   return (
     <section>
       <div className="flex-auto min-w-0 max-w-3xl mb-40 md:flex-row mt-8 lg:mx-auto">
@@ -60,13 +66,18 @@ export default function Blog({ params }) {
             )}
           </div>
           <hr className="mt-1 mb-2 md:mt-2 md:mb-4 border-neutral-800" />
-          <div className="flex flex-col ml-auto w-full">
-            <p className="text-sm text-neutral-500 mb-0">
-              Published on {formatDateToString(post.metadata.publishedAt)}
-            </p>
-            {post.metadata.updatedAt && (
-              <p className="text-sm text-neutral-500 mt-1">Updated on {formatDateToString(post.metadata.updatedAt)}</p>
-            )}
+
+          {/* Metadata section */}
+          <div className="flex flex-row justify-between text-neutral-500">
+            <div className="flex flex-col ml-auto w-full ">
+              <p className="text-sm  mb-0">Published on {formatDateToString(post.metadata.publishedAt)}</p>
+              {post.metadata.updatedAt && (
+                <p className="text-sm  mt-1 mb-0">Updated on {formatDateToString(post.metadata.updatedAt)}</p>
+              )}
+              {/* TODO: Uncomment this when we want to actually show a view count on the posts */}
+              {/* Could also probably use Suspense for this */}
+              {/* <Views slug={post.slug} /> */}
+            </div>
           </div>
 
           <CustomMDX source={post.content} />
@@ -75,3 +86,16 @@ export default function Blog({ params }) {
     </section>
   );
 }
+
+// TODO: Uncomment these when we want to actually show a view count on the posts
+// let incrementViewCount = cache(incrementViews);
+
+// async function Views({ slug }) {
+//   const views = await getViewCount(slug);
+//   await incrementViewCount(slug);
+
+//   if (!views) {
+//     return;
+//   }
+//   return <p className="text-sm mt-1">{views} views</p>;
+// }
