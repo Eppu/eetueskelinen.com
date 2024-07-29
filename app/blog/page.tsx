@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Title from "../components/Title";
 import BlogGrid from "../components/BlogGrid";
 import { notFound } from "next/navigation";
+import FrostedImage from "../components/FrostedImage";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -23,6 +24,7 @@ export default function BlogPage() {
         Musings on design, development, and life. I write about things I find interesting, challenging, or just plain
         fun.
       </p>
+
       <BlogGrid posts={posts} />
     </section>
   );

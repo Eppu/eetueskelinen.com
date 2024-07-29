@@ -16,6 +16,7 @@ const config: Config = {
         // yellowgreen: "#9DFA05",
         yellowgreen: "#9DFA05",
         yellowgreenselection: "#d0ff00",
+        blackrgba: "rgba(0, 0, 0, 0.1)",
       },
       lineHeight: {
         "semi-tight": "1.15",
