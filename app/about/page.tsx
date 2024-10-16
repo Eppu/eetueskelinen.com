@@ -78,7 +78,7 @@ export default function About() {
             tech skills up to date, I'm also interested in psychology, philosophy and anthropology.
           </p>
 
-          <FrostedImage src="/images/eetueskelinen-full.jpg" alt="Eetu Eskelinen" text="Eetu Eskelinen" />
+          {/* <FrostedImage src="/images/eetueskelinen-full.jpg" alt="Eetu Eskelinen" text="Eetu Eskelinen" /> */}
           <p>
             In my life outside of work, I find joy in making and playing music 🥁, taking photos with film cameras 📸
             and hitting the open road on my motorcycle 🏍️.
