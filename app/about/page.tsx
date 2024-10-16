@@ -5,6 +5,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Image1 from "@/public/images/eetu1.jpg";
 import Image2 from "@/public/images/eetu2.jpg";
+import FrostedImage from "../components/FrostedImage";
 
 export const metadata: Metadata = {
   title: "About",
@@ -76,6 +77,8 @@ export default function About() {
             I love to learn and am always looking for ways to improve my skills and knowledge. Along with keeping my
             tech skills up to date, I'm also interested in psychology, philosophy and anthropology.
           </p>
+
+          {/* <FrostedImage src="/images/eetueskelinen-full.jpg" alt="Eetu Eskelinen" text="Eetu Eskelinen" /> */}
           <p>
             In my life outside of work, I find joy in making and playing music 🥁, taking photos with film cameras 📸
             and hitting the open road on my motorcycle 🏍️.
