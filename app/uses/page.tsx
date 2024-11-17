@@ -30,8 +30,7 @@ export default function Work() {
             <li>Steelseries 6Gv2 mechanical keyboard</li>
             <li>Apple Magic Trackpad</li>
             <li>
-              Logitech MX Master 3 mouse (I don't use this much since the magnetic scroll wheel is absolute garbage on
-              Mac){" "}
+              Logitech MX Master 3 mouse (I don't use this much since the magnetic scroll wheel is hot garbage on Mac)
             </li>
             <li>Logitech G403 mouse</li>
             <li>Ikea Bekant electric standing desk (160x80)</li>
@@ -39,7 +38,7 @@ export default function Work() {
           </ul>
           <p className="text-lg mt-6">
             I use a mix of macOS, Windows and Linux for my work. I prefer macOS for development and design work, but
-            often use my surprisingly well-aged PC for games and other tasks.
+            often use my surprisingly well-aged PC for games and other non-work tasks.
           </p>
           <p className="text-lg mt-4">
             I tend to use the gear I buy for as long as possible, which is why some of it is quite old at this point.

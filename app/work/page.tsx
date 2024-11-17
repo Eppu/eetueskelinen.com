@@ -12,7 +12,7 @@ export default function Work() {
   return (
     <section className="flex flex-col md:py-16 max-w-7xl">
       <Title>Work</Title>
-      <p className="text-xl mb-4">
+      <p className="text-xl mb-8">
         Things I've done during my career. See more on my{" "}
         <ExternalLink href="https://linkedin.com/in/eetueskelinen">LinkedIn</ExternalLink>.
       </p>
