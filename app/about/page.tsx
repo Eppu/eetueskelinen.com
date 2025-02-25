@@ -51,7 +51,7 @@ export default function About() {
             products for clients and users around the world.
           </p>
           <p className="mb-6">
-            I currently work at <ExternalLink href="https://futurice.com">Futurice</ExternalLink> as a full-stack
+            I most recently worked at <ExternalLink href="https://futurice.com">Futurice</ExternalLink> as a full-stack
             developer, and I'm based in Tampere, Finland.
           </p>
         </div>
