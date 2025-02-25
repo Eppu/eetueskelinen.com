@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import Image1 from "@/public/images/eetu1.jpg";
 import Image2 from "@/public/images/eetu2.jpg";
 import FrostedImage from "../components/FrostedImage";
+import CopyEmail from "../components/CopyEmail";
 
 export const metadata: Metadata = {
   title: "About",
@@ -91,9 +92,7 @@ export default function About() {
         </h2>
         <p className="mb-4">
           I'm always open to hearing about new opportunities, projects or just to chat. Feel free to reach out to me at{" "}
-          <span className="email">
-            hello@eetueskelinen<b>.obfuscation</b>.com
-          </span>
+          <CopyEmail />
         </p>
         <p className="mb-4">
           You can also find me on{" "}
