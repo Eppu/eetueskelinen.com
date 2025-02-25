@@ -29,16 +29,16 @@ export default function Work() {
       <hr className="my-10 border-neutral-800" />
       <div className="text-lg font-light flex flex-col gap-2 leading-normal">
         <h2 className="text-2xl font-medium ">Futurice</h2>
-        <p className="text-neutral-400 text-base mb-2">Software Developer, 2021 - present</p>
+        <p className="text-neutral-400 text-base mb-2">Software Developer, 2021 - 2025</p>
         <p>
-          Futurice is one of the leading digital transformation consultancies in Europe. I work there as a full-stack
-          developer, building world-class digital products and services for our clients. I work on challenging problems
-          with clients of varying sizes in different industries, focusing on delivering value and challenging
-          conventions.
+          Futurice is one of the leading digital transformation consultancies in Europe. I worked there as a full-stack
+          developer, building world-class digital products and services for our clients. I got to take part in creatings
+          solutions to challenging problems with clients of varying sizes in different industries, focusing on
+          delivering value and challenging conventions.
         </p>
         <p>
-          In my work, I work with all sorts of technologies, from the frontend to cloud infrastructure. On occasion, I
-          also work in design and scrum master roles, depending on the project and client needs.
+          In my role at Futurice, I worked with all sorts of technologies, from the frontend to cloud infrastructure. On
+          occasion, I also worked in design and scrum master roles, depending on the project and client needs.
         </p>
         <hr className="my-10 border-neutral-800" />
         <h2 className="text-2xl font-medium">Tampere University of Applied Sciences</h2>
