@@ -27,7 +27,7 @@ export default function Work() {
             <li>27" Acer Nitro VG270U WQHD monitor</li>
             <li>BenQ XL2411T 1080p monitor</li>
             <li>Apple Magic Keyboard</li>
-            <li>Steelseries 6Gv2 mechanical keyboard</li>
+            <li>Logitech G515 TKL Lightspeed</li>
             <li>Apple Magic Trackpad</li>
             <li>
               Logitech MX Master 3 mouse (I don't use this much since the magnetic scroll wheel is hot garbage on Mac)
@@ -115,10 +115,8 @@ export default function Work() {
           <h2 className="text-2xl font-medium mb-2 ">Other Tech</h2>
           <ul className="list-disc pl-6 space-y-2">
             <li>Apple iPhone 14 Pro</li>
-            <li>Apple Watch Series 7</li>
+            <li>Apple Watch Series 7 (41 mm)</li>
             <li>Apple AirPods Pro</li>
-            <li>Apple iPad Air (M2)</li>
-            <li>Apple Pencil Pro</li>
             <li>Bose QC35 II</li>
           </ul>
         </div>
