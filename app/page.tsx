@@ -26,7 +26,8 @@ export default function Home() {
           className="md:text-2xl text-xl mt-8 motion-safe:opacity-0 motion-safe:animate-fade-in-up"
           style={{ animationDelay: "1500ms" }}
         >
-          Eetu is currently in between jobs, but starting in a new role soon!
+          Eetu currently works as a senior software developer at{" "}
+          <ExternalLink href="https://brightly.fi">Brightly</ExternalLink>.
         </p>
         <Suspense fallback={<div className="h-8 mt-8" />}>
           <NowPlaying />

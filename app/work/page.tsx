@@ -28,13 +28,20 @@ export default function Work() {
       </p>
       <hr className="my-10 border-neutral-800" />
       <div className="text-lg font-light flex flex-col gap-2 leading-normal">
+        <h2 className="text-2xl font-medium ">Brightly</h2>
+        <p className="text-neutral-400 text-base mb-2">Senior Software Developer, 2025 - present</p>
+        <p>
+          Brightly is a tech consultancy specializing in data-driven digital solutions that add business value. I work
+          there as a senior software developer, building and maintaining digital products and services for our clients.
+        </p>
+        <hr className="my-10 border-neutral-800" />
         <h2 className="text-2xl font-medium ">Futurice</h2>
         <p className="text-neutral-400 text-base mb-2">Software Developer, 2021 - 2025</p>
         <p>
           Futurice is one of the leading digital transformation consultancies in Europe. I worked there as a full-stack
-          developer, building world-class digital products and services for our clients. I got to take part in creatings
-          solutions to challenging problems with clients of varying sizes in different industries, focusing on
-          delivering value and challenging conventions.
+          developer, building world-class digital products and services for our clients in various domains, like media,
+          automotive and retail. I got to take part in creatings solutions to challenging problems with clients of
+          varying sizes in different industries, focusing on delivering value and challenging conventions.
         </p>
         <p>
           In my role at Futurice, I worked with all sorts of technologies, from the frontend to cloud infrastructure. On
