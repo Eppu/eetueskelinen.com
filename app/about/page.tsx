@@ -88,7 +88,7 @@ export default function About() {
       </div>
       <div className="mt-16 md:mt-32 md:text-1xl text-xl font-light md:leading-semi-snug leading-normal">
         <h2 id="contact" className={`${playfairDisplay.className} md:text-4xl text-2xl font-light mb-8`}>
-          Get in touch
+          Get in touch 👇
         </h2>
         <p className="mb-4">
           I'm always open to hearing about new opportunities, projects or just to chat. Feel free to reach out to me at{" "}
