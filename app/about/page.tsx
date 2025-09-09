@@ -95,13 +95,13 @@ export default function About() {
           <CopyEmail />
         </p>
         <p className="mb-4">
+          My resume is available <ExternalLink href="/files/resume.pdf">here</ExternalLink>.
+        </p>
+        <p className="mb-4">
           You can also find me on{" "}
           <ExternalLink href="https://www.linkedin.com/in/eetueskelinen/">LinkedIn</ExternalLink>,{" "}
           <ExternalLink href="https://x.com/edwardtehgreat">X</ExternalLink>, and{" "}
           <ExternalLink href="https://github.com/eppu">GitHub</ExternalLink>.
-        </p>
-        <p className="mb-4">
-          My resume is available <ExternalLink href="/files/resume.pdf">here</ExternalLink>.
         </p>
       </div>
     </section>
