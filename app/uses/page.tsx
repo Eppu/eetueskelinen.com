@@ -22,7 +22,7 @@ export default function Work() {
         <div>
           <h2 className="text-2xl font-medium mb-2 ">Office & Computer</h2>
           <ul className="list-disc pl-6 space-y-2">
-            <li>16" MacBook Pro (2023, M2 Max)</li>
+            <li>16" MacBook Pro (2024, M4 Pro)</li>
             <li>Custom built PC (2015)</li>
             <li>27" Acer Nitro VG270U WQHD monitor</li>
             <li>BenQ XL2411T 1080p monitor</li>
