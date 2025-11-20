@@ -29,14 +29,20 @@ export default function Work() {
       <hr className="my-10 border-neutral-800" />
       <div className="text-lg font-light flex flex-col gap-2 leading-normal">
         <h2 className="text-2xl font-medium ">Brightly</h2>
-        <p className="text-neutral-400 text-base mb-2">Senior Software Developer, 2025 - present</p>
+        <div className="flex flex-col gap-0 text-neutral-400 text-base mb-2">
+          <p>Senior Software Developer</p>
+          <p>2025 – Present</p>
+        </div>
         <p>
           Brightly is a tech consultancy specializing in data-driven digital solutions that add business value. I work
           there as a senior software developer, building and maintaining digital products and services for our clients.
         </p>
         <hr className="my-10 border-neutral-800" />
         <h2 className="text-2xl font-medium ">Futurice</h2>
-        <p className="text-neutral-400 text-base mb-2">Software Developer, 2021 - 2025</p>
+        <div className="flex flex-col gap-0 text-neutral-400 text-base mb-2">
+          <p>Software Developer</p>
+          <p>2021 – 2025</p>
+        </div>
         <p>
           Futurice is one of the leading digital transformation consultancies in Europe. I worked there as a full-stack
           developer, building world-class digital products and services for our clients in various domains, like media,
@@ -49,7 +55,10 @@ export default function Work() {
         </p>
         <hr className="my-10 border-neutral-800" />
         <h2 className="text-2xl font-medium">Tampere University of Applied Sciences</h2>
-        <p className="text-neutral-400 text-base mb-2">Lecturer, 2020 - 2023</p>
+        <div className="flex flex-col gap-0 text-neutral-400 text-base mb-2">
+          <p>Lecturer</p>
+          <p>2020 – 2023</p>
+        </div>
         <p>
           Tampere University of Applied Sciences is one of the largest universities of applied sciences in Finland. I
           worked there as a part-time lecturer, teaching the basics of web development and design to students in the
@@ -62,7 +71,10 @@ export default function Work() {
         </p>
         <hr className="my-10 border-neutral-800" />
         <h2 className="text-2xl font-medium">Kamerastore</h2>
-        <p className="text-neutral-400 text-base mb-2">Lead Developer, 2018 - 2021</p>
+        <div className="flex flex-col gap-0 text-neutral-400 text-base mb-2">
+          <p>Lead Developer</p>
+          <p>2018 – 2021</p>
+        </div>
         <p>
           Kamerastore is a Finnish online store specializing in used camera gear. I worked there as a lead developer,
           building and maintaining the online store, as well as developing internal tools and integrations with external
@@ -75,7 +87,10 @@ export default function Work() {
         </p>
         <hr className="my-10 border-neutral-800" />
         <h2 className="text-2xl font-medium">Icona</h2>
-        <p className="text-neutral-400 text-base mb-2">Founder, 2014 - 2017</p>
+        <div className="flex flex-col gap-0 text-neutral-400 text-base mb-2">
+          <p>Founder</p>
+          <p>2014 – 2017</p>
+        </div>
         <p>
           Icona was a small media production agency I founded together with my college friends in 2014. I worked with
           clients in Finland and abroad, building websites and web applications for small and medium-sized businesses. I
