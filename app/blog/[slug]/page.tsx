@@ -9,7 +9,8 @@ import { cache } from "react";
 
 const isLocal = process.env.NODE_ENV === "development";
 
-export async function generateMetadata({ params }): Promise<Metadata | undefined> {
+export async function generateMetadata(props): Promise<Metadata | undefined> {
+  const params = await props.params;
   const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -36,7 +37,8 @@ export async function generateMetadata({ params }): Promise<Metadata | undefined
 }
 
 // Using SSR instead of SSG for this, since I might add dynamic content in the future
-export default async function Blog({ params }) {
+export default async function Blog(props) {
+  const params = await props.params;
   let post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post || process.env.BLOG_ENABLED !== "true") {
@@ -62,7 +64,7 @@ export default async function Blog({ params }) {
             {post.metadata.summary && (
               // Maybe change this to a brighter color
 
-              <p className="text-2xl text-neutral-400 font-normal md:font-medium md:mt-0">{post.metadata.summary}</p>
+              (<p className="text-2xl text-neutral-400 font-normal md:font-medium md:mt-0">{post.metadata.summary}</p>)
             )}
           </div>
           <hr className="mt-1 mb-2 md:mt-2 md:mb-4 border-neutral-800" />
