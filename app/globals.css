@@ -171,6 +171,14 @@ span.email b {
   }
 }
 
-.animate-music-bar {
-  animation: music-bar 2.5s ease-in-out infinite;
+@media (prefers-reduced-motion: no-preference) {
+  .animate-music-bar {
+    animation: music-bar 2.5s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-music-bar {
+    animation: none;
+  }
 }
