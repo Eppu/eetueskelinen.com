@@ -134,3 +134,51 @@ span.email b {
     rgba(0, 0, 0, 1) 100%
   );
 }
+
+@keyframes music-bar {
+  0% {
+    height: 3px;
+  }
+  10% {
+    height: 10px;
+  }
+  20% {
+    height: 5px;
+  }
+  30% {
+    height: 14px;
+  }
+  40% {
+    height: 8px;
+  }
+  50% {
+    height: 12px;
+  }
+  60% {
+    height: 4px;
+  }
+  70% {
+    height: 9px;
+  }
+  80% {
+    height: 6px;
+  }
+  90% {
+    height: 11px;
+  }
+  100% {
+    height: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-music-bar {
+    animation: music-bar 2.5s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-music-bar {
+    animation: none;
+  }
+}
