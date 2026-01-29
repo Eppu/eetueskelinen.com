@@ -17,7 +17,7 @@ const CopyEmail = () => {
     // if not, show the email
 
     <span
-      className="email cursor-pointer hover:text-yellowgreenselection"
+      className="email text-neutral-400 cursor-pointer hover:text-yellowgreenselection"
       onClick={handleCopy}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
