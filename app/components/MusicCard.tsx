@@ -13,9 +13,9 @@ export const MusicCard: React.FC<MusicCardProps> = ({ artist, imageUrl, external
     <a
       href={externalUrl}
       target="_blank"
-      rel="noreferrer"
-      className="md:h-32 h-20 rounded-lg border-neutral-900 shadow-md flex bg-neutral-900 bg-opacity-50 hover:bg-opacity-100 transition-all duration-200 ease-in-out
-    outline-zinc-800 outline outline-1 focus:ring focus:ring-yellowgreen"
+      rel="noopener noreferrer"
+      aria-label={`Open ${name} by ${artist} on Spotify`}
+      className="group flex h-20 rounded-lg border border-neutral-800/90 bg-surface/50 shadow-md outline outline-1 outline-neutral-900 transition-all duration-200 ease-in-out hover:border-yellowgreen/40 hover:bg-surface/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellowgreenselection/90 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas md:h-32"
     >
       <div className="flex flex-row">
         <Image
@@ -25,11 +25,11 @@ export const MusicCard: React.FC<MusicCardProps> = ({ artist, imageUrl, external
           height={128}
           className="rounded-lg md:h-32 md:w-32 h-20 w-20"
         />
-        <div className="flex flex-col ml-8 md:text-xl text-lg justify-evenly">
-          <p className="font-semibold line-clamp-1">{name}</p>
+        <div className="ml-8 flex flex-col justify-evenly text-lg md:text-xl">
+          <p className="line-clamp-1 font-semibold text-ink">{name}</p>
           <div>
-            <p className="font-medium md:text-lg text-base line-clamp-1">{artist}</p>
-            <p className="font-light opacity-50 md:text-lg text-base line-clamp-1 italic">{album}</p>
+            <p className="line-clamp-1 text-base font-medium text-ink md:text-lg">{artist}</p>
+            <p className="line-clamp-1 text-base font-light italic text-mutedink md:text-lg">{album}</p>
           </div>
         </div>
       </div>

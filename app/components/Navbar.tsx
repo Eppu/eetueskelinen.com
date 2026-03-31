@@ -1,31 +1,15 @@
-import Link from "next/link";
-
-export const navItems = [
-  { name: "home", href: "/" },
-  { name: "about", href: "/about" },
-  { name: "work", href: "/work" },
-  // TODO: Remove this check once the blog is ready to be published
-  ...(process.env.BLOG_ENABLED === "true" ? [{ name: "blog", href: "/blog" }] : []),
-  // { name: "blog", href: "/blog/" },
-];
+import { navItems } from "../utils/constants";
+import NavLinks from "./NavLinks";
 
 export default function Navbar() {
   return (
-    <nav className="mb-12 mt-12 w-full flex justify-between items-center">
-      {/* <a href="/" className="text-lg">
-        Eetu Eskelinen
-      </a> */}
-      <div className="flex space-x-4 ">
-        {navItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="text-lg hover:transition-all hover:text-neutral-400 duration-50"
-          >
-            {item.name}
-          </Link>
-        ))}
-      </div>
+    <nav className="mb-12 mt-10 flex w-full items-center justify-between border-b border-neutral-900/80 pb-5">
+      <NavLinks
+        items={navItems}
+        className="flex flex-wrap items-center gap-4 md:gap-6"
+        linkClassName="text-base capitalize text-mutedink transition-colors duration-150 hover:text-ink md:text-lg"
+        activeClassName="text-ink"
+      />
     </nav>
   );
 }

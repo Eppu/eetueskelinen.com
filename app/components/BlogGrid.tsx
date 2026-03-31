@@ -1,13 +1,17 @@
 import Link from "next/link";
 import { formatDateToString } from "../utils/blog";
-import { DraftIndicatorDot } from "./DraftIndicatorDot";
+import type { BlogPost } from "../utils/blog";
 
-export default function BlogGrid({ posts }) {
+type BlogGridProps = {
+  posts: BlogPost[];
+};
+
+export default function BlogGrid({ posts }: BlogGridProps) {
   if (!posts.length) {
     return (
       <>
         <hr className="mt-1 mb-9 border-neutral-800" />
-        <p className="text-lg mb-14 font-light">
+        <p className="mb-14 text-lg font-light text-mutedink">
           No posts found 🤷‍♂️ I probably haven't gotten around to writing anything yet. Check back soon!
         </p>
       </>
@@ -19,18 +23,27 @@ export default function BlogGrid({ posts }) {
       {posts.map((post) => (
         <Link
           href={`/blog/${post.slug}`}
-          className="md:text-xl text-lg relative mb-0 md:mb-4 hover:scale-105 transition-all duration-200 ease-in-out
-                rounded-md shadow-md motion-reduce:transition-none
-                "
+          className="group relative mb-0 rounded-xl border border-neutral-800/90 bg-surface/40 p-5 shadow-md transition-all duration-200 ease-in-out hover:border-yellowgreen/40 hover:bg-surface/80 md:mb-4"
           key={post.slug}
         >
-          {/* Post card */}
-          <div className="font-semibold flex flex-col gap-4 outline-zinc-800 outline outline-1 p-4 rounded-md hover:bg-neutral-800 hover:text-neutral-100 transition-all duration-300 ease-in-out">
-            {post.metadata.title}
-            <p className="font-light opacity-50 text-sm">{formatDateToString(post.metadata.publishedAt)}</p>
-            {/* {post.metadata.summary && <p className="text-lg text-neutral-400">{post.metadata.summary}</p>} */}
+          <div className="flex items-start justify-between gap-3">
+            <h2 className="text-lg font-semibold text-ink transition-colors duration-200 group-hover:text-yellowgreenselection md:text-xl">
+              {post.metadata.title}
+            </h2>
+            {post.metadata.draft && (
+              <span className="rounded-full bg-yellowgreen/20 px-2 py-1 text-xs font-medium text-yellowgreen">
+                Draft
+              </span>
+            )}
           </div>
-          {post.metadata.draft && <DraftIndicatorDot />}
+          <p className="mt-3 text-sm text-mutedink">{formatDateToString(post.metadata.publishedAt)}</p>
+          {post.metadata.summary && (
+            <p className="mt-4 line-clamp-3 text-base font-light leading-relaxed text-mutedink">
+              {post.metadata.summary}
+            </p>
+          )}
+          <div className="mt-5 text-sm font-medium text-yellowgreenlight">Read post</div>
+          <div className="pointer-events-none absolute inset-0 rounded-xl ring-0 transition-shadow duration-200 group-focus-visible:ring-2 group-focus-visible:ring-yellowgreenselection/90" />
         </Link>
       ))}
     </div>

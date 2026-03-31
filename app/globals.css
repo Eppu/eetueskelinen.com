@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 html {
-  color-scheme: dark;
   scrollbar-gutter: stable; /* Prevent layout shift from scrollbars*/
+  background-color: rgb(var(--bg));
 }
 
 @layer utilities {
@@ -14,11 +14,19 @@ html {
 }
 
 ::selection {
-  /* background-color: #c8f176; */ /* Original color */
-  background-color: #d0ff00;
-  color: #0a0a0a;
+  background-color: rgb(var(--accent-selection));
+  color: rgb(var(--bg));
 }
+
 :root {
+  color-scheme: dark;
+  --bg: 8 8 8;
+  --surface: 17 17 17;
+  --text: 242 242 242;
+  --muted: 163 163 163;
+  --accent: 157 250 5;
+  --accent-soft: 200 241 118;
+  --accent-selection: 208 255 0;
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
   --sh-sign: #8996a3;
@@ -29,6 +37,14 @@ html {
   --sh-property: #e25a1c;
   --sh-entity: #e25a1c;
 }
+
+body {
+  color: rgb(var(--text));
+  background-color: rgb(var(--bg));
+  background-image: radial-gradient(circle at top right, rgb(28 28 28 / 0.6), transparent 48%);
+  min-height: 100vh;
+}
+
 /* TODO: Find a nice theme for this */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -65,7 +81,7 @@ pre {
 }
 
 /* Email obfuscation */
-span.email b {
+.email b {
   display: none;
 }
 
@@ -181,4 +197,20 @@ span.email b {
   .animate-music-bar {
     animation: none;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:where(a, button, input, textarea, select, [role="button"], [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 2px solid rgb(var(--accent-selection));
+  outline-offset: 2px;
 }

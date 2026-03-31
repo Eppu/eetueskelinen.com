@@ -3,37 +3,45 @@
 import { useState } from "react";
 
 const CopyEmail = () => {
-  const [copied, setCopied] = useState(false);
-  const [hovered, setHovered] = useState(false);
+  const [status, setStatus] = useState<"idle" | "copied" | "error">("idle");
+  const [hintVisible, setHintVisible] = useState(false);
+  const statusId = "copy-email-status";
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText("hello@eetueskelinen.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText("hello@eetueskelinen.com");
+      setStatus("copied");
+    } catch {
+      setStatus("error");
+    }
+
+    setTimeout(() => setStatus("idle"), 2000);
   };
 
-  return (
-    // if copied, just show the Copied! text
-    // if not, show the email
+  const shouldShowStatus = hintVisible || status !== "idle";
 
-    <span
-      className="email text-neutral-400 cursor-pointer hover:text-yellowgreenselection"
-      onClick={handleCopy}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      hello@eetueskelinen<b>.obfuscation</b>.com
-      {hovered && (
-        <span className="text-sm ml-2 justify-center align-middle text-neutral-400">
-          {copied ? "Copied!" : "📋 Click to copy"}
+  return (
+    <span className="inline-flex items-center">
+      <button
+        type="button"
+        className="email cursor-pointer border-0 bg-transparent p-0 text-left text-mutedink transition-colors duration-150 hover:text-yellowgreenselection"
+        onClick={handleCopy}
+        onMouseEnter={() => setHintVisible(true)}
+        onMouseLeave={() => setHintVisible(false)}
+        onFocus={() => setHintVisible(true)}
+        onBlur={() => setHintVisible(false)}
+        aria-describedby={shouldShowStatus ? statusId : undefined}
+      >
+        hello@eetueskelinen<b>.obfuscation</b>.com
+      </button>
+      {shouldShowStatus && (
+        <span id={statusId} role="status" aria-live="polite" className="ml-2 text-sm text-mutedink">
+          {status === "copied" && "Copied"}
+          {status === "error" && "Copy failed"}
+          {status === "idle" && "Click to copy"}
         </span>
       )}
     </span>
-
-    // <span className="email cursor-pointer hover:underline" onClick={handleCopy}>
-    //   hello@eetueskelinen<b>.obfuscation</b>.com
-    //   {copied ? <span className="text-green-500 ml-2">Copied!</span> : null}
-    // </span>
   );
 };
 

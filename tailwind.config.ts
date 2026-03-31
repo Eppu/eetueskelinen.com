@@ -12,10 +12,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        yellowgreenlight: "#c8f176",
-        // yellowgreen: "#9DFA05",
-        yellowgreen: "#9DFA05",
-        yellowgreenselection: "#d0ff00",
+        yellowgreenlight: "rgb(var(--accent-soft) / <alpha-value>)",
+        yellowgreen: "rgb(var(--accent) / <alpha-value>)",
+        yellowgreenselection: "rgb(var(--accent-selection) / <alpha-value>)",
+        canvas: "rgb(var(--bg) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        ink: "rgb(var(--text) / <alpha-value>)",
+        mutedink: "rgb(var(--muted) / <alpha-value>)",
         blackrgba: "rgba(0, 0, 0, 0.1)",
       },
       lineHeight: {

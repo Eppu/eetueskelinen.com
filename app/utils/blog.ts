@@ -2,53 +2,87 @@ import fs from "fs";
 import path from "path";
 import { unstable_noStore as noStore } from "next/cache";
 
-type Metadata = {
+export type BlogMetadata = {
   title: string;
   publishedAt: string;
   updatedAt?: string;
   summary?: string;
-  draft?: string;
+  draft?: boolean;
+};
+
+export type BlogPost = {
+  metadata: BlogMetadata;
+  slug: string;
+  tweetIds: string[];
+  content: string;
 };
 
 // Frontmatter parsing and MDX file reading code originally by Lee Robinson (@leerob)
 function parseFrontmatter(fileContent: string) {
-  let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
-  let match = frontmatterRegex.exec(fileContent);
-  let frontMatterBlock = match![1];
-  let content = fileContent.replace(frontmatterRegex, "").trim();
-  let frontMatterLines = frontMatterBlock.trim().split("\n");
-  let metadata: Partial<Metadata> = {};
+  const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+  const match = frontmatterRegex.exec(fileContent);
+
+  if (!match) {
+    return { metadata: {} as BlogMetadata, content: fileContent.trim() };
+  }
+
+  const frontMatterBlock = match[1];
+  const content = fileContent.replace(frontmatterRegex, "").trim();
+  const frontMatterLines = frontMatterBlock.trim().split("\n");
+  const metadata: Partial<BlogMetadata> = {};
 
   frontMatterLines.forEach((line) => {
-    let [key, ...valueArr] = line.split(": ");
+    const [key, ...valueArr] = line.split(": ");
+
+    if (!key || valueArr.length === 0) {
+      return;
+    }
+
+    const metadataKey = key.trim() as keyof BlogMetadata;
     let value = valueArr.join(": ").trim();
     value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value;
+
+    if (metadataKey === "draft") {
+      metadata.draft = value === "true";
+      return;
+    }
+
+    metadata[metadataKey] = value;
   });
 
-  return { metadata: metadata as Metadata, content };
+  return { metadata: metadata as BlogMetadata, content };
 }
 
-function getMDXFiles(dir) {
+function getMDXFiles(dir: string): string[] {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
-function readMDXFile(filePath) {
-  let rawContent = fs.readFileSync(filePath, "utf-8");
+function readMDXFile(filePath: string) {
+  const rawContent = fs.readFileSync(filePath, "utf-8");
   return parseFrontmatter(rawContent);
 }
 
-function extractTweetIds(content) {
-  let tweetMatches = content.match(/<StaticTweet\sid="[0-9]+"\s\/>/g);
-  return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
+function extractTweetIds(content: string): string[] {
+  const tweetMatches = content.match(/<StaticTweet\sid="[0-9]+"\s\/>/g);
+
+  if (!tweetMatches) {
+    return [];
+  }
+
+  return tweetMatches
+    .map((tweet) => tweet.match(/[0-9]+/))
+    .filter((match): match is RegExpMatchArray => Boolean(match))
+    .map((match) => match[0]);
 }
 
-function getMDXData(dir) {
-  let mdxFiles = getMDXFiles(dir);
+function getMDXData(dir: string): BlogPost[] {
+  const mdxFiles = getMDXFiles(dir);
+
   return mdxFiles.map((file) => {
-    let { metadata, content } = readMDXFile(path.join(dir, file));
-    let slug = path.basename(file, path.extname(file));
-    let tweetIds = extractTweetIds(content);
+    const { metadata, content } = readMDXFile(path.join(dir, file));
+    const slug = path.basename(file, path.extname(file));
+    const tweetIds = extractTweetIds(content);
+
     return {
       metadata,
       slug,
@@ -58,8 +92,10 @@ function getMDXData(dir) {
   });
 }
 
-export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), "content"));
+export function getBlogPosts(): BlogPost[] {
+  return getMDXData(path.join(process.cwd(), "content")).sort(
+    (a, b) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
+  );
 }
 
 export function slugify(str) {

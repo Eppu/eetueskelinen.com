@@ -7,10 +7,9 @@ interface ExternalLinkProps {
 const ExternalLink: React.FC<ExternalLinkProps> = ({ href, children, className }) => {
   return (
     <a
-      className={`text-neutral-400 hover:text-yellowgreenselection transition-all duration-150 ease-in-out
-        ${className}`}
+      className={`text-mutedink transition-colors duration-150 ease-in-out hover:text-yellowgreenselection ${className ?? ""}`}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       href={href}
     >
       {children}

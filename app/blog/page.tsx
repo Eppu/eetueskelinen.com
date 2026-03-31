@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Title from "../components/Title";
 import BlogGrid from "../components/BlogGrid";
 import { notFound } from "next/navigation";
-import FrostedImage from "../components/FrostedImage";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -20,7 +19,7 @@ export default function BlogPage() {
   return (
     <section className="flex flex-col md:py-16 max-w-7xl">
       <Title>Blog</Title>
-      <p className="text-xl mb-14">
+      <p className="mb-14 text-xl text-mutedink">
         Musings on design, development, and life. I write about things I find interesting, challenging, or just plain
         fun.
       </p>

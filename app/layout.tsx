@@ -49,8 +49,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={dmSans.className}>
-      <body className="antialiased bg-[#080808]">
-        <div className="max-w-7xl flex flex-col min-h-screen mx-4 md:px-16 lg:mx-auto flex-auto min-w-0 pb-2">
+      <body className="antialiased bg-canvas text-ink">
+        <div className="mx-auto flex min-h-screen w-full max-w-7xl min-w-0 flex-auto flex-col px-4 pb-2 md:px-10 lg:px-16">
           <SkipToContentLink />
           <Navbar />
           <main id={MAIN_CONTENT_ID} className="mb-40 flex-grow">
