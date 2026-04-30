@@ -7,6 +7,8 @@ import Image1 from "@/public/images/eetu1.jpg";
 import Image2 from "@/public/images/eetu2.jpg";
 import FrostedImage from "../components/FrostedImage";
 import CopyEmail from "../components/CopyEmail";
+import LocalTime from "../components/LocalTime";
+import InteractiveEmoji from "../components/InteractiveEmoji";
 
 export const metadata: Metadata = {
   title: "About",
@@ -16,25 +18,56 @@ export const metadata: Metadata = {
 const images = [Image1, Image2];
 
 function RandomImage() {
-  const image = images[Math.floor(Math.random() * images.length)];
+  const index = Math.floor(Math.random() * images.length);
+  const image = images[index];
+  const figureNumber = String(index + 1).padStart(2, "0");
 
   return (
-    <Image
-      src={image}
-      priority={true}
-      placeholder="blur"
-      alt="Eetu Eskelinen"
-      width={500}
-      height={100}
-      className="rounded-lg"
-    />
+    <figure className="group">
+      <div className="relative overflow-hidden rounded-lg">
+        <Image
+          src={image}
+          priority={true}
+          placeholder="blur"
+          alt="Eetu Eskelinen"
+          width={500}
+          height={100}
+          className="rounded-lg transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-white/5"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{
+            background:
+              "radial-gradient(circle at 70% 30%, rgba(255,255,255,0.06) 0%, transparent 55%)",
+          }}
+        />
+      </div>
+      <figcaption className="mt-3 flex items-baseline justify-between gap-4 text-neutral-500">
+        <span className="text-[0.65rem] tracking-[0.2em] uppercase text-neutral-600">
+          Fig. {figureNumber} <span className="text-neutral-700"> &middot; </span> Portrait
+        </span>
+        <span className={`${playfairDisplay.className} italic text-sm text-neutral-400 inline-flex items-baseline gap-2`}>
+          <span>Tampere, Finland</span>
+          <span className="text-neutral-600 not-italic font-sans text-xs">
+            <LocalTime />
+          </span>
+        </span>
+      </figcaption>
+    </figure>
   );
 }
 
 export default function About() {
   return (
     <section className="flex flex-col md:py-16 max-w-7xl">
-      <Title>Hey, I'm Eetu 👋🏻</Title>
+      <Title>
+        Hey, I'm Eetu <InteractiveEmoji emoji="👋🏻" behavior="wave" label="Wave hello" />
+      </Title>
       <div className="grid lg:grid-cols-[5fr_3fr] gap-8 md:text-2xl text-xl font-light items-center">
         {/* <div className="flex flex-col lg:flex-row gap-8 md:text-2xl text-xl font-light"> */}
         <div className="leading-snug">
@@ -81,8 +114,10 @@ export default function About() {
 
           {/* <FrostedImage src="/images/eetueskelinen-full.jpg" alt="Eetu Eskelinen" text="Eetu Eskelinen" /> */}
           <p>
-            In my life outside of work, I find joy in making and playing music 🥁, taking photos with film cameras 📸
-            and hitting the open road on my motorcycle 🏍️.
+            In my life outside of work, I find joy in making and playing music{" "}
+            <InteractiveEmoji emoji="🥁" behavior="drum" label="Tap the drum" />, taking photos with film cameras{" "}
+            <InteractiveEmoji emoji="📸" behavior="shutter" label="Snap a photo" /> and hitting the open road on my
+            motorcycle <InteractiveEmoji emoji="🏍️" behavior="rev" label="Rev the engine" />.
           </p>
         </div>
       </div>

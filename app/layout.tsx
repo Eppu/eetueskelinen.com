@@ -9,6 +9,7 @@ import { MAIN_CONTENT_ID } from "./utils/constants";
 import SkipToContentLink from "./components/SkipToContentLink";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SecretCascade from "./components/SecretCascade";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://eetueskelinen.com"),
@@ -59,6 +60,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        <SecretCascade />
         <Analytics />
       </body>
     </html>

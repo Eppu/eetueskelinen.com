@@ -1,8 +1,9 @@
 import { playfairDisplay } from "@/app/utils/fonts";
 import { HeroLine } from "./components/HeroLine";
-import NowPlaying from "./components/NowPlaying";
+import NowPlaying, { NowPlayingSkeleton } from "./components/NowPlaying";
 import { Suspense } from "react";
 import ExternalLink from "./components/ExternalLink";
+import ScrambleText from "./components/ScrambleText";
 
 export default function Home() {
   return (
@@ -10,7 +11,10 @@ export default function Home() {
       <div className="max-w-5xl ">
         <h1 className={`${playfairDisplay.className} md:text-7xl md:leading-tight text-5xl leading-tight`}>
           <HeroLine delay={100}>
-            <b className="italic">Eetu</b> is a software developer
+            <b className="italic">
+              <ScrambleText>Eetu</ScrambleText>
+            </b>{" "}
+            is a software developer
           </HeroLine>
           <HeroLine delay={300}>excited about solving human</HeroLine>
           <HeroLine delay={500}>problems using technology.</HeroLine>
@@ -29,7 +33,7 @@ export default function Home() {
           Eetu currently works as a Senior Software Developer at{" "}
           <ExternalLink href="https://brightly.fi">Brightly</ExternalLink>.
         </p>
-        <Suspense fallback={<div className="h-8 mt-8" />}>
+        <Suspense fallback={<NowPlayingSkeleton />}>
           <NowPlaying />
         </Suspense>
       </div>

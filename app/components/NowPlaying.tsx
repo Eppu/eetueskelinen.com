@@ -1,6 +1,7 @@
-import { getNowPlaying, getMostRecentlyPlayed } from "../utils/spotify";
+import { getMostRecentlyPlayed } from "../utils/spotify";
 import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
+import Image from "next/image";
 import GradientText from "./GradientText";
 
 export default async function NowPlaying() {
@@ -15,6 +16,7 @@ export default async function NowPlaying() {
   const song = res.item.track;
   const isPlaying = res.isPlaying;
   const isRecent = res.type === "recent";
+  const albumImage = song?.album?.images?.[0]?.url;
 
   let nowPlayingMessage: string = "";
 
@@ -26,34 +28,62 @@ export default async function NowPlaying() {
     nowPlayingMessage = "He last listened to";
   }
 
-  // only display the first artist and the text "and others" if there are multiple artists
   const artistName = song.artists.length > 1 ? `${song.artists[0].name} and others` : song.artists[0].name;
 
   return (
-    song && ( // If the song is playing and there is a song
+    song && (
       <p
         className="motion-safe:opacity-0 motion-safe:animate-fade-in-up md:text-2xl text-xl mt-8"
         style={{ animationDelay: "1500ms" }}
       >
-        {/* TODO: Don't know if I like the gradient yet. Another option would be to just use a <i>. */}
-        {/* {nowPlayingMessage} <i>{song.name}</i> by {artistName}. */}
         {nowPlayingMessage}{" "}
         <Link
           href="/music"
-          className="
-        hover:brightness-75 hover:scale-125"
+          className="group/np inline-flex items-center gap-3 align-middle transition-opacity duration-200"
         >
-          {isPlaying && (
-            <span className="inline-flex items-end w-3 h-3 ml-1 mb-1 gap-0.5" aria-hidden="true">
-              <span className="w-0.5 bg-neutral-500 animate-music-bar" style={{ animationDelay: "0ms" }} />
-              <span className="w-0.5 bg-neutral-500 animate-music-bar" style={{ animationDelay: "150ms" }} />
-              <span className="w-0.5 bg-neutral-600 animate-music-bar" style={{ animationDelay: "300ms" }} />
+          {albumImage && (
+            <span className="relative inline-block shrink-0 align-middle">
+              <span
+                aria-hidden="true"
+                className={`absolute inset-0 rounded-md transition-opacity duration-500 ${
+                  isPlaying ? "opacity-100" : "opacity-0"
+                } motion-safe:animate-pulse`}
+                style={{ boxShadow: "0 0 24px 2px rgba(157, 250, 5, 0.35)" }}
+              />
+              <Image
+                src={albumImage}
+                alt=""
+                width={40}
+                height={40}
+                className="relative h-9 w-9 md:h-10 md:w-10 rounded-md object-cover ring-1 ring-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-out group-hover/np:scale-[1.06]"
+              />
+              {isPlaying && (
+                <span
+                  className="absolute -bottom-1 -right-1 inline-flex items-end justify-center h-4 w-4 rounded-full bg-neutral-950 ring-1 ring-white/10 px-[3px] py-[3px] gap-[1.5px]"
+                  aria-hidden="true"
+                >
+                  <span className="w-[2px] bg-yellowgreen animate-music-bar" style={{ animationDelay: "0ms" }} />
+                  <span className="w-[2px] bg-yellowgreen animate-music-bar" style={{ animationDelay: "150ms" }} />
+                  <span className="w-[2px] bg-yellowgreenlight animate-music-bar" style={{ animationDelay: "300ms" }} />
+                </span>
+              )}
             </span>
-          )}{" "}
+          )}
           <GradientText animated>{song.name}</GradientText>
         </Link>{" "}
         by {artistName}.
       </p>
     )
+  );
+}
+
+export function NowPlayingSkeleton() {
+  return (
+    <p className="md:text-2xl text-xl mt-8" aria-hidden="true">
+      <span className="inline-flex items-center gap-3 align-middle">
+        <span className="inline-block h-9 w-9 md:h-10 md:w-10 rounded-md bg-neutral-900 motion-safe:animate-pulse" />
+        <span className="inline-block h-6 w-56 max-w-full rounded-md bg-neutral-900 motion-safe:animate-pulse" />
+      </span>
+    </p>
   );
 }

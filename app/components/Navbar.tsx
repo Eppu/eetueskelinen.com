@@ -1,30 +1,37 @@
-import Link from "next/link";
+"use client";
 
-export const navItems = [
-  { name: "home", href: "/" },
-  { name: "about", href: "/about" },
-  { name: "work", href: "/work" },
-  // TODO: Remove this check once the blog is ready to be published
-  ...(process.env.BLOG_ENABLED === "true" ? [{ name: "blog", href: "/blog" }] : []),
-  // { name: "blog", href: "/blog/" },
-];
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { navItems } from "../utils/nav";
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   return (
     <nav className="mb-12 mt-12 w-full flex justify-between items-center">
-      {/* <a href="/" className="text-lg">
-        Eetu Eskelinen
-      </a> */}
-      <div className="flex space-x-4 ">
-        {navItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="text-lg hover:transition-all hover:text-neutral-400 duration-50"
-          >
-            {item.name}
-          </Link>
-        ))}
+      <div className="flex space-x-4">
+        {navItems.map((item) => {
+          const isActive = item.href === "/" ? pathname === "/" : pathname?.startsWith(item.href);
+
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={isActive ? "page" : undefined}
+              className={`relative text-lg transition-colors duration-150 ease-out ${
+                isActive ? "text-neutral-100" : "text-neutral-400 hover:text-neutral-100"
+              }`}
+            >
+              {item.name}
+              <span
+                aria-hidden="true"
+                className={`pointer-events-none absolute -bottom-1 left-0 right-0 mx-auto h-px bg-yellowgreen origin-center transition-transform duration-200 ease-out ${
+                  isActive ? "scale-x-100" : "scale-x-0"
+                }`}
+              />
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );

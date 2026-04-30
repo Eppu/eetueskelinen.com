@@ -34,11 +34,16 @@ export default async function Music() {
 
       <h2 className="md:text-2xl text-xl my-8 font-medium">Top artists</h2>
       <ul className="mb-10 flex flex-row md:gap-8 gap-4">
-        {artists.items.map((artist) => (
+        {artists.items.map((artist, i) => (
           <li key={artist.id}>
-            <a href={artist.external_urls.spotify} target="_blank" rel="noreferrer">
+            <a
+              href={artist.external_urls.spotify}
+              target="_blank"
+              rel="noreferrer"
+              className="group block focus-visible:outline-none"
+            >
               <div className="flex items-center flex-col">
-                <div className="relative max-w-xs overflow-hidden bg-cover bg-no-repeat">
+                <div className="relative max-w-xs overflow-hidden rounded-full ring-2 ring-transparent transition-all duration-300 ease-out group-hover:ring-yellowgreen group-hover:scale-[1.04] group-focus-visible:ring-yellowgreen">
                   <Image
                     src={artist.images[0].url}
                     alt={artist.name}
@@ -46,10 +51,17 @@ export default async function Music() {
                     width={128}
                     height={128}
                   />
-                  <div className="rounded-full absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-neutral-50  bg-fixed opacity-0 transition duration-150 ease-in-out hover:opacity-15"></div>
+                  <span
+                    aria-hidden="true"
+                    className="absolute -top-1 -left-1 flex items-center justify-center h-7 w-7 rounded-full bg-yellowgreen text-neutral-900 text-sm font-bold shadow-md"
+                  >
+                    {i + 1}
+                  </span>
                 </div>
 
-                <p className="text-center mt-2 text-xl font-medium">{artist.name}</p>
+                <p className="text-center mt-3 text-xl font-medium transition-colors duration-200 group-hover:text-yellowgreenselection">
+                  {artist.name}
+                </p>
               </div>
             </a>
           </li>
