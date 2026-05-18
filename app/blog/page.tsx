@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Title from "../components/Title";
 import BlogGrid from "../components/BlogGrid";
 import { notFound } from "next/navigation";
-import FrostedImage from "../components/FrostedImage";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -15,14 +14,14 @@ export default function BlogPage() {
     return notFound();
   }
 
-  let posts = getBlogPosts();
+  let posts = getBlogPosts().filter((post) => process.env.NODE_ENV === "development" || !post.metadata.draft);
 
   return (
     <section className="flex flex-col md:py-16 max-w-7xl">
       <Title>Blog</Title>
       <p className="text-xl mb-14">
         Musings on design, development, and life. I write about things I find interesting, challenging, or just plain
-        fun.
+        fun, with a growing bias toward more garden-like, interconnected writing.
       </p>
 
       <BlogGrid posts={posts} />
