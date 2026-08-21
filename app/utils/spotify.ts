@@ -21,7 +21,7 @@ export class SpotifyAuthError extends Error {
   }
 }
 
-type Track = {
+export type Track = {
   name: string;
   artists: string[];
 };
@@ -31,6 +31,13 @@ export type NowPlayingResult =
   | { state: "recent"; isPlaying: false; track: Track }
   | { state: "idle" }
   | { state: "error"; message: string };
+
+// What the browser is allowed to see. The internal error message names env vars and
+// remediation steps, which belong in the server log rather than in a public response.
+export type PublicNowPlaying = Exclude<NowPlayingResult, { state: "error" }> | { state: "error" };
+
+export const toPublicNowPlaying = (result: NowPlayingResult): PublicNowPlaying =>
+  result.state === "error" ? { state: "error" } : result;
 
 const getAccessToken = async (): Promise<string> => {
   if (!client_id || !client_secret || !refresh_token) {
