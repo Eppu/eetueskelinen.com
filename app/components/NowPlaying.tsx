@@ -1,20 +1,21 @@
-import { getNowPlaying, getMostRecentlyPlayed } from "../utils/spotify";
+import { getMostRecentlyPlayed } from "../utils/spotify";
 import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
 import GradientText from "./GradientText";
 
 export default async function NowPlaying() {
   noStore();
-  let res = await getMostRecentlyPlayed();
+  const res = await getMostRecentlyPlayed();
 
-  if (!res) {
-    console.warn("No Spotify data found");
+  // Nothing to show, and nothing a visitor can act on. getMostRecentlyPlayed has
+  // already logged the reason, and /music surfaces it in the UI.
+  if (res.state === "error" || res.state === "idle") {
     return null;
   }
 
-  const song = res.item.track;
+  const song = res.track;
   const isPlaying = res.isPlaying;
-  const isRecent = res.type === "recent";
+  const isRecent = res.state === "recent";
 
   let nowPlayingMessage: string = "";
 
@@ -27,7 +28,7 @@ export default async function NowPlaying() {
   }
 
   // only display the first artist and the text "and others" if there are multiple artists
-  const artistName = song.artists.length > 1 ? `${song.artists[0].name} and others` : song.artists[0].name;
+  const artistName = song.artists.length > 1 ? `${song.artists[0]} and others` : song.artists[0];
 
   return (
     song && ( // If the song is playing and there is a song

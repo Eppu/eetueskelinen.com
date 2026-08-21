@@ -7,22 +7,19 @@ import ExternalLink from "../components/ExternalLink";
 
 export default async function Music() {
   noStore();
-  let res = await getSpotifyData();
+  const res = await getSpotifyData();
 
-  if (res.responseArtists.status !== 200 || res.responseRecently.status !== 200 || res.responseTracks.status !== 200) {
-    console.warn("Spotify response was not successful: ", res);
+  if (!res.ok) {
     return (
       <p className="md:text-2xl text-xl mt-8" style={{ animationDelay: "0ms" }}>
         Oh no, couldn't fetch the data from Spotify. :(
         <br /> <br />
-        Please try again later!
+        {res.needsReauth ? "The Spotify connection needs re-authorizing." : "Please try again later!"}
       </p>
     );
   }
 
-  const artists = await res.responseArtists.json();
-  const recently = await res.responseRecently.json();
-  const tracks = await res.responseTracks.json();
+  const { artists, recently, tracks } = res;
 
   return (
     <section className="flex flex-col md:py-16 max-w-7xl">
