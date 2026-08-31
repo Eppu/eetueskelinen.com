@@ -25,10 +25,20 @@ export default function BlogGrid({ posts }) {
           key={post.slug}
         >
           {/* Post card */}
-          <div className="font-semibold flex flex-col gap-4 outline-zinc-800 outline outline-1 p-4 rounded-md hover:bg-neutral-800 hover:text-neutral-100 transition-all duration-300 ease-in-out">
-            {post.metadata.title}
-            <p className="font-light opacity-50 text-sm">{formatDateToString(post.metadata.publishedAt)}</p>
-            {/* {post.metadata.summary && <p className="text-lg text-neutral-400">{post.metadata.summary}</p>} */}
+          <div className="font-semibold flex flex-col gap-3 outline-zinc-800 outline outline-1 p-4 rounded-md hover:bg-neutral-800 hover:text-neutral-100 transition-all duration-300 ease-in-out min-h-full">
+            <div className="flex flex-wrap gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-neutral-400">
+              {post.metadata.type && <span>{post.metadata.type}</span>}
+              {post.metadata.growthStage && <span>{post.metadata.growthStage}</span>}
+            </div>
+
+            <span className="text-balance leading-snug">{post.metadata.title}</span>
+
+            {post.metadata.summary && <p className="font-normal text-sm text-neutral-400 leading-relaxed">{post.metadata.summary}</p>}
+
+            <div className="mt-auto flex items-center justify-between gap-4 pt-2">
+              <p className="font-light opacity-50 text-sm mb-0">{formatDateToString(post.metadata.publishedAt)}</p>
+              {post.readingTime && <p className="font-light opacity-50 text-sm mb-0">{post.readingTime} min read</p>}
+            </div>
           </div>
           {post.metadata.draft && <DraftIndicatorDot />}
         </Link>

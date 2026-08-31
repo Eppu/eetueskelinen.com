@@ -6,14 +6,84 @@ summary: "This is a sample blog post written in MDX format."
 draft: "true"
 ---
 
+<GardenNotice stage="seedling" />
+
 MDX allows you to write JSX (React components) alongside Markdown content, making it a powerful tool for creating dynamic and interactive blog posts.
 
-<BigQuote>
-  MDX is a great choice for creating blog posts that combine the simplicity of Markdown with the power of React
-  components.
-</BigQuote>
+If you hover this internal link, you should see a small preview card: [Incremental Correctness](/blog/incremental-correctness).
 
-This text is **in bold**, while this is _in italics_. You can also include [links](https://example.com) in your blog posts.
+With the <Highlight color="green">Highlight component</Highlight>, you can easily draw attention to text.
+You can pass different colors like <Highlight color="pink">pink</Highlight>, <Highlight color="blue">blue</Highlight>, or <Highlight color="purple">purple</Highlight>.
+
+<Callout title="Why this is useful" variant="tip">
+  These blocks are the easiest way to make a post feel more like a digital garden: a little more editorial, a little more layered, and much easier to scan.
+</Callout>
+
+<Spacer size="lg" />
+
+<QuoteCard sourceTitle="MDX" author="Markdown + React" year="today">
+  MDX is a great choice for creating blog posts that combine the simplicity of Markdown with the power of React components.
+</QuoteCard>
+
+This text is **in bold**, while this is _in italics_. You can also include [links](https://news.ycombinator.com) in your blog posts. These show external link previews.
+
+Sometimes you need to use a complex word like <Jargon term="Hypertrophy" definition="The enlargement of an organ or tissue from the increase in size of its cells. In context of digital gardening, the process of a small note growing into a fully formed essay." />.
+
+<Dialogue name="Reader" avatar="🥴" alignment="left">
+  Wait, so I can just put conversations in my markdown files now? Won't that get distracting?
+</Dialogue>
+
+<Dialogue name="Author" avatar="😵‍💫" alignment="right">
+  It can be! But used sparingly, it breaks up long blocks of text and makes concepts easier to digest. It feels more human.
+</Dialogue>
+
+<BookReview title="Thinking, Fast and Slow" author="Daniel Kahneman" rating={4}>
+  A brilliant deep dive into how human beings make decisions. The core thesis that we have a fast, instinctual system and a slow, rational system explains so much about our daily failure modes. Highly recommended if you build products for people.
+</BookReview>
+
+<DeepDive title="The technical details behind MDX parsing">
+  If you're wondering how this works under the hood, Next.js uses `next-mdx-remote` to parse the string during the React Server Component render pass. The components object acts as a registry, mapping string identifiers or standard HTML elements to fully interactive React components...
+</DeepDive>
+
+<ResourceCard title="Next.js App Router" url="https://nextjs.org/docs/app" description="The official documentation for Next.js App Router." imageUrl="/images/desk.jpg" />
+
+<Timeline>
+  <TimelineItem date="April 11, 2024" title="Started writing this post">
+    I began drafting this post after finding inspiration from Maggie Appleton's digital garden.
+  </TimelineItem>
+  <TimelineItem date="April 12, 2024" title="Added interactive components">
+    The real magic happened when I integrated interactive MDX components like Dialogue, Timeline, and DeepDive accordion blocks!
+  </TimelineItem>
+</Timeline>
+
+<Changelog>
+  <ChangelogItem date="2024-04-12">
+    Added components like `Changelog`, `ProsCons`, and `VideoContainer`. Fixed some layout issues with the timeline!
+  </ChangelogItem>
+  <ChangelogItem date="2024-04-11">
+    Transplanted the first set of gardening tools over into my Next.js site.
+  </ChangelogItem>
+</Changelog>
+
+<ProsCons title="Using MDX for a Blog" pros={[
+  "You get to use React components straight in your markup.",
+  "Keeps content organized alongside the code repository.",
+  "Easily extensible with custom plugins.",
+  "Free and fully owned. No platform lock-in like Substack."
+]} cons={[
+  "Harder to edit on mobile devices without a good Markdown app.",
+  "Can be brittle if you pass the wrong props to a component.",
+  "Slower compilation times compared to pure markdown."
+]} />
+
+If you want to see a video of this working, check this embedded YouTube player:
+
+<VideoContainer src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="Rick Astley" caption="A great example of an embedded multimedia block." />
+
+<ImageGallery columns={2}>
+  <Image src="/images/desk.jpg" alt="A messy desk" width={400} height={300} />
+  <Image src="/images/setup.jpg" alt="A clean desk" width={400} height={300} />
+</ImageGallery>
 
 ```jsx
 .button {
@@ -71,6 +141,10 @@ function getMDXFiles(dir) {
 
 In addition to Markdown, you can also include JSX components in your blog post. This allows you to add interactivity and dynamic content to your posts. For example, you can embed a YouTube video:
 
+<AsideNote label="Note">
+  This is a lightweight footnote-style aside. It is useful for tangents, caveats, and supporting context without interrupting the main read.
+</AsideNote>
+
 ### This is a level 3 heading
 
 It's only a matter of time before you can embed a YouTube video in your blog post:
@@ -86,5 +160,15 @@ function YouTubeVideo() {
 ## Conclusion
 
 MDX is a great choice for creating blog posts that combine the simplicity of Markdown with the power of React components. It provides a flexible and extensible way to create rich and interactive content.
+
+<References>
+  <AcademicReference
+    title="Tools for Thought as Cultural Practices, not Computational Objects"
+    authors="Maggie Appleton"
+    year="2022"
+    href="https://maggieappleton.com/tools-for-thought"
+    abstract="A useful reference for the tone and structure of digital-garden-style writing."
+  />
+</References>
 
 Happy blogging!

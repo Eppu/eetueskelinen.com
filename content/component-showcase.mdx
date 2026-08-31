@@ -1,0 +1,162 @@
+---
+title: "The Great Component Showcase"
+publishedAt: "2024-05-15"
+updatedAt: "2024-05-16"
+summary: "A living styleguide and definitive showcase of every custom MDX component available in my digital garden architecture."
+draft: "false"
+type: "reference"
+growthStage: "evergreen"
+topics:
+  - Reference
+  - Components
+  - Next.js
+---
+
+<GardenNotice stage="evergreen" />
+
+This post exists to catalog and visually test every single <Jargon term="MDX" definition="A superset of Markdown that allows you to embed fully interactive React components directly into a document." /> element crafted for this blog. Feel free to use it as a reference for writing new notes!
+
+<KeyTakeaways>
+- The <Highlight color="green">Digital Garden</Highlight> isn't just about chronological posts; it's about networked, evolving thoughts.
+- Custom MDX blocks make these notes deeply scannable and highly structured.
+- We have currently implemented over **fifteen** custom components inspired by gardening pioneers like Maggie Appleton.
+</KeyTakeaways>
+
+<Changelog>
+  <ChangelogItem date="2024-05-16">
+    Polished the rendering of `KeyTakeaways` and `TerminalWindow`.
+  </ChangelogItem>
+  <ChangelogItem date="2024-05-15">
+    Drafted this master document.
+  </ChangelogItem>
+</Changelog>
+
+<Spacer size="md" />
+
+## Text & Reading Aids
+
+Most posts are composed of prose, but sometimes pure text needs to be broken up.
+
+<BigQuote>
+  A digital garden is a collection of evolving ideas that are inherently networked rather than strictly chronological.
+</BigQuote>
+
+Wait, what if the reader doesn't understand your perspective? Let them know it's fine! 
+
+<Callout title="Wait, how is this different from a blog?" variant="info">
+  While blogs are strictly time-bound streams of finished thoughts, digital gardens are atemporal webs of evolving ideas!
+</Callout>
+
+Or, if you need to go off on a really long tangent, use a Deep Dive:
+
+<DeepDive title="Why I Chose Next.js App Router for this">
+  The combination of `next-mdx-remote/rsc` and React Server Components means I can write these markdown files, compile them into HTML purely on the server, and only ship the tiny bits of JS necessary for interactivity (like the collapsible header up top!). No heavy client-side hydration for 90% of the text.
+</DeepDive>
+
+Occasionally, an aside note is perfect for a small caveat:
+
+<AsideNote label="Author's Note">Like this one right here!</AsideNote>
+
+## Dialogue & Interaction
+
+Conversations bring essays to life. Rather than narrating a counter-argument, you can just embody it:
+
+<Dialogue name="Skeptical Dev" avatar="🤨" alignment="left">
+  But isn't writing `<Dialogue>` tags constantly going to slow down your writing process?
+</Dialogue>
+
+<Dialogue name="Eetu" avatar="👨‍💻" alignment="right">
+  A bit! But the friction is worth the pedagogical clarity. Plus, Copilot handles the boilerplate formatting for me.
+</Dialogue>
+
+## Code & Development
+
+If you are writing about software, code blocks are non-negotiable. Standard markdown handles snippets fine:
+
+```ts
+function sum(a: number, b: number): number {
+  return a + b;
+}
+```
+
+But when you want to show shell commands, you need something punchier:
+
+<TerminalWindow title="bash - eetueskelinen.com">
+  <span className="text-yellowgreenlight">~</span> $ npm run dev <br />
+  <span className="text-neutral-500">&gt; next dev --turbo</span><br />
+  <span className="text-sky-400">ready</span> started server on 0.0.0.0:3001, url: http://localhost:3001
+</TerminalWindow>
+
+## Visual Comparisons
+
+When you want to compare tradeoffs directly, use a Pros & Cons block:
+
+<ProsCons title="Standard MD vs MDX" 
+  pros={[
+    "Total control over visual hierarchy.",
+    "Ability to embed rich media easily.",
+    "Familiar React syntax."
+  ]} 
+  cons={[
+    "Parsing is much slower.",
+    "Breaks standard markdown tooling (like Obsidian).",
+    "Prone to fatal structural errors."
+  ]} 
+/>
+
+A timeline traces the evolution of an idea:
+
+<Timeline>
+  <TimelineItem date="2010" title="The Blog Era">
+    Chronological sorting reigned supreme. WordPress drove over 30% of the entire web.
+  </TimelineItem>
+  <TimelineItem date="2019" title="The Second Brain">
+    Tools like Roam Research and Notion popularized bidirectional linking and networked thought.
+  </TimelineItem>
+  <TimelineItem date="2024" title="Digital Gardens">
+    Individuals start publishing these networked "second brains" as public, living websites.
+  </TimelineItem>
+</Timeline>
+
+<Spacer size="md" />
+
+## Links & Citations
+
+Links shouldn't just be blue text. We have internal Link Previews for context (like this link to my [Incremental Correctness](/blog/incremental-correctness) post), and external links that get proper outbound tagging [like so](https://google.com). 
+
+If an outbound link is the *main subject* of a section, elevate it to a Resource Card:
+
+<ResourceCard 
+  title="Maggie Appleton's Digital Garden" 
+  url="https://maggieappleton.com/garden" 
+  description="The gold standard of digital gardening. Maggie's site was the primary visual and architectural inspiration for this component library." 
+  imageUrl="/images/desk.jpg" 
+/>
+
+If you're reviewing a physical object—like a book—use a BookReview!
+
+<BookReview title="Thinking, Fast and Slow" author="Daniel Kahneman" rating={5} coverUrl="">
+  I haven't taken a picture of the cover yet, but this book fundamentally broke and rebuilt my mental model for user interface design. 
+</BookReview>
+
+And if you're pulling a quote from another source, a structured QuoteCard gives it weight:
+
+<QuoteCard sourceTitle="The Garden and the Stream" author="Mike Caulfield" year="2015" sourceLink="https://hapgood.us/2015/10/17/the-garden-and-the-stream-a-technopastoral/">
+  The stream replaces topology with serialization. The stream is a conveyor belt, whereas the garden is a landscape.
+</QuoteCard>
+
+Lastly, true academic rigour requires a dedicated references block at the bottom of the page:
+
+## References
+
+<References>
+  <AcademicReference
+    title="As We May Think"
+    authors="Vannevar Bush"
+    year="1945"
+    href="https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+    abstract="The seminal essay proposing the 'memex', a proto-hypertext machine that inspired generations of knowledge management software."
+  >
+    It's wild reading this today. Bush basically invented Wikipedia and the modern web browser decades before the computer microprocessor existed.
+  </AcademicReference>
+</References>

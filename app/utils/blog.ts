@@ -7,7 +7,28 @@ type Metadata = {
   publishedAt: string;
   updatedAt?: string;
   summary?: string;
-  draft?: string;
+  draft?: boolean;
+  type?: string;
+  topics?: string[];
+  growthStage?: "seedling" | "budding" | "evergreen" | string;
+  toc?: boolean;
+  aliases?: string[];
+  canonical?: string;
+};
+
+type Heading = {
+  depth: number;
+  title: string;
+  slug: string;
+};
+
+export type BlogPost = {
+  metadata: Metadata;
+  slug: string;
+  tweetIds: string[];
+  content: string;
+  readingTime: number;
+  headings: Heading[];
 };
 
 // Frontmatter parsing and MDX file reading code originally by Lee Robinson (@leerob)
@@ -19,11 +40,40 @@ function parseFrontmatter(fileContent: string) {
   let frontMatterLines = frontMatterBlock.trim().split("\n");
   let metadata: Partial<Metadata> = {};
 
+  let parseValue = (value: string) => {
+    let trimmedValue = value.trim();
+
+    if (!trimmedValue.length) {
+      return "";
+    }
+
+    if (trimmedValue === "true") {
+      return true;
+    }
+
+    if (trimmedValue === "false") {
+      return false;
+    }
+
+    if (/^-?\d+(\.\d+)?$/.test(trimmedValue)) {
+      return Number(trimmedValue);
+    }
+
+    if (trimmedValue.startsWith("[") && trimmedValue.endsWith("]")) {
+      try {
+        return JSON.parse(trimmedValue);
+      } catch {
+        return trimmedValue;
+      }
+    }
+
+    return trimmedValue.replace(/^['"](.*)['"]$/, "$1");
+  };
+
   frontMatterLines.forEach((line) => {
     let [key, ...valueArr] = line.split(": ");
     let value = valueArr.join(": ").trim();
-    value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value;
+    metadata[key.trim() as keyof Metadata] = parseValue(value) as never;
   });
 
   return { metadata: metadata as Metadata, content };
@@ -43,6 +93,48 @@ function extractTweetIds(content) {
   return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
 }
 
+function estimateReadingTime(content: string) {
+  let words = content
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/`[^`]*`/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/[#>*_\[\]\(\)!-]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean).length;
+
+  return Math.max(1, Math.ceil(words / 220));
+}
+
+function extractHeadings(content: string): Heading[] {
+  let headings: Heading[] = [];
+  let inCodeFence = false;
+
+  content.split("\n").forEach((line) => {
+    if (line.trim().startsWith("```")) {
+      inCodeFence = !inCodeFence;
+      return;
+    }
+
+    if (inCodeFence) {
+      return;
+    }
+
+    let headingMatch = /^(#{2,4})\s+(.+?)\s*$/.exec(line);
+    if (!headingMatch) {
+      return;
+    }
+
+    let title = headingMatch[2].replace(/<[^>]+>/g, "").trim();
+    headings.push({
+      depth: headingMatch[1].length,
+      title,
+      slug: slugify(title),
+    });
+  });
+
+  return headings;
+}
+
 function getMDXData(dir) {
   let mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
@@ -54,6 +146,8 @@ function getMDXData(dir) {
       slug,
       tweetIds,
       content,
+      readingTime: estimateReadingTime(content),
+      headings: extractHeadings(content),
     };
   });
 }
