@@ -1,4 +1,4 @@
-import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import type { MDXComponents } from "mdx/types";
 import { highlight } from "sugar-high";
 import Image from "next/image";
 import React from "react";
@@ -37,7 +37,7 @@ function createHeading(level) {
   };
 }
 
-const components = {
+export const components: MDXComponents = {
   //   h1: (props: any) => (
   //     <h1 {...props} className="text-2xl">
   //       {props.children}
@@ -54,7 +54,3 @@ const components = {
   Image: NextImage,
   BigQuote,
 };
-
-export function CustomMDX(props) {
-  return <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />;
-}
