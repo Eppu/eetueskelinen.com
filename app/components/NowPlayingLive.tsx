@@ -12,7 +12,7 @@ const STATUS_TRANSITION_MS = 180;
 
 const isSameNowPlaying = (current: PublicNowPlaying, next: PublicNowPlaying) => {
   if (current.state !== next.state) return false;
-  if (current.state === "error" || current.state === "idle") return true;
+  if (!("track" in current) || !("track" in next)) return true;
 
   return (
     current.isPlaying === next.isPlaying &&
