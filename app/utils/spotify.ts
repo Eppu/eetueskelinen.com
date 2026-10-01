@@ -115,17 +115,48 @@ const toTrack = (item: any): Track | null => {
 
 const describeError = (error: unknown) => (error instanceof Error ? error.message : String(error));
 
+// The full track object for the music page, which needs album art and links that the
+// slim Track above leaves out. Returns null when nothing is playing, when the item is
+// not a track (podcast episodes come back as a null item by default), or when the
+// request fails: the rest of the page is still worth showing in that case.
+const getCurrentlyPlaying = async (access_token: string) => {
+  try {
+    const response = await fetch(NOW_PLAYING_ENDPOINT, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+
+    if (response.status === 204) return null;
+
+    if (!response.ok) {
+      throw new Error(`Spotify request for now playing failed: ${response.status} ${response.statusText}`);
+    }
+
+    const body = await response.json().catch(() => null);
+
+    if (body?.item?.type !== `track`) return null;
+
+    return { isPlaying: Boolean(body.is_playing), track: body.item };
+  } catch (error) {
+    console.error(`[spotify] Could not load now playing for the music page:`, error);
+
+    return null;
+  }
+};
+
 export const getSpotifyData = async () => {
   try {
     const access_token = await getAccessToken();
 
-    const [artists, tracks, recently] = await Promise.all([
+    const [artists, tracks, recently, current] = await Promise.all([
       fetchJson(TOP_ARTISTS_ENDPOINT, access_token, `top artists`),
       fetchJson(TOP_TRACKS_ENDPOINT, access_token, `top tracks`),
       fetchJson(RECENTLY_PLAYED_ENDPOINT, access_token, `recently played`),
+      getCurrentlyPlaying(access_token),
     ]);
 
-    return { ok: true as const, artists, tracks, recently };
+    return { ok: true as const, artists, tracks, recently, current };
   } catch (error) {
     console.error(`[spotify] Could not load music page data:`, error);
 

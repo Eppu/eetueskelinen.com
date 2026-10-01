@@ -29,7 +29,7 @@ export const MusicCard: React.FC<MusicCardProps> = ({ artist, imageUrl, external
           <p className="font-semibold line-clamp-1">{name}</p>
           <div>
             <p className="font-medium md:text-lg text-base line-clamp-1">{artist}</p>
-            <p className="font-light opacity-50 md:text-lg text-base line-clamp-1 italic">{album}</p>
+            <p className="font-light opacity-50 md:text-lg text-base line-clamp-1 italic pr-1">{album}</p>
           </div>
         </div>
       </div>

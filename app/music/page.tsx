@@ -4,7 +4,7 @@ import Title from "../components/Title";
 import Image from "next/image";
 import { MusicCard } from "../components/MusicCard";
 import ExternalLink from "../components/ExternalLink";
-
+import PlayingBars from "../components/PlayingBars";
 export default async function Music() {
   noStore();
   const res = await getSpotifyData();
@@ -19,7 +19,7 @@ export default async function Music() {
     );
   }
 
-  const { artists, recently, tracks } = res;
+  const { artists, recently, tracks, current } = res;
 
   return (
     <section className="flex flex-col md:py-16 max-w-7xl">
@@ -29,29 +29,55 @@ export default async function Music() {
         <ExternalLink href="https://open.spotify.com/user/eetumro">Spotify</ExternalLink>.
       </p>
 
-      <h2 className="md:text-2xl text-xl my-8 font-medium">Top artists</h2>
-      <ul className="mb-10 flex flex-row md:gap-8 gap-4">
-        {artists.items.map((artist) => (
-          <li key={artist.id}>
-            <a href={artist.external_urls.spotify} target="_blank" rel="noreferrer">
-              <div className="flex items-center flex-col">
-                <div className="relative max-w-xs overflow-hidden bg-cover bg-no-repeat">
-                  <Image
-                    src={artist.images[0].url}
-                    alt={artist.name}
-                    className="rounded-full object-cover aspect-square"
-                    width={128}
-                    height={128}
-                  />
-                  <div className="rounded-full absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-neutral-50  bg-fixed opacity-0 transition duration-150 ease-in-out hover:opacity-15"></div>
-                </div>
+      <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-16">
+        <div>
+          <h2 className="md:text-2xl text-xl my-8 font-medium">Top artists</h2>
+          <ul className="mb-10 flex flex-row md:gap-8 gap-4">
+            {artists.items.map((artist) => (
+              <li key={artist.id}>
+                <a href={artist.external_urls.spotify} target="_blank" rel="noreferrer">
+                  <div className="flex items-center flex-col">
+                    <div className="relative max-w-xs overflow-hidden bg-cover bg-no-repeat">
+                      <Image
+                        src={artist.images[0].url}
+                        alt={artist.name}
+                        className="rounded-full object-cover aspect-square"
+                        width={128}
+                        height={128}
+                      />
+                      <div className="rounded-full absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-neutral-50  bg-fixed opacity-0 transition duration-150 ease-in-out hover:opacity-15"></div>
+                    </div>
 
-                <p className="text-center mt-2 text-xl font-medium">{artist.name}</p>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
+                    <p className="text-center mt-2 text-xl font-medium">{artist.name}</p>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {current && (
+          <div>
+            <h2 className="md:text-2xl text-xl my-8 font-medium flex items-center gap-3">
+              Currently playing
+              {current.isPlaying ? (
+                <PlayingBars />
+              ) : (
+                <span className="text-base font-light opacity-50 italic">paused</span>
+              )}
+            </h2>
+            <div className="mb-10">
+              <MusicCard
+                artist={current.track.artists[0].name}
+                imageUrl={current.track.album.images[0].url}
+                externalUrl={current.track.external_urls.spotify}
+                name={current.track.name}
+                album={current.track.album.name}
+              />
+            </div>
+          </div>
+        )}
+      </div>
 
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-16">
         <div>
@@ -74,8 +100,10 @@ export default async function Music() {
         <div>
           <h2 className="md:text-2xl text-xl mt-8 mb-4 font-medium">Recently played tracks</h2>
           <ul className="mb-2">
-            {recently.items.map((recent) => (
-              <li key={`recent-${recent.track.id}`} className="mb-4">
+            {/* Spotify doesn't always honour the limit on this endpoint, so cap it here too. */}
+            {recently.items.slice(0, 10).map((recent) => (
+              // The same track can appear more than once, so key on the play rather than the track.
+              <li key={`recent-${recent.played_at}`} className="mb-4">
                 <MusicCard
                   artist={recent.track.artists[0].name}
                   imageUrl={recent.track.album.images[0].url}
