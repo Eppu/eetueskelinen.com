@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { CustomMDX } from "@/app/components/mdx";
 import { formatDateToString, getBlogPosts } from "@/app/utils/blog";
 import { notFound } from "next/navigation";
 import { dmSans, playfairDisplay } from "@/app/utils/fonts";
@@ -48,6 +47,9 @@ export default async function Blog(props) {
   let incrementViewCount = cache(incrementViews);
   incrementViewCount(post.slug);
 
+  // Slug is validated against the files in content/ above, so this only resolves known posts
+  const { default: Post } = await import(`@/content/${post.slug}.mdx`);
+
   return (
     <section>
       <div className="flex-auto min-w-0 max-w-3xl mb-40 md:flex-row mt-8 lg:mx-auto">
@@ -82,7 +84,7 @@ export default async function Blog(props) {
             </div>
           </div>
 
-          <CustomMDX source={post.content} />
+          <Post />
         </article>
       </div>
     </section>

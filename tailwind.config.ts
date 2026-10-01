@@ -45,6 +45,10 @@ const config: Config = {
         "fade-in-down": "fade-in-down 1s ease 0s 1 normal forwards",
         "fade-in-up": "fade-in-up 1s ease 0s 1 normal forwards",
         gradient: "gradient 60s linear infinite",
+        // No fill mode on purpose: once finished, the element's own classes take over again,
+        // so a later exit transition isn't overridden by a held final keyframe.
+        "rise-in": "rise-in 400ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "fade-in": "fade-in 400ms ease-out",
       },
       keyframes: {
         "fade-in-down": {
@@ -69,6 +73,14 @@ const config: Config = {
         },
         gradient: {
           to: { backgroundPosition: "200% center" },
+        },
+        "rise-in": {
+          "0%": { opacity: "0", transform: "translateY(6px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
       },
     },

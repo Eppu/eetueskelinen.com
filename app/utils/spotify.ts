@@ -24,6 +24,10 @@ export class SpotifyAuthError extends Error {
 export type Track = {
   name: string;
   artists: string[];
+  // Only needed by the music page card, and not every item has all of them.
+  album: string | null;
+  imageUrl: string | null;
+  url: string | null;
 };
 
 export type NowPlayingResult =
@@ -117,7 +121,13 @@ const toTrack = (item: any): Track | null => {
 
   if (!artists.length) return null;
 
-  return { name: item.name, artists };
+  return {
+    name: item.name,
+    artists,
+    album: item.album?.name ?? item.show?.name ?? null,
+    imageUrl: item.album?.images?.[0]?.url ?? item.images?.[0]?.url ?? null,
+    url: item.external_urls?.spotify ?? null,
+  };
 };
 
 const describeError = (error: unknown) => (error instanceof Error ? error.message : String(error));
@@ -126,13 +136,15 @@ export const getSpotifyData = async () => {
   try {
     const access_token = await getAccessToken();
 
-    const [artists, tracks, recently] = await Promise.all([
+    // Now playing never throws, so a failure there doesn't take the rest of the page down.
+    const [artists, tracks, recently, nowPlaying] = await Promise.all([
       fetchJson(TOP_ARTISTS_ENDPOINT, access_token, `top artists`),
       fetchJson(TOP_TRACKS_ENDPOINT, access_token, `top tracks`),
       fetchJson(RECENTLY_PLAYED_ENDPOINT, access_token, `recently played`),
+      getMostRecentlyPlayed(access_token),
     ]);
 
-    return { ok: true as const, artists, tracks, recently };
+    return { ok: true as const, artists, tracks, recently, nowPlaying: toPublicNowPlaying(nowPlaying) };
   } catch (error) {
     console.error(`[spotify] Could not load music page data:`, error);
 
@@ -145,9 +157,10 @@ export const getSpotifyData = async () => {
 };
 
 // If I'm currently playing something, return that. Otherwise, return the most recently played track.
-export const getMostRecentlyPlayed = async (): Promise<NowPlayingResult> => {
+// Callers that already hold an access token can pass it in to skip a second token request.
+export const getMostRecentlyPlayed = async (existingToken?: string): Promise<NowPlayingResult> => {
   try {
-    const access_token = await getAccessToken();
+    const access_token = existingToken ?? (await getAccessToken());
 
     const nowPlaying = await fetch(NOW_PLAYING_ENDPOINT, {
       headers: {
