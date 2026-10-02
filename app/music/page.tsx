@@ -4,7 +4,8 @@ import Title from "../components/Title";
 import Image from "next/image";
 import { MusicCard } from "../components/MusicCard";
 import ExternalLink from "../components/ExternalLink";
-import PlayingBars from "../components/PlayingBars";
+import CurrentlyPlayingLive from "../components/CurrentlyPlayingLive";
+
 export default async function Music() {
   noStore();
   const res = await getSpotifyData();
@@ -19,7 +20,7 @@ export default async function Music() {
     );
   }
 
-  const { artists, recently, tracks, current } = res;
+  const { artists, recently, tracks, nowPlaying } = res;
 
   return (
     <section className="flex flex-col md:py-16 max-w-7xl">
@@ -56,27 +57,7 @@ export default async function Music() {
           </ul>
         </div>
 
-        {current && (
-          <div>
-            <h2 className="md:text-2xl text-xl my-8 font-medium flex items-center gap-3">
-              Currently playing
-              {current.isPlaying ? (
-                <PlayingBars />
-              ) : (
-                <span className="text-base font-light opacity-50 italic">paused</span>
-              )}
-            </h2>
-            <div className="mb-10">
-              <MusicCard
-                artist={current.track.artists[0].name}
-                imageUrl={current.track.album.images[0].url}
-                externalUrl={current.track.external_urls.spotify}
-                name={current.track.name}
-                album={current.track.album.name}
-              />
-            </div>
-          </div>
-        )}
+        <CurrentlyPlayingLive initial={nowPlaying} />
       </div>
 
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-16">

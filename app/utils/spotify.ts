@@ -21,9 +21,13 @@ export class SpotifyAuthError extends Error {
   }
 }
 
-type Track = {
+export type Track = {
   name: string;
   artists: string[];
+  // Only needed by the music page card, and not every item has all of them.
+  album: string | null;
+  imageUrl: string | null;
+  url: string | null;
 };
 
 export type NowPlayingResult =
@@ -31,6 +35,13 @@ export type NowPlayingResult =
   | { state: "recent"; isPlaying: false; track: Track }
   | { state: "idle" }
   | { state: "error"; message: string };
+
+// What the browser is allowed to see. The internal error message names env vars and
+// remediation steps, which belong in the server log rather than in a public response.
+export type PublicNowPlaying = Exclude<NowPlayingResult, { state: "error" }> | { state: "error" };
+
+export const toPublicNowPlaying = (result: NowPlayingResult): PublicNowPlaying =>
+  result.state === "error" ? { state: "error" } : result;
 
 const getAccessToken = async (): Promise<string> => {
   if (!client_id || !client_secret || !refresh_token) {
@@ -110,53 +121,30 @@ const toTrack = (item: any): Track | null => {
 
   if (!artists.length) return null;
 
-  return { name: item.name, artists };
+  return {
+    name: item.name,
+    artists,
+    album: item.album?.name ?? item.show?.name ?? null,
+    imageUrl: item.album?.images?.[0]?.url ?? item.images?.[0]?.url ?? null,
+    url: item.external_urls?.spotify ?? null,
+  };
 };
 
 const describeError = (error: unknown) => (error instanceof Error ? error.message : String(error));
-
-// The full track object for the music page, which needs album art and links that the
-// slim Track above leaves out. Returns null when nothing is playing, when the item is
-// not a track (podcast episodes come back as a null item by default), or when the
-// request fails: the rest of the page is still worth showing in that case.
-const getCurrentlyPlaying = async (access_token: string) => {
-  try {
-    const response = await fetch(NOW_PLAYING_ENDPOINT, {
-      headers: {
-        Authorization: `Bearer ${access_token}`,
-      },
-    });
-
-    if (response.status === 204) return null;
-
-    if (!response.ok) {
-      throw new Error(`Spotify request for now playing failed: ${response.status} ${response.statusText}`);
-    }
-
-    const body = await response.json().catch(() => null);
-
-    if (body?.item?.type !== `track`) return null;
-
-    return { isPlaying: Boolean(body.is_playing), track: body.item };
-  } catch (error) {
-    console.error(`[spotify] Could not load now playing for the music page:`, error);
-
-    return null;
-  }
-};
 
 export const getSpotifyData = async () => {
   try {
     const access_token = await getAccessToken();
 
-    const [artists, tracks, recently, current] = await Promise.all([
+    // Now playing never throws, so a failure there doesn't take the rest of the page down.
+    const [artists, tracks, recently, nowPlaying] = await Promise.all([
       fetchJson(TOP_ARTISTS_ENDPOINT, access_token, `top artists`),
       fetchJson(TOP_TRACKS_ENDPOINT, access_token, `top tracks`),
       fetchJson(RECENTLY_PLAYED_ENDPOINT, access_token, `recently played`),
-      getCurrentlyPlaying(access_token),
+      getMostRecentlyPlayed(access_token),
     ]);
 
-    return { ok: true as const, artists, tracks, recently, current };
+    return { ok: true as const, artists, tracks, recently, nowPlaying: toPublicNowPlaying(nowPlaying) };
   } catch (error) {
     console.error(`[spotify] Could not load music page data:`, error);
 
@@ -169,9 +157,10 @@ export const getSpotifyData = async () => {
 };
 
 // If I'm currently playing something, return that. Otherwise, return the most recently played track.
-export const getMostRecentlyPlayed = async (): Promise<NowPlayingResult> => {
+// Callers that already hold an access token can pass it in to skip a second token request.
+export const getMostRecentlyPlayed = async (existingToken?: string): Promise<NowPlayingResult> => {
   try {
-    const access_token = await getAccessToken();
+    const access_token = existingToken ?? (await getAccessToken());
 
     const nowPlaying = await fetch(NOW_PLAYING_ENDPOINT, {
       headers: {
